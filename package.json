@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "axios": "^1.2.2",
+    "body-parser": "^1.20.1",
+    "detect-browser": "^5.3.0",
+    "dotenv": "^16.3.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.2",
+    "express-ejs-layouts": "^2.5.1",
+    "fs": "^0.0.1-security",
+    "gh-pages": "^5.0.0",
+    "git-pages": "^0.8.1",
+    "http-server": "^14.1.1",
+    "mongodb": "^5.0.0",
+    "mysql2": "^3.0.1",
+    "node-fetch": "^3.3.2",
+    "node-sass": "^9.0.0",
+    "nodemon": "^2.0.20",
+    "path": "^0.12.7",
+    "sequelize": "^6.28.0"
+  },
+  "homepage": "https://customfacilityservices.herokuapp.com/",
+  "scripts": {
+    "deploy": "gh-pages -d build"
+  }
+}

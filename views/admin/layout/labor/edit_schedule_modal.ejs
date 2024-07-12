@@ -1,0 +1,47 @@
+<div class="overlay_container relative z-9"></div>
+
+   <div class="schedule_page relative">
+
+      <div class="modal_schedule " >
+
+
+        <div class="row">
+
+          <div class="col-3"></div>
+
+          <div class="col-6 modal_show  relative" >
+            <div class="row">
+            <div class="col-6">
+            <form action = "/admin/edit/schedule" class="schedule_submit_form" method = "POST">
+
+              <div class="time_delta_container">   </div>
+
+              <div class="margin-top-10 margin-bottom-10">
+
+                  <input id="job_input" class="form-control margin-top-10 edit_schedule_form_control" placeholder = "Name of the Job Site" name = "jobName"/>
+                  <input id="address_input" class="form-control margin-top-5 edit_schedule_form_control" placeholder = "Address of the Job Site" name = "addressName"/>
+
+              </div>
+
+              <button type="submit" class="btn width-100 white-background margin-top-10 schedule_submit_button"> Submit </button>
+
+             </form>
+
+
+              <button type="submit" class="btn white-background margin-top-10 delete_schedule" > Delete </button>
+
+             </div>
+             <div class="col-6 "style="border-left:1px solid #e6e6e6;">
+               <div class="display_schedule">
+
+              </div>
+
+              </div>
+             </div>
+           </div>
+
+          </div>
+
+        </div>
+
+     </div>

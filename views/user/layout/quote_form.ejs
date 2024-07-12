@@ -1,0 +1,101 @@
+<span id="hq"></span>
+<div class="home_quote_container">
+
+  <div class="row">
+
+      <div class="col-12">
+
+          <div class="quotesheet_container quotesheet_container_home" >
+
+              <p class="quotesheet_title ">Make Your Windows Shine Today!</p>
+
+            <form action="/" method="POST">
+
+              <div class="row padding-bottom-small">
+
+                  <div class="col-6 padding-top-small form_col">
+
+                      <label>
+                          Full Name
+                      </label>
+
+                      <input class="form-control quote_input quote_input_home"  id = "full-name" name="firstName" placeholder="Enter first name" />
+
+                      <label>
+                          Address
+                      </label>
+
+                      <input class="form-control quote_input quote_input_home"  id = "address" name="address" placeholder="Enter Address" />
+
+                      <label>
+                          Zip Code
+                      </label>
+
+                      <input class="form-control quote_input quote_input_home" id = "zip" type="number"name="address" placeholder="Enter Zip Code" />
+
+                  </div>
+
+                  <div class="col-6 padding-top-small form_col">
+                    <div class="row">
+
+                      <div class="col-4 form_col--inner">
+
+                        <label>
+                            Screen Count
+                        </label>
+
+                        <input class="form-control quote_input quote_input_home "  id = "screen" type="number" name="screenCount" placeholder="Screen Count" value = "0"/>
+
+                      </div>
+
+                  <div class="col-4 form_col--inner">
+
+                    <label>
+                        < 4X4 Ft
+                    </label>
+
+                    <input class="form-control quote_input quote_input_home" id="small" type="number" name="smWindowCount" placeholder="Window Count" value = "0"/>
+
+                  </div>
+
+                  <div class="col-4 form_col--inner">
+
+                    <label>
+                        4X4 to 8X8 Ft
+                    </label>
+
+                    <input class="form-control quote_input quote_input_home"  id = "medium" type="number" name="mdWindowCount" placeholder="Window Count" value = "0" />
+
+                  </div>
+
+                  <div class="col-4 padding-top-small form_col--inner">
+
+                      <label>
+                          > 8X8 Ft
+                      </label>
+
+                      <input class="form-control quote_input quote_input_home"  id="large" type="number" name="lgWindowCount" placeholder="Window Count" value = "0"/>
+
+                    </div>
+
+                  <div class="col-6 padding-top-small">
+                      <input type="hidden" name="key" value = <%= active_path %> placeholder="Enter first name" />
+                  </div>
+
+                  <div class="col-3"></div>
+
+                <div class="col-12 ">
+                  <button class="quote_submit_button btn"type="submit"> Receive Quote</button>
+                </div>
+
+                <div class='col-3'></div>
+
+              </form>
+
+           </div>
+
+        </div>
+
+    </div>
+
+  </div>

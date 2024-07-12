@@ -1,0 +1,467 @@
+@media screen and (min-width:601px) and (max-width:900px) and (orientation:landscape){
+
+  .about_us_divider{
+    width:0% !important;
+    max-width:0% !important
+  }
+
+  .about_us_col--2{
+    margin-top:22.5%
+  }
+
+  .mission_col{
+    padding-bottom:10%;
+    padding-top:12.5%;
+    flex: 100% !important;
+    max-width: 100% !important;
+    width:  100% !important;
+  }
+
+  .about_us_col{
+    flex: 41.666666666% !important;
+    max-width: 41.666666666% !important;
+    width:  41.666666666% !important;
+  }
+
+  .what_we_do_description{
+    width: 150% !important;
+    font-size:1.8rem !important;
+  }
+
+  .about_container{
+    /* position: relative; */
+    padding-bottom: 0% !important;
+    margin-top: 0% !important;
+    text-align: justify !important;
+  }
+
+  .what_we_do_container{
+    margin-top:-5% !important;
+  }
+
+  .about_title{
+    font-size:4rem !important
+  }
+
+  .about_description{
+    font-size:2rem !important;
+  }
+
+  .what_we_do_col{
+    width:55% !important;
+    max-width: 55% !important;
+    flex:55% !important
+  }
+
+  .what_we_do_title{
+    width:100% !important;
+    font-size:2.5rem;
+  }
+
+  .link_col{
+    width:45% !important;
+    max-width:45% !important;
+    flex:45% !important;
+  }
+
+}
+
+.about_container{
+  position: relative;
+  padding-bottom:5%;
+  margin-top:5%;
+  text-align: justify !important;
+}
+
+.value_row{
+
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(37, 98, 159, .7),
+      rgba(56, 182, 255, .7)),
+      url("./../images/wet.png");
+  background-size: cover;
+  padding-bottom:10%;
+}
+
+.value_box:hover{
+  transform: scale(1.1) translateY(-20px);
+  transition: all .3s;
+  background:  rgba(56, 182, 255,1);
+}
+
+.value_box:hover p{
+  color:white !important;
+}
+
+.value_box:hover .value_icon{
+      background-image: linear-gradient(
+      to right bottom,
+      rgba(255, 255, 255, .7),
+      rgba(255, 255, 255, .7)),
+      url("./../images/wet.png");
+      color:transparent;
+      -webkit-background-clip: text;
+      display:inline-block;
+      transition: all .5;
+      display: inline-block;
+}
+
+.what_we_do_description{
+  font-size:2rem;
+}
+
+.value_box_title{
+  font-family:"Montserrat";
+  font-weight: 600;
+  font-size:2rem;
+  display: block;
+}
+
+.value_box_subtitle{
+  font-family:"Montserrat";
+  font-weight: 400;
+  font-size:1.3rem;
+  text-align: justify;
+  display: inline-block;
+  margin-top:5%;
+}
+
+.value_box{
+  padding:6%;
+  transform: scale(1) translateY(0px);
+  transition: all .3s;
+  width:100%;
+  background:rgba(255, 255, 255,.7);
+  box-shadow: 0rem 2rem 4rem black;
+  margin-top:5%;
+  text-align:  center;
+}
+
+.normal_link{
+  display: inline;
+}
+
+.value_icon{
+  font-size:6rem;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(37, 98, 159, .7),
+      rgba(56, 182, 255, .7)),
+      url("./../images/wet.png");
+   color:transparent;
+  -webkit-background-clip: text;
+  display:inline-block;
+  transition: all .5;
+  display: inline-block;
+}
+
+.what_we_do_container{
+  position:relative;
+  background-image:linear-gradient(to right,rgba(0, 35, 50, 1),
+  rgba(0, 35, 50, 1),
+  rgba(0, 35, 50, .7),rgba(0, 35, 50, .4)),
+  url('./../images/what_we_do_new.png');
+  background-size:cover;
+  padding:10% 0;
+  padding-top:5%;
+}
+
+a:hover{
+  pointer-events: none;
+}
+
+.what_we_do_col{
+   padding-left:5%;
+}
+
+.what_we_do_title{
+  color:white;
+  font-size:7rem;
+  text-align:left;
+  font-family:"Akrobat";
+  font-weight:bold
+}
+
+.what_we_do_link{
+   border-bottom:orangered 1px solid;
+   padding-top:5%;
+   font-family:"Akrobat";
+   width:80%;
+   font-size:2rem;
+   color:white;
+   text-align:center;
+}
+
+.what_we_do_description{
+  color:white ;
+  text-align:left;
+  font-size: 2rem;
+  width:120%;
+  padding-top:5%;
+  font-family: "Montserrat";
+  font-weight: 300;
+}
+
+.about_title{
+  color:white;
+  text-align:center;
+  font-size:6rem;
+  font-family:"Montserrat";
+  font-weight: 700;
+}
+
+.value_box{
+  height:100%;
+}
+
+.about_description{
+  font-family:"Montserrat";
+  font-weight: 400;
+  color:white;
+  padding-top:5%;
+  font-size:2.2rem;
+  text-align: center;
+}
+
+.about_value_row{
+  padding:2.5% 0%;
+}
+
+.value_inner_row{
+  margin-top:5%
+}
+
+@media screen and (max-width:680px){
+
+  .banners{
+    margin-top:20% !important
+  }
+
+  .value_divide{
+    height:0 !important;
+    width:0 !important;
+    display:inline !important;
+    position: absolute;
+    max-width:0 !important;
+    flex: 0 !important;
+  }
+
+  .what_we_do_title{
+    font-size:3rem;
+    font-weight: 700;
+    font-family: "Montserrat";
+    text-align: justify;
+  }
+
+  .about_description{
+    font-size:1.6rem;
+    text-align: justify !important;
+  }
+
+  .what_we_do_description{
+    font-size: 1.6rem !important;
+    text-align: justify;
+    width:80%;
+    font-family: "Montserrat";
+  }
+
+  .about_value_row{
+    padding-top:0% !important;
+  }
+
+  .what_we_do_image{
+    width:140% !important;
+    height:100vh !important;
+  }
+
+  .mobile-col-0{
+    width:0% !important;
+    max-width:0% !important;
+    flex:0% !important;
+  }
+
+  .about_container{
+    padding:5% 0;
+    padding-bottom:7.5%;
+    margin-top:5% !important;
+  }
+
+  .value_box_subtitle{
+   font-size: 1.8rem !important
+  }
+
+  .about_description{
+    text-align: justify;
+  }
+
+  .what_we_do_col{
+    padding:10%;
+  }
+
+  .about_title{
+    font-size:4rem;
+  }
+
+  .what_we_do_image{
+    height:100rem !important;
+    width:100rem;
+  }
+
+  .value_row{
+    padding:5%;
+    padding-top: 0% !important;
+  }
+
+  .value_col{
+    margin-top:0%;
+  }
+
+  .value_col{
+    width:100%;
+    margin-top:10%;
+    max-width:100%;
+    flex:100%;
+    position: relative;
+    bottom:2rem;
+  }
+
+  .value_col p {
+    font-size:1.5rem !important;
+  }
+
+  .what_we_do_inner{
+    position: absolute;
+    z-index:3;
+    top:0%;
+  }
+
+  .description_owner{
+    margin-top:-5% ;
+  }
+
+  .text-container{
+    height:50rem !important;
+  }
+
+  .what_we_do_link{
+    font-size:2rem !important;
+    letter-spacing:3px;
+    text-align: justify;
+    margin-left:25%;
+    width:50% !important;
+
+  }
+
+  .about_link_row{
+    margin-top:15%;
+  }
+
+  .showcase_container {
+    background-position: -50% !important
+  }
+
+  .what_we_do_container{
+    margin-top:0%;
+    height:125vh !important;
+    background-image: linear-gradient(to bottom right,rgba(0, 35, 50, 1),rgba(0, 35, 50, 1),rgba(0, 35, 50, 1),rgba(0, 35, 50, .8),rgba(0, 35, 50, .7)),url("./../images/what_we_do_new.png");
+  }
+
+  .what_we_do_link {
+    font-size: 2rem !important;
+    letter-spacing: 3px;
+    text-align: center;
+    margin-left: 0% !important;
+    width: 40% !important;
+ }
+
+}
+
+@media screen and (orientation:portrait) and (min-width:600px) and (max-width:900px){
+
+  .about_us_divider{
+    width:0% ;
+    max-width:0%
+  }
+
+  .about_us_col--2{
+    margin-top:22.5%
+  }
+
+  .mission_col{
+    margin-left:5%;
+    flex: 90% ;
+    max-width: 90% ;
+    width:  90% ;
+  }
+
+  .banners{
+    top: 115% ;
+  }
+
+  .value_box_subtitle{
+    font-size:2rem;
+  }
+
+  .what_we_do_description{
+    width: 80%;
+    text-align: justify;
+  }
+
+  .about_container {
+    position: relative;
+    padding-bottom: 15%;
+    padding-top: 12.5%;
+    text-align: justify ;
+  }
+
+  .what_we_do_col{
+    width:75% ;
+    max-width:75% ;
+    flex:75%;
+    margin-left: 5%;
+  }
+
+  .brs{
+    margin-top:7.5%;
+  }
+
+  .about_us_col--2{
+    visibility: hidden;
+  }
+
+  .our_clients_text_banner{
+    width: 50% ;
+    background: none ;
+    font-size: 6rem ;
+    padding-left: 10% ;
+    border-bottom: 1px solid white;
+  }
+
+  .about_us_banner{
+    width:90% ;
+    margin-left:5%;
+    background: none ;
+    font-size: 6rem ;
+    border-bottom: 1.5px solid white;
+  }
+
+  .value_col-inner{
+    width:50% ;
+    max-width:50% ;
+    flex:50% ;
+    margin-top:5%;
+  }
+
+  .about_us_divider{
+    width:8.33% ;
+    max-width:8.33% ;
+    flex:8.33% ;
+  }
+
+  .what_we_do_container{
+    background-position: center;
+    background-image: linear-gradient(to right,rgba(0, 35, 50, 1),rgba(0, 35, 50, 1),rgba(0, 35, 50, .8),rgba(0, 35, 50, .4)),url(./../images/what_we_do_new.png) !important;
+  }
+
+}

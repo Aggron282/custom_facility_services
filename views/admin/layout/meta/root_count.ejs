@@ -1,0 +1,23 @@
+<div class="row root_count_row">
+
+      <% for(var i =0; i < meta.pages.length - 1; i++){ %>
+
+        <div class= "col-3 margin-top-2_5  ">
+
+            <div class="dark-shadow white root_page padding-bottom-10" >
+
+              <p class="text-center font-25 akrobat margin-top-5 "><%= meta.pages[i].name %> </p>
+
+              <div  class="root_views_box ">
+                <p class="text-center font-30 akrobat margin-top-15 padding-top-20" ><%= meta.pages[i].qty  %></p>
+              </div>
+
+                <p class="text-center font-20 akrobat margin-top-5 ">Views</p>
+
+            </div>
+
+        </div>
+
+      <%}%>
+
+</div>

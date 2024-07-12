@@ -1,0 +1,17 @@
+<div class="client_container">
+
+   <p class="our_client_banner text-banner"> Our Top Clients </p>
+
+    <div class="row client_row">
+
+    <% for(var i = 0; i < clients.length; i++){ %>
+
+        <div class="col-2 mobile-col-6 landscape-col-4 margin-top-very-small client_col" >
+          <img class="client_img   "src = "<%= './assets/images/' + clients[i].logo %>"/>
+        </div>
+
+    <%}%>
+
+    </div>
+
+  </div>

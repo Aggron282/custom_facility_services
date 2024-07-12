@@ -1,0 +1,44 @@
+<table class="table_schedule_page padding-2_5">
+
+    <form>
+         <% for(var i = 0; i <=people[0].schedule.length -1;i++){ %>
+
+             <tr>
+
+                <th _id = <%= people[0]._id %>> <%=people[0].schedule[i].day %> </th>
+
+                <% for(var k = 0; k <=people[0].schedule[i].schedule.length -1;k++){%>
+
+                    <% if( people[0].schedule[i].schedule[k].job){%>
+
+                          <td name="cell" class="height-20vh font-20 relative eds cell z-3"
+                            name_of_job =" <%= people[0].schedule[i].schedule[k].job %>"
+                            address_ = "<%= people[0].schedule[i].schedule[k].address %>"
+                            day_id = "<%= [i]  %>"
+                            _id = "<%= people[0]._id %>"
+                            schedule_id = "<%=i%> "
+                            time_id = "<%=k%> "
+                            delta_time="<%=people[0].schedule[i].schedule[k].time %>"
+                          ><%=people[0].schedule[i].schedule[k].time %>:00 AM
+                            <img class="edit_button_schedule eds z-3" src = "./../assets/images/w.png" />
+                            <span class=" font-20 eds"> <%= people[0].schedule[i].schedule[k].job %> </span>
+                            <span class="font-15 eds address_eds" > <%= people[0].schedule[i].schedule[k].address %> </span>
+                          </td>
+
+                          <%}else{%>
+
+                            <td name="cell"  class="relative font-20 height-20vh eds"  day_id = <%= [i]  %> _id= <%= people[0]._id %>   schedule_id = <%=i%> time_id = <%=k%> time = <%= people[0].schedule[i].schedule[k].time  %> delta_time=<%=people[0].schedule[i].schedule[k].time %> ><%=people[0].schedule[i].schedule[k].time %>:00 AM
+                                <img class="edit_button_schedule eds z-3" src = "./../assets/images/w_.png" />
+                            </td>
+
+                          <%}%>
+
+                  <%}%>
+
+             </tr>
+
+         <%}%>
+
+   </form>
+
+</table>

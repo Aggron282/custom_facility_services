@@ -1,0 +1,23 @@
+.navbar_admin{
+  font-size:15px;
+  padding:1%;
+}
+
+.navbar_admin p{
+  color:white;
+  margin-top:5%;
+}
+
+.admin_navbar_subtitle:hover{
+  font-weight: bold;
+}
+
+
+.admin_navbar_title{
+  color:white;
+}
+
+.admin_logo{
+  position: relative;
+  bottom:5px;
+}

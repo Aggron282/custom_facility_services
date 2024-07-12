@@ -1,0 +1,63 @@
+<ul class="schedule_lists margin-top-5">
+      <% console.log(quotes) %>
+
+      <% var new_quotes = path == "/admin/home"  ? limited_quotes : quotes %>
+      <% if (new_quotes.length < 0) {%>
+          <p> No Quotes Yet..</p>
+      <% }else{ %>
+
+        <% for (let quote of quotes){%>
+
+          <li class="list_item_schedule row padding-2 dark-shadow relative width-100" quote_id = <%= quote._id %>>
+
+              <div class="col-6">
+                <p class="list_item_name font-16 akrobat"> <%= "Name: "+quote.name %></p>
+              </div>
+
+              <div class="col-6">
+                <p class="list_item_name font-16 akrobat"> Small (qty) : <%= quote.small %></p>
+              </div>
+
+              <div class="col-6">
+                <p class="list_item_name font-16 akrobat"> Medium (qty): <%= quote.medium %></p>
+              </div>
+
+              <div class="col-6">
+                <p class="list_item_name font-16 akrobat"> Large (qty): <%= quote.large %></p>
+              </div>
+              <div class="col-12">
+                <p class="list_item_name font-18 akrobat"> Screens (qty): <%= quote.screens %></p>
+              </div>
+
+              <div class="col-6">
+                <p class="list_item_name font-18 akrobat"> Total: <%= quote.total %></p>
+              </div>
+
+              <div class="col-6">
+                <p class="list_item_name font-18 akrobat"> Outside / Inside: <%= quote.outside %></p>
+              </div>
+
+              <div  class="option_button" ></div>
+
+              <div  class="favorite_button"quote_id = <%= quote._id %> isFav = <%= quote.isFavorite %> >
+                <img class="fav_icon"  quote_id = <%= quote._id %> isFav = <%= quote.isFavorite %> src= "./../assets/images/fav.png"/>
+              </div>
+
+          </li>
+
+        <%}%>
+
+      <%}%>
+
+      <% if(quotes.length > 0 && active_path == "/admin/home"){ %>
+
+        <li class="list_item_schedule see_more_quotes row  border-ea padding-2 padding-top-2_5" >
+          <div class="col-12">
+            <p class="list_item_name font-20 white margin-top-2_5 akrobat text-center"> See More...</p>
+          </div>
+        </li>
+
+      <%}%>
+
+
+</ul>

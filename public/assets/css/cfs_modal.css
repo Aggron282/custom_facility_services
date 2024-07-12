@@ -1,0 +1,133 @@
+.cfs_modal{
+  opacity:0;
+  visibility: hidden;
+  z-index:-99;
+}
+
+.modal_pos{
+  top:2.5%;
+  left:0%;
+}
+
+.active_modal{
+  opacity:1;
+  z-index:999;
+  visibility: visible;
+  animation:modal_appear .5s 1 ease-in;
+}
+
+.lock_screen{
+  overflow-y:hidden !important;
+}
+
+.active_wrapper{
+  opacity:.5 !important;
+  padding-bottom:10%;
+  background:black !important;
+}
+
+.cfs_modal_wrapper{
+  width: 100%;
+  background: black;
+  height: 1000%;
+  opacity: .5;
+}
+
+.modal_body{
+  animation:appear .5s 1 ease-in;
+}
+
+.modal_wrapper_pos{
+  top:0%;
+  left:0%;
+  z-index:999;
+  position: absolute;
+}
+
+#mainModal{
+  top:5% !important;
+  position: fixed !important;
+}
+
+.modal_pos{
+  top:10%;
+  z-index:9999999999999999999;
+}
+
+#modal_exit{
+  color:#1B1742;
+  top:2%;
+  left:2%;
+}
+
+#modal_exit:hover{
+  color:black !important;
+}
+
+.quote_button_modal{
+  margin-top:1%;
+  border-width:2px !important;
+}
+
+.mobile-height-200px{
+  height:200px !important;
+}
+
+.quote_button_modal:hover{
+  color:white !important;
+  background:black !important;
+  border-color:white !important;
+}
+
+@media screen and (max-width:690px){
+  
+  .modal_pos{
+    top:5% !important;
+  }
+
+  .mobile-col-10{
+    padding-bottom:0 !important;
+  }
+
+  #modal_exit{
+    color: #1B1742 !important;
+    top: 0% !important;
+    left: -10% !important;
+  }
+
+  .client_card{
+    padding-bottom:0% !important;
+  }
+
+  .before_box{
+    height:300px !important;
+  }
+
+  .mobile-after{
+    position: absolute;
+    bottom:1% !important;
+  }
+
+  .after_box{
+    position: relative;
+    z-index:99;
+    margin-top:0% !important;
+    height:300px !important;
+  }
+
+  .logo_img{
+     margin-top: -12.5% !important;
+  }
+
+  .small_logo_img{
+    margin-top: -17.5% !important;
+  }
+
+  .p_row{
+    position: absolute;
+    left: 25% !important;
+    width: 80% !important;
+    margin-top: 5% !important;
+  }
+
+}

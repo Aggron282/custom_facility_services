@@ -1,0 +1,66 @@
+<div class="row about_us_row">
+
+    <div class="col-5 mobile-col-12 about_us_col">
+
+        <div class="margin-bottom-small">
+
+          <div class="row">
+              <div class="col-12">
+                  <p class="text-banner-new about_us_banner" > Our Values </p>
+              </div>
+          </div>
+
+        </div>
+
+        <% if(values.length > 0){ %>
+
+            <% for(var i = 0; i < values.length; i++){ %>
+
+                <div class=" about_us_dropdown light-navy-shadow values-background" _id = <%= i %>>
+
+                  <div class="row">
+
+                    <div class="col-10">
+                      <p class=" about_us_heading light-font"><%= values[i].title %></p>
+                    </div>
+
+                    <div class="col-2">
+                        <img src ="./assets/images/dropdown_arrow.png " class="dropdown_arrow "  _id = <%= i %>>
+                    </div>
+
+                  </div>
+
+                    <div class="dropdown_container ghost">
+
+                        <div className="divder_dropdown dropdown_divider"></div>
+                        <p class="dropdown_text">
+                          <%= values[i].description %>
+                        </p>
+
+                    </div>
+
+                </div>
+
+            <% } %>
+
+        <% } %>
+
+        <!-- <div class="about_us_button light-navy-shadow background-00 ">
+            <p class="about_us_link ">Learn More About Us!</p>
+        </div> -->
+
+    </div>
+
+    <div class="col-1 no_col"></div>
+
+    <div class="col-6 desktop_only margin-top-10 about_us_col about_us_col--2">
+
+        <div class="about_us_overlay_box"></div>
+
+        <div class="about_us_overlay_box--big"></div>
+
+        <img class="about_us_image" src = "./../assets/images/panels.jpg"/>
+
+    </div>
+
+</div>

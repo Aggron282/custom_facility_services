@@ -1,0 +1,520 @@
+.mobile_visible_only{
+     visibility:hidden ;
+     opacity:0%;
+  }
+
+@media screen and (max-width:690px) {
+  .mobile_visible_only{
+    visibility:visible !important;
+    opacity:100%  !important;
+
+ }
+
+  .desktop_visible_only{
+    visibility:hidden;
+    opacity:0% ;
+    width:0;
+    height:0;
+ }
+  .mobile-width-70{
+    width: 70%;
+
+  }
+  .mobile-margin-top-35{
+    margin-top: 35% ;
+
+  }
+  .mobile-font-20{
+    font-size: 20px;
+
+  }
+  
+  .mobile-margin-top-35{
+    margin-top: 35%;
+  }
+
+    .mobile-margin-top-10{
+      margin-top:10% ;
+    }
+
+    .mobile-font-30{
+      font-size:30px ;
+    }
+
+  .mobile-padding-2{
+    padding: 2%;
+
+  }
+  .mobile-margin-top-30{
+    margin-top:30%;
+  }
+
+  .mobile-margin-top-40{
+    margin-top:40% ;
+  }
+
+  .mobile-relative{
+    position: relative;
+
+  }
+  .mobile-font-30{
+    font-size: 30px;
+
+  }
+  .mobile-max-z{
+    z-index:999;
+
+  }
+  .mobile-padding-left-2_5{
+    padding-left: 2.5%;
+
+  }
+  .mobile-ghost{
+    visibility: hidden ;
+    height:0px ;
+    opacity:0% ;
+    width:0px ;
+  }
+
+  .mobile-col-1{
+    width:8.3333333333% ;
+    flex: 0 0 8.3333333%;
+    max-width:8.3333333333% ;
+  }
+  .mobile-col-6{
+    width:50% ;
+    flex: 0 0 50% ;
+    max-width:50%
+  }
+
+  .mobile-width-100{
+    width:100% ;
+  }
+
+    .mobile-margin-left-right-0{
+      margin-right: 0% ;
+      margin-left: 0% ;
+
+
+    }
+
+
+    .mobile-font-18{
+      font-size:18px ;
+    }
+
+    .mobile-margin-top-20{
+      margin-top:20%;
+    }
+
+      .mobile-col-1{
+        max-width:8.333333333% ;
+        width:8.333333333% ;
+        flex: 0 0 8.3333333%;
+
+      }
+      .mobile-padding-top-5{
+        padding-top:5%;
+      }
+      .mobile-padding-top-bottom-10{
+        padding-top:10%;
+          padding-bottom:10%;
+      }
+      .mobile-padding-top-2_5{
+        padding-top:2.5% ;
+      }
+
+        .mobile-font-16 {
+          font-size:16px ;
+        }
+
+
+        .mobile-font-18{
+          font-size:18px ;
+        }
+
+
+.mobile-background-white{
+  background:white ;
+}
+
+      .mobile-col-10{
+        width:83.333333333% ;
+        max-width:83.33333333% ;
+        flex: 0 0 83.333333333%
+      }
+  .mobile-margin-top-10{
+    margin-top:10% ;
+  }
+  .mobile-font-30{
+    font-size:30px;
+  }
+  .mobile-margin-top-15{
+    margin-top:15% ;
+  }
+  .mobile-width-60{
+    width:60% ;
+  }
+
+  .mobile-font-30{
+    font-size: 30px ;
+  }
+  .mobile-font-20{
+    font-size: 20px ;
+  }
+  .mobile-padding-bottom{
+    padding-bottom:20% ;
+  }
+  .mobile-col-6_{
+    margin-left:5%;
+    flex: 0 0 65%;
+    max-width: 65%;
+    width:65%;
+  }
+  .mobile-font-30{
+    font-size:30px;
+  }
+
+    .mobile-col-6{
+      flex: 0 0 50%;
+      max-width: 50%;
+      width:50%;
+    }
+  .mobile-padding-bottom-40{
+    padding-bottom:40%;
+  }
+.mobile-padding-bottom-10{
+  padding-bottom: 10%;
+
+}
+.mobile-margin-top-0{
+  margin-top: 0% ;
+}
+.mobile-height-600px{
+  height:607px ;
+}
+.mobile-margin-left-25{
+  margin-left:25% ;
+}
+
+.mobile-margin-left-20{
+  margin-left:20% ;
+}
+.mobile-font-40{
+  font-size:40px;
+
+}
+.mobile-margin-left-0{
+  margin-left:0% ;
+}
+.mobile-width-50{
+  width:50%;
+}
+  .mobile-max-width{
+    width:100% ;
+    max-width:100% ;
+  }
+  .mobile-margin-left-5{
+    margin-left:5% ;
+  }
+
+  .mobile-font-35{
+    font-size:35px ;
+  }
+  .mobile-width-60{
+    width:60% ;
+  }
+  .mobile-float-left{
+    float:left ;
+  }
+  .mobile-margin-top-10{
+    margin-top:10% ;
+  }
+  .mobile-col-10{
+
+      width:83.333333333% ;
+      padding-bottom:5%;
+      max-width:83.33333333% ;
+      flex: 0 0 83.333333333% ;
+
+  }
+  .mobile-margin-left-22_5{
+    margin-left:27.5% ;
+  }
+  .mobile-text-center{
+    text-align:center;
+  }
+  .mobile-padding-5{
+    padding:5% ;
+  }
+  .mobile-col-12{
+
+      width:100% ;
+      padding-bottom:5%;
+      max-width:100% ;
+      flex: 100% ;
+
+  }
+  .mobile-padding-top-bottom-2_5{
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+  }
+  .mobile-padding-top-9{
+    padding-top:9% ;
+  }
+  .mobile-height-120{
+    height:120%;
+  }
+  .mobile-padding-5{
+    padding:5% ;
+  }
+  .mobile-margin-left-0{
+    margin-left:0% ;
+  }
+  .mobile-width-80{
+    width:80% !important;
+  }
+  .mobile-width-90{
+    width:90% !important;
+  }
+  .mobile-90-5{
+    width: 90%;
+margin-left: 5%;
+  }
+  .mobile-top-35px{
+    top:35px;
+  }
+  .mobile-height-150px{
+    height: 150px ;
+  }
+  .mobile-width-100{
+    width:100% ;
+  }
+  .mobile-width-120{
+    width:120% ;
+  }
+  .mobile-width-110{
+    width:110%
+  }
+  .mobile-height-600px{
+    height:600px;
+  }
+  .mobile-font-25{
+    font-size:25px ;
+  }
+  .mobile-padding-10{
+    padding:10% ;
+  }
+  .mobile-width-80{
+    width:80%
+  }
+  .mobile-height-100{
+    height:100%
+  }
+  .mobile-width-100{
+    width:100% ;
+  }
+  .mobile-margin-top-0{
+    margin-top: 0% ;
+  }
+  .no-border{
+    border:none;
+  }
+  .mobile-padding-top-10{
+    padding-top:10% ;
+  }
+  .mobile-padding-bottom-10{
+    padding-bottom: 10%;
+  }
+  .mobile-text-left{
+    text-align: left ;
+  }
+  .mobile-font-25{
+    font-size:25px ;
+  }
+  .mobile-margin-top-70{
+    margin-top:70%
+  }
+  .margin-left-2_5{
+    margin-left:2.5%;
+  }
+  .mobile-height-550px{
+    height:550px ;
+  }
+  .mobile-margin-top-20{
+    margin-top:20% ;
+  }
+  .mobile-margin-top-10{
+    margin-top:10% ;
+  }
+  .no-col{
+    max-width:0% ;
+    width:0% ;
+    flex:0%;
+  }
+  .margin-left-10-import{
+    margin-left:10% ;
+  }
+
+  .mobile-col-11{
+    max-width: 95% ;
+    width:95% ;
+    flex:  0 0 95%;
+    margin-left:2.5%;
+  }
+  .mobile-margin-top-5-neg{
+    margin-top: -5% !important;
+  }
+  .mobile-col-0{
+    max-width: 83.33333333333333% !important;
+    width:83.33333333333333% !important;
+    flex:  0 0 83.3333333333333333%;
+  }
+  .mobile-col-10{
+    width: 83.333333333% !important;
+    max-width: 83.33333333% !important;
+    flex: 0 0 83.333333333%;
+  }
+  .mobile-col-1{
+    max-width: .0833333333333333% !important;
+    width:.0833333333333333% !important;
+    flex:  0 0 .083333333333333333%;
+  }
+
+  .mobile-col-11{
+    max-width: 95% !important;
+    width:95% !important;
+    flex:  0 0 95%;
+    margin-left:2.5%;
+  }
+  .mobile-padding-left-5{
+    padding-left:5% !important;
+  }
+  .mobile-padding-right-left-5{
+    padding-left:2.5% !important;
+      padding-right:2.5% !important;
+  }
+  .mobile-margin-left-2_5{
+    margin-left:2.5%;
+  }
+  .mobile-height-125px{
+    height:150px !important;
+  }
+  .mobile-margin-top-75{
+    margin-top: 75%;
+
+  }
+  .mobile-absolute{
+    position: absolute ;
+  }
+
+  .mobile-padding-10{
+    padding:10% ;
+  }
+.mobile-margin-top-10{
+  margin-top:10% ;
+}
+  .mobile-height-100{
+    height:100% ;
+  }
+
+.mobile-height-175px{
+  height:175px ;
+}
+  .mobile-margin-top-10{
+    margin-top:10%;
+  }
+  .mobile-margin-top-15{
+    margin-top:15%;
+  }
+
+  .mobile-width-100{
+    width:100%
+  }
+  video{
+    overflow-y: hidden;
+  }
+  .mobile-height-575px{
+    height:575px ;
+  }
+  .mobile-margin-top-100{
+    margin-top:100% ;
+  }
+  .mobile-margin-right-10{
+    margin-right:10% ;
+
+  }
+  .mobile-margin-top-20{
+    margin-top: 20%;
+  }
+  .mobile-half-middle{
+    width:50% ;
+    margin-left:25% ;
+  }
+  .mobile-width-110{
+    width:110% ;
+  }
+  .mobile-margin-top-50{
+    margin-top:50% ;
+  }
+  .mobile-padding-top-10{
+    padding-top:10% ;
+  }
+  .mobile-margin-top-5{
+    margin-top:5% ;
+  }
+  .mobile-font-15{
+    font-size: 15px ;
+  }
+  .mobile-width-110{
+    width:110%;
+  }
+  .mobile-padding-top-15{
+    padding-top:15% ;
+  }
+  .mobile-padding-top-25{
+    padding-top:25%;
+  }
+  .mobile-padding-top-20{
+    padding-top:20% ;
+  }
+
+  .mobile-padding-bottom-5{
+    padding-bottom: 5% ;
+  }
+  .mobile-margin-right-5{
+    margin-right: 2.5% ;
+  }
+
+  .mobile-margin-top-2-neg{
+    margin-top: -2% ;
+  }
+  .mobile-padding-bottom-5{
+    padding-bottom: 5% ;
+  }
+  .mobile-width-90{
+    width:90% ;
+  }
+
+  .mobile-font-25{
+    font-size:25px ;
+  }
+  .mobile-half-middle{
+    width:50% ;
+    margin-left:25% !important;
+  }
+  .mobile-padding-right-5{
+    padding-right:10% ;
+  }
+
+  .mobile-text-center{
+    text-align: center ;
+  }
+  .mobile-infinite-z{
+    z-index:99999999;
+  }
+  .mobile-font-20{
+    font-size:20px ;
+  }
+
+}

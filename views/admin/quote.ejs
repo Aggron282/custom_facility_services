@@ -1,0 +1,27 @@
+<%- include("./layout/head.ejs") %>
+
+  <div class="container-fluid relative">
+
+            <%- include("./layout/navbar.ejs") %>
+
+          <p class="admin_home_subtitle akrobat font-20 bold margin-left-15 margin-top-2_5 padding-left-2_5 "> Online Quotes </p>
+
+          <div class= "dark-shadow padding-bottom-2_5 relative ">
+
+              <%- include("./layout/quotes/edit_quotes.ejs") %>
+
+                    <div class="row">
+
+                      <div class="col-1"></div>
+
+                      <div class="col-10">
+                          <%- include("./layout/quotes/quote.ejs") %>
+                      </div>
+
+                    </div>
+
+            </div>
+
+</div>
+
+<%- include("./layout/end.ejs") %>

@@ -1,0 +1,27 @@
+<%- include("./layout/head.ejs") %>
+
+<div id="wrapper" class="<%=lock %> ">
+
+  <div class="container-fluid" >
+
+    <div class="row">
+        <div class="col-12 background-1a navbar_container" ></div>
+    </div>
+
+    <div class="showcase_container">
+      <%- include("./layout/new_showcase.ejs") %>
+    </div>
+
+    <%- include("./layout/about/mission.ejs") %>
+    <%- include("./layout/about/values.ejs") %>
+    <%- include("./layout/about/what_we_do.ejs") %>
+
+  </div>
+
+  <div class="margin-top-small-neg" >
+    <%- include("./layout/footer.ejs") %>
+  </div>
+
+</div>
+
+<%- include("./layout/end.ejs") %>
