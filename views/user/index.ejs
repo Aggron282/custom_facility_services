@@ -2,11 +2,7 @@
 
   <div id="wrapper" class="<%=lock %> ">
 
-
-      <div class="modal_container_toggle">
-
-      </div>
-
+      <div class="modal_container_toggle"></div>
 
       <div class="container-fluid home_page" >
 
@@ -18,8 +14,6 @@
 
           <%- include("./layout/new_showcase.ejs") %>
 
-        
-
           <div class='margin-top-medium'>
             <%- include("./layout/quote_form.ejs") %>
           </div>
@@ -28,18 +22,12 @@
 
       </div>
 
-    <div class="container-fluid about_us_container">
-
+      <div class="container-fluid about_us_container">
         <%- include("./layout/home/about.ejs")  %>
-
-
         <%- include("./layout/new_our_clients.ejs") %>
-        </div>
-
+      </div>
 
       <%- include("./layout/home/contact.ejs") %>
-
-
 
       <div class="gallery_home_container">
 
@@ -53,16 +41,19 @@
 
   </div>
 
-</div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
+
   var   quote_submit_button  = document.querySelector(".quote_submit_button");
 
   function ReturnModal(outside,total,name){
+
     return( `
+
     <div  class= "cfs_modal_wrapper max-z  modal_wrapper_pos" id="blackWrapper"></div>
 
-    <div style="width:100%;height:100%;position:absolute;top:0%;left:0%;z-index:999999999999999999999999999999999999999;top:105%" id="mainModal" tabindex="-1">
+      <div style="width:100%;height:100%;position:absolute;top:0%;left:0%;z-index:999999999999999999999999999999999999999;top:105%" id="mainModal" tabindex="-1">
 
       <div class="row">
 

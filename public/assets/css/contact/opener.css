@@ -1,0 +1,123 @@
+.opener_row{
+  margin-top:5%;
+  padding:2.5%;
+}
+
+.opener_text{
+  color:white;
+  font-weight:400;
+  font-family:"Montserrat";
+}
+
+.opener_text--title{
+  opacity:.8;
+  font-size:5rem;
+  line-height:1
+}
+
+.opener_container--description{
+  margin-top:10%;
+}
+
+.opener_container--email{
+  margin-top:5%;
+}
+
+.opener_container--quote{
+  margin-top:10%;
+}
+
+.opener_text--subtitle{
+  font-size:1.7rem;
+  line-height:1.2;
+}
+
+.opener_container--line{
+  height:1px;
+  margin-top:2.5%;
+  background:white;
+  width:80%;
+}
+
+.opener_text--slogan--email{
+  font-size:1.7rem;
+  font-weight:400;
+  line-height:1.2;
+  width:100%;
+  text-align: left;
+}
+
+.opener_text--number{
+  border:1px solid white;
+  border-radius:20px;
+  font-size:2rem;
+  padding:1% 5%;
+  text-align:center;
+  display:inline
+}
+
+.opener_text--number{
+  transition: all .5s;
+  padding:10px;
+}
+
+.opener_text--number:hover{
+  background:white;
+  color:black;
+}
+
+
+@media screen and (max-width:1100px) and (min-width:600px) and (orientation:portrait){
+
+  .opener_row{
+    margin-top:15% !important;
+  }
+
+}
+
+@media screen and (max-width:880px) and (orientation:landscape){
+
+  .opener_text--number{
+    width:100%;
+    font-size:1.6rem;
+    display: block;
+  }
+
+}
+
+@media screen and (orientation:portrait)and  (max-width:590px){
+
+    .opener_text--title{
+      font-size:2.5rem !important;
+      text-align:left;
+      line-height: 1.5;
+      display: block;
+      width:100%;
+    }
+
+    .opener_col--contact{
+      -ms-flex: 0 0 41.666667%;
+      flex: 0 0 41.666667%;
+      max-width: 41.666667%;
+      margin-top: 5%;
+    }
+
+}
+
+
+@media screen and (orientation:portrait) and  (max-width:590px){
+
+  .opener_text--subtitle{
+    font-size:1.5rem !important;
+  }
+
+  .opener_container--line{
+    width:95% !important;
+  }
+  
+  .progress_clean{
+    border-bottom:2px solid white;
+    padding-bottom:5%;
+  }
+
+}
