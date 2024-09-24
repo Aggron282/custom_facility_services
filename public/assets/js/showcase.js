@@ -1,7 +1,10 @@
 
 function switch_image(query,src_name){
+
   var img = document.getElementById(query);
+
   img.setAttribute("src",src_name);
+
 }
 
 function Init(){
@@ -10,7 +13,8 @@ function Init(){
 
     if(url == "/contact_us"){
       switch_image("mobile_showcase","./assets/images/contact_mobile.png");
-    }else if(url == "/"){
+    }
+    else if(url == "/"){
       switch_image("mobile_showcase","./assets/images/showcase_landscape.png")
     }
     else if(url == "/schedule"){

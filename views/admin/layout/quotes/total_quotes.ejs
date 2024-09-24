@@ -4,17 +4,17 @@
 
   <div class="col-12">
 
-      <div class="text_quote_box width-100">
-          <p class="title_quote">Total Quotes </p>
-          <p class="subtitle_quote"> <%= quotes.length %> Quotes </p>
+      <div class="admin_container--quote_box">
+          <p class="admin_text--total admin_text">Total Quote </p>
+          <p class="admin_text admin_text--amount"> <%= quotes.length %> Quotes(s) </p>
       </div>
 
   </div>
 
-  <div class="col-12 margin-top-10">
-      <div class="text_quote_box width-100">
-          <p class="title_quote"> Potential Sales </p>
-          <p class="subtitle_quote">$<%=total_potential_sales %> </p>
+  <div class="col-12 admin_container--prospect_box">
+      <div class="admin_container--quote_box">
+          <p class="admin_text--total admin_text"> Potential Sales </p>
+          <p class="admin_text admin_text--amount">$<%=total_potential_sales %> </p>
       </div>
 
     </div>

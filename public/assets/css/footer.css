@@ -1,5 +1,25 @@
+footer{
+  background: #0069a4;
+}
 
 footer p {
   font-size:1.7rem;
   color:white;
+}
+
+.footer_wrapper_home{
+  margin-top:40%;
+  z-index:9999;
+  position:relative
+}
+
+.footer_home_container{
+  top:-50vh;
+  position:relative;
+}
+
+
+.about_footer_container{
+  z-index:99;
+  position: relative;
 }

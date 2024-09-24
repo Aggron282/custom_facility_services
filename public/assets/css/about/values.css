@@ -1,0 +1,156 @@
+.value_row{
+
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(37, 98, 159, .7),
+      rgba(56, 182, 255, .7)),
+      url("./../images/wet.png");
+  background-size: cover;
+  padding-bottom:10%;
+}
+
+
+.values-background{
+  background:#014884;
+}
+
+.about_value_row{
+  padding:2.5% 0%;
+}
+
+.value_icon{
+  font-size:6rem;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(37, 98, 159, .7),
+      rgba(56, 182, 255, .7)),
+      url("./../images/wet.png");
+   color:transparent;
+  -webkit-background-clip: text;
+  display:inline-block;
+  transition: all .5;
+  display: inline-block;
+}
+
+.value_box{
+  height:100%;
+}
+
+.value_inner_row{
+  margin-top:5%
+}
+
+.value_box:hover{
+  transform: scale(1.1) translateY(-20px);
+  transition: all .3s;
+  background:  rgba(56, 182, 255,1);
+}
+
+.value_box:hover p{
+  color:white !important;
+}
+
+.value_box:hover .value_icon{
+    background-image: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, .7),
+    rgba(255, 255, 255, .7)),
+    url("./../images/wet.png");
+    color:transparent;
+    -webkit-background-clip: text;
+    display:inline-block;
+    transition: all .5;
+    display: inline-block;
+}
+
+.value_box_title{
+  font-family:"Montserrat";
+  font-weight: 600;
+  font-size:2rem;
+  display: block;
+}
+
+.value_box_subtitle{
+  font-family:"Montserrat";
+  font-weight: 400;
+  font-size:1.3rem;
+  text-align: justify;
+  display: inline-block;
+  margin-top:5%;
+}
+
+.value_box{
+  padding:6%;
+  transform: scale(1) translateY(0px);
+  transition: all .3s;
+  width:100%;
+  background:rgba(255, 255, 255,.7);
+  box-shadow: 0rem 2rem 4rem black;
+  margin-top:5%;
+  text-align:  center;
+}
+
+
+@media screen and (orientation:portrait) and (min-width:600px) and (max-width:900px){
+
+  .value_col-inner{
+    width:50% ;
+    max-width:50% ;
+    flex:50% ;
+    margin-top:5%;
+  }
+
+}
+
+
+@media screen and (max-width:680px){
+
+  .about_value_row{
+    padding-top:0% !important;
+  }
+
+  .value_row{
+    padding:5%;
+    padding-top: 0% !important;
+  }
+
+  .value_divide{
+    height:0 !important;
+    width:0 !important;
+    display:inline !important;
+    position: absolute;
+    max-width:0 !important;
+    flex: 0 !important;
+  }
+
+  .value_col{
+    margin-top:0%;
+  }
+
+  .value_col{
+    width:100%;
+    margin-top:10%;
+    max-width:100%;
+    flex:100%;
+    position: relative;
+    bottom:2rem;
+  }
+
+  .value_col p {
+    font-size:1.5rem !important;
+  }
+
+  .value_box_subtitle{
+   font-size: 1.8rem !important
+  }
+
+
+}
+
+@media screen and (min-width:601px) and (max-width:900px) and (orientation:landscape){
+
+  .value_box_subtitle{
+    font-size:2rem;
+  }
+
+}

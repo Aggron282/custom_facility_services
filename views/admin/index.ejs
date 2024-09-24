@@ -1,16 +1,16 @@
 <%- include("./layout/head.ejs") %>
 
-        <div class="container-fluid home_page">
+        <div class="container-fluid page--admin">
 
           <div class="overlay_container relative z-9"></div>
 
           <%- include("./layout/navbar.ejs") %>
 
-          <p class="admin_home_title  font-20 akrobat margin-left-2_5 bold margin-top-5" > Overview </p>
+          <p class="admin_text admin_text--home " > Overview </p>
 
-          <div class="schedule_admin_container  dark-shadow padding-left-2_5">
+          <div class="admin_container admin_container--quotes">
 
-            <p class="admin_home_subtitle akrobat font-20 bold  padding-top-2_5"> Online Quotes </p>
+            <p class="admin_text admin_text--quote"> Online Quotes </p>
 
             <%- include("./layout/quotes/edit_quotes.ejs") %>
 
@@ -28,39 +28,41 @@
 
           </div>
 
-          <div class="schedule_admin_container margin-top-5 dark-shadow ">
+          <div class="admin_container admin_container--website">
 
-              <p class="admin_home_subtitle font-20 akrobat bold padding-left-2_5 padding-top-5"> Website Data </p>
+              <p class=" admin_text--data  "> Website Data </p>
 
-              <div class="row">
+              <div class="margin-top-5">
+                <div class="row">
 
-                <div class="col-8">
-                  <%- include("./layout/meta/page_count.ejs") %>
-                </div>
+                  <div class="col-8">
+                    <%- include("./layout/meta/page_count.ejs") %>
+                  </div>
 
-                <div class="col-4">
-                    <%- include("./layout/meta/browser_count.ejs") %>
-                </div>
+                  <div class="col-4">
+                      <%- include("./layout/meta/browser_count.ejs") %>
+                  </div>
 
-                <div class="col-8">
-                    <%- include("./layout/meta/root_count.ejs") %>
-                </div>
+                  <div class="col-12">
+                      <%- include("./layout/meta/root_count.ejs") %>
+                  </div>
 
-             </div>
+               </div>
+               </div>
 
           </div>
 
-          <div class="schedule_admin_container dark-shadow margin-top-5 padding-5 padding-bottom-2_5 padding-top-2_5">
+          <div class="admin_container admin_container--planner">
 
-            <p class="admin_home_subtitle font-20 akrobat bold"> Planner </p>
+            <p class="admin_text admin_text--planner"> Planner </p>
 
             <%- include("./layout/labor/labor_boxes.ejs") %>
             <%- include("./layout/labor/add_laborer.ejs") %>
 
           </div>
 
-          <div class="schedule_admin_container padding-5 padding-top-2_5 padding-bottom-2_5 margin-top-5 dark-shadow">
-            <p class="admin_home_subtitle font-20 akrobat bold"> Sales </p>
+          <div class="admin_container admin_container--sales">
+            <p class="admin_text admin_text--sales"> Sales </p>
           </div>
 
         </div>

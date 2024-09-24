@@ -1,22 +1,12 @@
-/*
-.showcase_home_container{
-  width:100%;
-  position:relative;
-}  .showcase_client{
-  height:300px;
-}  @media screen and (orientation:landscape) and (max-width:900px) and (min-width:391px){
-  .banners{
-    top:55% !important;
-  }
-}  .showcase_image_container{
-  position:absolute;
-  width:100%;
-  top:0%;
-} */
-span{
+.showcase_heading--title span{
   font-family: "Montserrat",sans-serif;
 }
-/* Section 1: Logo Container */
+
+.showcase_container{
+  width:100%;
+  position: relative;
+}
+
 .showcase_container--home{
   background-image:linear-gradient(
     to right, rgba(3, 77, 118, 1),
@@ -58,18 +48,18 @@ span{
   position: relative;
 }
 
-.logo_col{
-  position: relative;
-  z-index:0;
+.showcase_col--logo{
+   position: relative;
+   z-index:0;
    padding:0;
 }
 
-.logo{
+.showcase_container--logo img {
   width:80%;
   margin-left:12.5%;
 }
 
-.logo_container{
+.showcase_container--logo{
   z-index:99;
   position: relative;
   width:50%;
@@ -92,7 +82,6 @@ span{
 }
 
 /* End of Section 1*/
-/* Section 2: Text Banners*/
 
 .intro-text-container{
   width:80%;
@@ -118,14 +107,14 @@ span{
   margin-left:5%;
 }
 
-.cfs-heading{
+.showcase_heading{
   display: inline;
   padding:2%;
   font-size:6rem;
   background:#00103d;
 }
 
-.cfs-heading-container{
+.showcase_heading_container{
   padding:1%;
   margin-top:5%;
   font-family: "Montserrat",sans-serif;
@@ -139,11 +128,11 @@ span{
   text-align: left;
 }
 
-.cfs-heading-1{
+.showcase_heading--title{
   color:#38B6FF;
 }
 
-.cfs-heading-background--1{
+.showcase_heading-background--1{
   width:50%;
 }
 
@@ -152,9 +141,9 @@ span{
 }
 
 /* End of Section 2 */
-/*Section 3 Banners */
+/*Section 3 showcase_banner_row */
 
-.banners{
+.showcase_banner_row{
   margin-top:5%;
   position: absolute !important;
   width:100%;
@@ -214,13 +203,13 @@ span{
     height: 7.5vh !important;
   }
 
-  .banners{
+  .showcase_banner_row{
     top:115% !important;
     width: 100%;
     z-index: 1;
   }
 
-  .cfs-heading {
+  .showcase_heading {
     display: inline;
     width:120%;
     padding: 2% 7.5%;
@@ -286,10 +275,10 @@ span{
     height:105vh !important;
   }
 
-  .cfs-heading-background--1{
+  .showcase_heading-background--1{
     width:90%;
   }
-  .cfs-heading-background--2{
+  .showcase_heading-background--2{
     width:100% ;
   }
 
@@ -298,11 +287,11 @@ span{
     width:100%;
   }
 
-  .cfs-heading-container{
+  .showcase_heading_container{
     width:120%;
   }
 
-  .cfs-heading{
+  .showcase_heading{
     display: inline;
     box-sizing: border-box;
     font-size:2.5rem;
@@ -317,7 +306,7 @@ span{
     height:7.5vh;
   }
 
-  .banners{
+  .showcase_banner_row{
     margin-top:35%;
     top:70%;
   }
@@ -342,192 +331,3 @@ span{
   }
 
 }
-
-
-
-/* @media screen and (max-width:1000px) and (orientation:landscape){
-
-    .intro-text-container{
-      margin-top: -5% !important;
-    }
-    .banners{
-      margin-top:15% !important;
-    }
-    .logo_col{
-        width:33.3333333333% !important;
-        flex: 33.3333333333%;
-        max-width:33.3333333333% !important
-    }
-    .home_quote_container{
-      top: 240% !important;
-    }
-    .about_us{
-      margin-top: 140% !important;
-    }
-    .mobile-margin-top-neg{
-        margin-top: 30% !important;
-    }
-    .wavy_section{
-          margin-top: -10% !important;
-    }
-    nav{
-      background: #0069a4 !important
-    }
-
-    .showcase_client{
-        height: 100px !important;
-        margin-top: 30% !important;
-        position:relative;
-        bottom:30px;
-    }
-    .client_card{
-      width: 70% !important;
-      position:relative;
-      margin-left: 10% !important;
-    }
-    .client_row{
-      padding-top:15% !important;
-
-    }
-
-    .mobile_text_banner_out_client{
-      margin-left: 42.5% !important;
-      width: 100% !important;
-      margin-top:-5%;
-      position:relative;
-      bottom:30px;
-    }.contact_us_con{
-      margin-top:-2.5%;
-    }
-    .small_logo_img{
-      top: 7.5% !important;
-      position: absolute !important;
-
-    }
-    .logo_img{
-      top: 7.5% !important;
-      position: absolute !important;
-          margin-top: -15% !important;
-    }
-    .about-us-title{
-      position: absolute;
-    top: -7.5%;
-    left: 0%;
-    }
-    .supportbox{
-          margin-top: 5% !important;
-    }
-    .showimg{
-      margin-top: 40% !important;
-      width:50%;
-    }
-    .mobile-margin-top-20-neg{
-          margin-top: -40% !important;
-    }
-    .landscape-col-6{
-
-        width:50% !important;
-        max-width:50% !important;
-        flex: 50% !important;
-
-    }
-    .client_row{
-      width: 100% !important;
-    margin-left: -5% !important
-    }
-    .landscape-col-4{
-
-        width:33.333333333333333% !important;
-        max-width:33.33333333333% !important;
-        flex: 33.33333333333333% !important;
-
-    }
-}
-@media screen and (max-width:1000px){
-   .showcase_image{
-     height:600px !important;
-     width:100%;
-   }
-   .logo_container{
-     width: 95% !important;
-     margin-left: 5% !important;
-     margin-top: 0% !important
-   }
-   .text-container{
-     position: absolute !important;
-     width: 100% !important;
-     padding-bottom: 160% !important;
-     top: -5% !important;
-     height: 650px !important;
-    }
-   .banners{
-     margin-top: 20%;
-   }
-
-   .intro-text-container{
-     margin-top:15%;
-     top:120%;
-   }
-
-
-}
-
-@media screen and (max-width:1200px) and (min-width:800px) and (orientation:portrait){
-
-  .intro-text-container  {
-    margin-top:1% !important;
-
-  }
-  .banners{
-    margin-top: 5% !important
-  }
-  .home_quote_container{
-
-    top: 240%;
-
-  }
-  .about_us{
-        margin-top: 135% !important;
-  }
-  .mobile-text-center{
-    text-align:center !important;
-  }
-  .value_row{
-      padding-bottom:30% !important;
-  }
-  .client_row{
-    margin-top:5% !important;
-  }
-  .landscape-col-4{
-    margin-left: -7.5%;
-  }
-  .showcase_client{
-    height: 440px !important;
-  }
-  .about-us-title{
-    margin-left: -6% !important;
-    margin-top:-.5% !important;
-  }
-  #showid{
-        margin-top: 50% !important;
-  }
-  .about_container{
-
-    margin-top:55% !important
-  }
-  .link_about {
-  font-size:30px !important;
-  }
-  .value_row{
-    padding-bottom:.5% !important;
-  }
-  .quotesheet_container{
-    margin-top:50% !important
-  }
-  .meet_owners_container{
-    margin-top: 50% !important;
-  }
-  .mobile-background-white{
-    background:white !important;
-  }
- } */

@@ -2,31 +2,39 @@
 
   <div class="row">
 
-      <div class="col-4 logo_col">
+      <div class="col-4 showcase_col--logo">
 
-          <div class="logo_container " >
+          <div class="showcase_container--logo " >
             <img src = "./assets/images/logo.png" class="logo" />
           </div>
 
-          <div class="showcase_background">  </div>
+          <div class="showcase_container--background">  </div>
 
       </div>
 
   </div>
 
-      <div class="intro-text-container showcase_text_container">
+      <div class="intro-text-container showcase_container--text">
 
         <div class="showcase_text_inner_container">
-          <h1 class="cfs-heading-container">
-                <span class="cfs-heading cfs-heading-1"><%= showcase.heading_1 %></span>
+
+          <h1 class="showcase_heading_container">
+
+                <span class="showcase_heading showcase_heading--title"><%= showcase.heading_1 %></span>
+
                 <div class="brs"></div>
 
-                <span class="cfs-heading cfs-heading-2">
+                <span class="showcase_heading showcase_heading--subtitle">
+
                 <%= showcase.heading_2 %>
+
                 </span>
+
             </h1>
-            </div>
-        <div class="banners row relative">
+
+        </div>
+
+        <div class="showcase_banner_row row relative">
 
             <div class="col-12">
 
@@ -38,8 +46,10 @@
           </div>
 
         </div>
+
     </div>
 
-  
+
   <div class="showcase_number">480-822-0511</div>
+
 </div>

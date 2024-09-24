@@ -1,0 +1,122 @@
+a{
+  color:white !important;
+}
+
+body{
+  background:#0069a4;
+}
+
+label{
+  margin-top:2.5%;
+  font-family:"Akrobat";
+  font-size:17px;
+  margin-top:1.5%;
+  padding-top:2%;
+}
+
+html{
+  overflow-x: hidden;
+  font-size:62.5%;
+  box-sizing: border-box
+}
+
+th, td, tr{
+  font-family:"Akrobat";
+}
+
+td {
+  text-align: center;
+  border-left:1px solid black;
+}
+
+td span{
+  text-align: center;
+  display: block;
+}
+
+th{
+  text-align: center;
+}
+
+tr{
+  border-bottom:1px solid black;
+}
+
+table{
+  height:80vh
+  border:2px solid #e6e6e6;
+}
+
+@font-face { font-family: Akrobat; font-weight: normal; src: url('./../fonts/Akrobat-Black.otf'); }
+
+@font-face { font-family: Akrobat; font-weight: lighter; src: url('./../fonts/Akrobat-Light.otf'); }
+
+footer p, footer a, footer i {
+   font-family: "Akrobat";
+ }
+a {
+  text-decoration: none;
+  cursor: auto;
+}
+video{
+  overflow-y: hidden !important;
+}
+
+.no-style-button {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+ }
+
+
+ .no-style-button, .no-style-input[type="submit"] {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+	cursor: pointer;
+	outline: inherit;
+ }
+
+.btn{
+   color:white;
+ }
+
+.lock {
+  overflow-y:hidden;
+}
+
+.no-outline{
+  outline:none;
+}
+
+.no_default_style{
+  border:none;
+  -webkit-appearance: none;
+}
+
+.desktop_visible_only{
+  visibility: hidden;
+  height:0;
+  width:0;
+  opacity:0;
+}
+
+.visible {
+  visibility: visible;
+}
+
+.hidden{
+  visibility: hidden;
+}
+
+.ghost{
+  visibility: collapse;
+  opacity:0;
+  height:0px;
+}

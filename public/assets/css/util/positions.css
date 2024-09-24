@@ -1,0 +1,115 @@
+.max-z{
+  z-index:9999999999 !important;
+}
+
+.neg-z{
+  z-index:-999 !important;
+}
+
+.infinite-z{
+  z-index:999999999999999;
+}
+
+.float-left{
+  float:left;
+}
+
+.grid{
+  display: grid;
+}
+
+.clear{
+  clear:both;
+}
+
+.container-fluid{
+  padding:0%;
+}
+
+.right-20{
+  right:20%;
+}
+
+.float-right{
+  float:right;
+}
+
+.bottom-0{
+   bottom:0%;
+ }
+
+.left-0{
+   left: 0% ;
+ }
+
+.right-0{
+   right: 0% ;
+ }
+
+.super-max-z{
+  z-index:999999;
+}
+
+.min-z{
+  z-index:1 !important;
+}
+
+.relative{
+  position:relative;
+}
+
+.absolute{
+  position:absolute;
+}
+
+.negative-z{
+  z-index:-3;
+}
+
+.max-z{
+  z-index:9999;
+}
+
+.max-z{
+  z-index:999
+}
+
+.super-max-z{
+  z-index:999999;
+}
+
+.small-z{
+  z-index:5;
+}
+
+.max-z{
+  z-index:9999;
+}
+
+.infinite-z{
+  z-index:999999999999999 !important;
+}
+
+.z-99{
+  z-index:99;
+}
+
+.foreground{
+  position: relative;
+  z-index:99;
+}
+
+.background{
+  position: relative;
+  z-index:9;
+}
+
+#wrapper{
+  overflow-x:hidden;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9;
+  height: 100%;
+}

@@ -1,0 +1,39 @@
+.no-radius{
+  border-radius:0px
+}
+
+.height-100{
+  height:100%;
+}
+
+.width-50{
+  width:50%;
+}
+
+.width-100{
+  width:100%;
+}
+
+.border-radius-5px{
+  border-radius:5px
+}
+
+.rounded-border{
+  border-radius:20px;
+}
+
+.no-radius{
+  border-radius:0px
+}
+
+.height-100{
+  height:100%;
+}
+
+.border-radius-5px{
+  border-radius:5px;
+}
+
+#vid{
+  height:1200px;
+}

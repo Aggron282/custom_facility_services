@@ -4,6 +4,28 @@
   z-index:-99;
 }
 
+.background-modal{
+  background:#1B1742;
+}
+
+#mainModal{
+  width:100%;
+  height:100%;
+  position:absolute;
+  top:0%;
+  left:0%;
+  z-index:99999;
+  top:105%;
+}
+
+#hq{
+  position: absolute;
+  top:70%;
+  left:5%;
+  width:80%;
+}
+
+
 .modal_pos{
   top:2.5%;
   left:0%;
@@ -80,7 +102,7 @@
 }
 
 @media screen and (max-width:690px){
-  
+
   .modal_pos{
     top:5% !important;
   }

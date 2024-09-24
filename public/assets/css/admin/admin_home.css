@@ -1,13 +1,19 @@
+p{
+  font-family: "Akrobat";
+}
 
-.option_button:hover{
-  background:red !important;
+body{
+  background:white !important;
+}
+
+.container-fluid{
+  max-width: 100%;
 }
 
 .submit_user{
   background:white;
   border-color:white;
   color:#38B6FF;
-
 }
 
 .modal_show{
@@ -20,6 +26,7 @@
   padding:5%;
   height:250px
 }
+
 .schedule_text{
   font-style: 25px !important;
   font-family: "Akrobat";
@@ -48,13 +55,6 @@
 
 }
 
-.fav_icon{
-  filter:brightness(0);
-}
-.active_fav:hover{
-  filter:brightness(0) !important;
-
-}
 
 .modal_schedule{
   position:absolute;
@@ -74,10 +74,6 @@
   border-left:0px solid white;
   padding:2.5%;
   padding-bottom:5%
-}
-
-.fav_icon{
-  width:20px;height:20px
 }
 
 .modal_show{
@@ -160,14 +156,6 @@
   visibility: hidden;
 }
 
-.browser_count_container{
-  border-radius:0px;
-  border:2px solid #e6e6e6;
-  padding:5%;
-  height:250px;
-  border-left:0px solid white
-}
-
 .add_box_schedule{
   border:2px solid #e6e6e6;
   padding:2%;
@@ -208,42 +196,33 @@
   font-size:25px;
   margin-top:5%;
 }
+
 #addUser:hover{
   background:#38B6FF;
-
 }
+
 #addUser:hover p{
   color:white !important;
-
 }
+
 .add_box:hover p{
   color:white !important;
 }
+
 #addUser:hover img{
   filter:brightness(2);
 }
+
 .add_box{
   border:2px solid #e6e6e6;
   height:40vh;
 }
-
-
 
 .add_box_big{
   border:2px solid #e6e6e6;
   padding:10%;
 }
 
-.option_button{
-  position:absolute;
-  right:5%;
-  top:40%;
-  color:white;
-  border-radius:50%;
-  height:16px;
-  width:16px;
-  border:2px solid red
-}
 
 .inner_button{
   border-radius:50%;
@@ -274,54 +253,38 @@
   color:yellow
 }
 
-.active_option_button{
-  border-radius:50%;
-  height:8px;
-  width:8px;
-  margin-left:20%;
-  margin-top:20%;
-  background:white
-}
 
-.favorite_button{
-  position:absolute;
-  right:1%;
-  top:5%;
-}
-
-.favorite_button:hover{
-  filter:invert(58%) sepia(63%) saturate(3267%) hue-rotate(325deg) brightness(103%) contrast(107%);
-}
-
-.active_fav{
-  filter:invert(58%) sepia(63%) saturate(3267%) hue-rotate(325deg) brightness(103%) contrast(107%) !important;
-}
 .labor_name{
   color:#292929;
   font-size:15px;
   width:100%;
   padding-bottom:2.5%;
-
 }
+
 .add_box_big_active{
   color:white !important
 }
+
 .add_box_big_active p{
   color:white !important;
 }
+
 .add_box_schedule_inactive{
   color:black !important;
   opacity:.9;
   background:white !important;
 }
+
 .add_box_schedule_active{
   color:white !important;
   opacity:1;
   background:#38B6FF !important;
 }
+
 .add_box{
   box-shadow:0px 0px  10px rgba(0,0,0,.3);
 }
+
 .delete_quote_button{
   background:none;
   color:#FF5757;
@@ -369,9 +332,6 @@
   color:white;
 }
 
-.list_item_schedule{
-  margin-top:2.5%;
-}
 
 .height-30px{
   height:30px
@@ -428,10 +388,7 @@
   border-radius:none;
 }
 
+
 td{
   border-bottom:none !important;
-}
-
-.schedule_admin_container{
-  width:100%;
 }

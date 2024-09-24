@@ -1,0 +1,53 @@
+
+
+.about_us_link{
+  padding-top:2.5%;
+  font-family: "Akrobat";
+  text-align: center;
+  font-size:2.5rem;
+  color:white;
+}
+
+.about_us_button{
+  padding:2%;
+  width:90%;
+  text-align: center;
+  margin-top:10%;
+  margin-left:5%;
+  padding-left:5% ;
+  margin-top:2.5%;
+  position:relative;
+  z-index:9999
+}
+
+@media screen and (max-width:680px){
+
+ .banners{
+    margin-top:20% !important
+  }
+
+  .showcase_container {
+    background-position: -50% !important
+  }
+
+}
+
+@media screen and (orientation:portrait) and (min-width:600px) and (max-width:900px){
+
+  .banners{
+    top: 115% ;
+  }
+
+  .brs{
+    margin-top:7.5%;
+  }
+
+  .our_clients_text_banner{
+    width: 50% ;
+    background: none ;
+    font-size: 6rem ;
+    padding-left: 10% ;
+    border-bottom: 1px solid white;
+  }
+
+}

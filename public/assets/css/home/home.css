@@ -1,0 +1,54 @@
+.home_page{
+  padding-bottom:75%;
+}
+
+@media screen and (max-width:490px) and (orientation:portrait){
+
+  .form_col--inner{
+    width:100%;
+    max-width:100%;
+    flex:100%;
+  }
+
+  .desktop_only{
+    visibility: hidden;
+    height:0px;
+    width:0px;
+  }
+
+}
+
+@media screen and (max-width: 900px) and (min-width:600px) and (orientation: portrait) {
+
+  .about_us_link {
+    padding-top: 2.5%;
+    font-family: "Akrobat";
+    text-align: center;
+    font-size: 3rem;
+    color: white;
+  }
+
+  .no_col{
+    width:0% !important;
+    max-width:0% !important;
+    flex:0% !important
+  }
+
+}
+
+@media screen and (max-width:844px ) and (orientation:landscape){
+
+
+  .cfs-heading-container {
+    width:140% !important;
+  }
+
+  .cfs-heading{
+    font-size:4.5rem !important
+  }
+
+  .showcase_banner--2{
+    margin-top: 5%;
+  }
+
+}

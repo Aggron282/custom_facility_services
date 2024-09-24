@@ -1,0 +1,56 @@
+
+.meta_container{
+  padding:5%;
+  border-left:0px solid white
+}
+
+.meta_col{
+  margin-top:2.5%;
+
+}
+
+.meta_img{
+  width:100%;
+}
+.admin_text--data{
+  font-size:28px;
+}
+.meta_text{
+  font-size:20px;
+  text-align: center;
+  margin-top:5%;
+}
+
+.page_count_text{
+  text-align: center;
+  font-size: 30px;
+}
+
+.meta_col--root{
+  margin-top:2.5%;
+}
+
+.meta_text--root_subtitle{
+  text-align:center;
+  font-size:30px;
+  margin-top:15% ;
+  padding-top:2%;
+}
+
+.meta_text--root_views{
+  text-align:center;
+  font-size:20px;
+  margin-top:5%
+}
+
+.meta_text--root{
+  text-align:center;
+  font-size:25px;
+  margin-top:5
+}
+
+.meta_root_container{
+  box-shadow:0px 0px 5px rgba(0,0,0,.5) ;
+  color:white;
+  padding: 5% 0% 5% 0%;
+}

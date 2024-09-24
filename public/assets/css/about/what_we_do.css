@@ -1,0 +1,160 @@
+.what_we_do_container{
+  position:relative;
+  background-image:linear-gradient(to right,rgba(0, 35, 50, 1),
+  rgba(0, 35, 50, 1),
+  rgba(0, 35, 50, .7),rgba(0, 35, 50, .4)),
+  url('./../../images/what_we_do_new.png');
+  background-size:cover;
+  padding:10% 0;
+  padding-top:5%;
+}
+
+.what_we_do_description{
+  font-size:2rem;
+}
+
+.what_we_do_col{
+   padding-left:5%;
+}
+
+.what_we_do_title{
+  color:white;
+  font-size:7rem;
+  text-align:left;
+  font-family:"Akrobat";
+  font-weight:bold
+}
+
+.what_we_do_link{
+   border-bottom:orangered 1px solid;
+   padding-top:5%;
+   font-family:"Akrobat";
+   width:80%;
+   font-size:2rem;
+   color:white;
+   text-align:center;
+}
+
+.what_we_do_description{
+  color:white ;
+  text-align:left;
+  font-size: 2rem;
+  width:120%;
+  padding-top:5%;
+  font-family: "Montserrat";
+  font-weight: 300;
+}
+
+
+@media screen and (orientation:portrait) and (min-width:600px) and (max-width:900px){
+
+    .what_we_do_container{
+      background-position: center;
+      background-image: linear-gradient(to right,rgba(0, 35, 50, 1),rgba(0, 35, 50, 1),rgba(0, 35, 50, .8),rgba(0, 35, 50, .4)),url(./../images/what_we_do_new.png) !important;
+    }
+
+    .what_we_do_description{
+      width: 80%;
+      text-align: justify;
+    }
+
+    .what_we_do_col{
+      width:75% ;
+      max-width:75% ;
+      flex:75%;
+      margin-left: 5%;
+    }
+
+}
+
+@media screen and (max-width:680px){
+
+    .what_we_do_container{
+      margin-top:0%;
+      height:125vh !important;
+      background-image: linear-gradient(to bottom right,rgba(0, 35, 50, 1),rgba(0, 35, 50, 1),rgba(0, 35, 50, 1),rgba(0, 35, 50, .8),rgba(0, 35, 50, .7)),url("./../images/what_we_do_new.png");
+    }
+
+    .what_we_do_title{
+      font-size:3rem;
+      font-weight: 700;
+      font-family: "Montserrat";
+      text-align: justify;
+    }
+
+    .what_we_do_description{
+      font-size: 1.6rem !important;
+      text-align: justify;
+      width:80%;
+      font-family: "Montserrat";
+    }
+
+    .what_we_do_image{
+      width:140% !important;
+      height:100vh !important;
+    }
+
+    .what_we_do_link{
+      font-size:2rem !important;
+      letter-spacing:3px;
+      text-align: justify;
+      margin-left:25%;
+      width:50% !important;
+    }
+
+    .what_we_do_col{
+      padding:10%;
+    }
+
+    .what_we_do_image{
+      height:100rem !important;
+      width:100rem;
+    }
+
+    .what_we_do_inner{
+      position: absolute;
+      z-index:3;
+      top:0%;
+    }
+
+    .what_we_do_link {
+      font-size: 2rem !important;
+      letter-spacing: 3px;
+      text-align: center;
+      margin-left: 0% !important;
+      width: 40% !important;
+   }
+
+}
+
+@media screen and (min-width:601px) and (max-width:900px) and (orientation:landscape){
+
+
+      .what_we_do_container{
+        margin-top:-5% !important;
+      }
+
+      .what_we_do_description{
+        width: 150% !important;
+        font-size:1.8rem !important;
+      }
+
+      .what_we_do_col{
+        width:55% !important;
+        max-width: 55% !important;
+        flex:55% !important
+      }
+
+      .what_we_do_title{
+        width:100% !important;
+        font-size:2.5rem;
+      }
+
+      .link_col{
+        width:45% !important;
+        max-width:45% !important;
+        flex:45% !important;
+      }
+
+
+}

@@ -15,12 +15,14 @@ var counter = 0;
 var slides = ["left_","main_","right_"];
 
 
-
 function button_handler(e,counter_){
 
   var new_arr = move_array(counter,counter_);
+
   RemoveActiveButtonClass();
+
   e.target.classList.add("our_client_active_buttton");
+
   Carousel(new_arr,counter_);
 
 }
@@ -56,20 +58,21 @@ const RemoveActiveButtonClass =()=>{
 
 }
 
-
 const AddButtonEvents = () =>{
 
   for(var i =0; i < buttons.length;i++){
 
     buttons[i].addEventListener("click",(e)=>{
+
       var num = e.target.getAttribute("button_num");
+
       button_handler(e,num)
+
     });
 
   }
 
 }
-
 
 const Carousel = (new_arr,counter) => {
 
@@ -86,6 +89,5 @@ const Carousel = (new_arr,counter) => {
   }
 
 }
-
 
 AddButtonEvents();

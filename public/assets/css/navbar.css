@@ -7,7 +7,7 @@ a:hover p{
 }
 
 .navbar_custom{
-  background:  #0069a4 !important ;
+  background:  #0069a4 !important;
   cursor: pointer !important
 }
 
@@ -15,8 +15,9 @@ a:hover p{
   padding:1%;
   z-index: 99229;
   position: relative;
-  background:  #0069a4 !important ;
+  background:  #0069a4 !important;
 }
+
 .navbar_home{
   width:100%;
 }
@@ -37,7 +38,6 @@ a:hover p{
 }
 
 .button_img{
-/* filter: invert(23%) sepia(68%) saturate(968%) hue-rotate(167deg) brightness(97%) contrast(103%); */
   filter: invert(100) !important;
 }
 

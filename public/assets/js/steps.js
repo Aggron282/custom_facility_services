@@ -17,23 +17,21 @@ var throttle = 1;
 var isThrottle = true;
 
 
-// if(window.innerWidth <= 680){
-//   progress_container.innerHTML = "";
-// }
-
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
 
-
 function ToggleBubbleClass(remove,i){
+
   if(remove){
     bubbles[i].classList.remove("clean_bubble_active");
     lines[i].classList.remove("clean_line_active");
-  }else{
+  }
+  else{
     bubbles[i].classList.add("clean_bubble_active");
     lines[i].classList.add("clean_line_active");
   }
+
 }
 
 function GenerateBubbles(){
@@ -86,7 +84,7 @@ function GenerateBullet(){
 
     `
 
-return html;
+ return html;
 
 }
 
@@ -106,11 +104,13 @@ arrow_right.addEventListener("click", (event)=>{
 function ChangeCounter(increment){
 
   counter += increment;
+
   var length = bullets_el.length;
 
   if(counter < 0){
     counter = length;
-  }else if(counter > length){
+  }
+  else if(counter > length){
     counter = 0;
   }
 

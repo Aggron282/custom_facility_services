@@ -1,5 +1,6 @@
 const currentUrl = window.location.href;
 const tailend = getUrl(currentUrl);
+
 var t;
 
 function getUrl(url){
@@ -23,5 +24,7 @@ function GetRoot(){
   if(tailend == "schedule"){
     t = "Schedule Quote"
   }
+
   return t;
+
 }

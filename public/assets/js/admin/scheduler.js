@@ -9,7 +9,6 @@ var overlay_container = document.querySelector(".overlay_container");
 var delete_button = document.querySelector(".delete_schedule");
 var display = document.querySelector(".display_schedule");
 
-
 var person_id;
 var time_id;
 var schedule_id;
@@ -18,27 +17,31 @@ var day_id;
 var address;
 
 function RenderDisplay(name_of_job,address){
-  console.log(name_of_job,address);
+
   var name_of_job_ = name_of_job ? name_of_job : "";
   var address_ = address ? address : "";
 
   var html ;
 
   if(name_of_job_.length > 0 || address_.length > 0){
+
     html =(
-    `<h2 class="schedule_heading width-100 text-center">Name of Job</h2>
-    <br />
-    <p class="text-center schedule_text schedule_name"style="font-size:25px">${name_of_job_}</p>
-    <br />
-    <h2 class="schedule_heading width-100 text-center">Address</h2>
-    <br />
-    <p class="text-center schedule_text schedule_address"style="font-size:25px">${address_}</p>`
-)
-}else{
-  html = (
+      `<h2 class="schedule_heading width-100 text-center">Name of Job</h2>
+      <br />
+      <p class="text-center schedule_text schedule_name"style="font-size:25px">${name_of_job_}</p>
+      <br />
+      <h2 class="schedule_heading width-100 text-center">Address</h2>
+      <br />
+      <p class="text-center schedule_text schedule_address"style="font-size:25px">${address_}</p>`
+    );
+
+  }
+  else{
+
+    html = (
       `<div class="padding-2"><h2 class="schedule_heading width-100 text-center"style="margin-top:5%;color:black;font-size:25px">No Job Posted</h2>
       <p class="text-center schedule_text schedule_name"style="margin-top:15%;color:black;font-size:20px">Create New Schedule</p></div>`
-  )
+    )
 
 }
 
@@ -61,7 +64,6 @@ function AddToSubmitForms(){
     });
 
     delete_button.addEventListener("click", (e)=>{
-      console.log("s")
       Submit("delete");
     })
 
@@ -101,6 +103,7 @@ const RenderOverlay = (deleteIt,className)=>{
   }
 
   var html = document.getElementsByTagName("html");
+
   html[0].classList.add("freeze");
 
   window.scrollTo(0, 0);
@@ -131,10 +134,9 @@ const ShowScheduleModal = (e) => {
   var time_text = `<p class="font-30 text-center akrobat time_delta"> ${time}:00 AM - </p>`
 
   edit_modal.classList.add("modal_schedule_active");
-  console.log(day_id);
+
   SetId(person_id,time_id,schedule_id,day_id);
   RenderOverlay(false,"modal_schedule");
-
   RenderDisplay(name_of_job,address);
 
   time_el.innerHTML = ""

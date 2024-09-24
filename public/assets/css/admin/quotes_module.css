@@ -1,0 +1,77 @@
+.quote_display_container{
+  margin-top:2.5%;
+  padding:2%;
+  box-shadow:0px 0px 5px rgba(0,0,.5);
+  position: relative;
+  width:100%;
+}
+
+.quote_display_container--more{
+   border:#e6e6e6 1px;
+   padding:2%;
+   padding-top:2.5%;
+}
+
+.quote_display_text{
+  font-size:16px;
+}
+
+.quote_display_text--outside{
+  font-size:18px;
+}
+.quote_display_text--more{
+  font-size:20px;
+  color:white;
+  margin-top:2.5%;
+  text-align:center
+}
+
+.quote_display_container--favorite{
+  position:absolute;
+  right:1%;
+  top:5%;
+}
+
+.quote_display_container--favorite:hover{
+  filter:invert(58%) sepia(63%) saturate(3267%) hue-rotate(325deg) brightness(103%) contrast(107%);
+}
+
+.favorite--active{
+  filter:invert(58%) sepia(63%) saturate(3267%) hue-rotate(325deg) brightness(103%) contrast(107%) !important;
+}
+.favorite_icon{
+  filter:brightness(0);
+}
+.active_favorite:hover{
+  filter:brightness(0) !important;
+
+}
+
+.favorite_icon{
+  width:20px;height:20px
+}
+
+.quote_display_selector:hover{
+  background:red !important;
+}
+
+
+.quote_display_selector{
+  position:absolute;
+  right:5%;
+  top:40%;
+  color:white;
+  border-radius:50%;
+  height:16px;
+  width:16px;
+  border:2px solid red
+}
+
+.quote_display_selector--active{
+  border-radius:50%;
+  height:8px;
+  width:8px;
+  margin-left:20%;
+  margin-top:20%;
+  background:white
+}

@@ -1,0 +1,110 @@
+
+.mission_container{
+  position: relative;
+  padding-bottom:5%;
+  margin-top:5%;
+  text-align: justify !important;
+}
+
+.mission_text{
+  color:white;
+  text-align: center;
+  font-size:25px;
+  font-family: "Akrobat"
+}
+
+.mission_text--title{
+  font-size:40px;
+  font-weight:900;
+
+}
+
+@media screen and (min-width:601px) and (max-width:900px) and (orientation:landscape){
+
+  .mission_container{
+    padding-bottom: 0% !important;
+    margin-top: 0% !important;
+    text-align: justify !important;
+  }
+
+  .mission_col{
+    padding-bottom:10%;
+    padding-top:12.5%;
+    flex: 100% !important;
+    max-width: 100% !important;
+    width:  100% !important;
+  }
+
+  .mission_col--divider{
+    width:0% !important;
+    max-width:0% !important
+  }
+
+  .mission_text--title{
+    font-size:4rem !important
+  }
+
+  .mission_text--description{
+    font-size:2rem !important;
+  }
+
+
+}
+
+@media screen and (max-width:680px){
+  .about_container{
+    padding:5% 0;
+    padding-bottom:7.5%;
+    margin-top:5% !important;
+  }
+
+  .about_description{
+    text-align: justify;
+  }
+
+  .about_link_row{
+    margin-top:15%;
+  }
+}
+
+@media screen and (orientation:portrait) and (min-width:600px) and (max-width:900px){
+
+  .mission_container {
+    position: relative;
+    padding-bottom: 15%;
+    padding-top: 12.5%;
+    text-align: justify ;
+  }
+
+  .mission_col--divider{
+    width:0% ;
+    max-width:0%
+  }
+
+  .mission_col{
+    margin-left:5%;
+    flex: 90% ;
+    max-width: 90% ;
+    width:  90% ;
+  }
+
+  .mission_col--hidden{
+    visibility: hidden;
+    margin-top:22.5%
+  }
+
+  .mission_banner{
+    width:90% ;
+    margin-left:5%;
+    background: none ;
+    font-size: 6rem ;
+    border-bottom: 1.5px solid white;
+  }
+
+  .mission_col--divider{
+    width:8.33% ;
+    max-width:8.33% ;
+    flex:8.33% ;
+  }
+
+}

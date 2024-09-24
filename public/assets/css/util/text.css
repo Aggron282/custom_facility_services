@@ -1,0 +1,109 @@
+.medium-text{
+  font-size: 30px !important;
+}
+
+.stylized-black{
+  outline-color:black;
+  outline-width:2px;
+  letter-spacing:2px;
+  font-weight:normal;
+}
+
+.line-height-1_5{
+  line-height: 1.6;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.active{
+  font-weight: bold;
+}
+
+.light-font{
+  font-weight:lighter;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.text-banner {
+  color:white;
+  font-family: 'Akrobat';
+  text-align:center;
+  font-size:40px;
+  font-weight:bold;
+  padding:1%;
+  background:#00103d
+}
+
+.line-height-1{
+  line-height:1;
+}
+
+.bold-medium{
+  font-weight:medium;
+}
+
+.bold{
+  font-weight: bold;
+}
+
+.teko{
+  font-family:"Teko";
+}
+
+.text-center{
+  text-align:center;
+}
+
+.akrobat {
+  font-family: "Akrobat";
+}
+
+.italic{
+  font-style: italic;
+}
+
+
+.text-center{
+  text-align: center;
+}
+
+.active{
+  font-weight: bold;
+}
+
+.text-right{
+  text-align: right;
+}
+
+.light-font{
+  font-weight:lighter;
+}
+
+.text-left{
+  text-align: left;
+}
+
+.normal{
+  font-weight: normal;
+}
+
+.medium-font{
+  font-size:20px;
+}
+
+.letter-spacing-min{
+  letter-spacing:5px;
+}
+
+.monserrat{
+   font-family: "Montserrat";
+}
+
+.no-space{
+  letter-spacing: 0px;
+}

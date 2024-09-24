@@ -21,3 +21,9 @@
   position: relative;
   bottom:5px;
 }
+
+.admin_navbar_text{
+  color:white;
+  font-size:20px;
+  font-weight:300;
+}

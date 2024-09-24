@@ -4,24 +4,27 @@ var option_buttons = document.getElementsByClassName("option_button");
 var favorite_buttons = document.getElementsByClassName("favorite_button");
 var delete_button = document.querySelector(".delete_quote_button");
 var complete_button = document.querySelector(".complete_quote_button");
+
 const sendQuotes  = async (className,backend_url,frontend_url)=>{
-var interactable = complete_button.getAttribute("interactable");
-var r;
-complete_button = document.querySelector("."+className)
 
-  if(interactable == 1){
+  var interactable = complete_button.getAttribute("interactable");
+  var r;
 
-      r = await axios.post(`/admin/${backend_url}`,{quotes:quotes_to_be_deleted}, {
+  complete_button = document.querySelector("."+className)
 
-      headers: {
-        'Content-Type': 'application/x-www-form-urlencoded'
-      }
+    if(interactable == 1){
 
-    });
+        r = await axios.post(`/admin/${backend_url}`,{quotes:quotes_to_be_deleted}, {
 
-     window.location.assign(`/admin/${frontend_url}`);
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        }
 
-  }
+      });
+
+       window.location.assign(`/admin/${frontend_url}`);
+
+    }
 
 }
 
@@ -32,7 +35,8 @@ function MakeDeleteButtonVisible(){
     delete_button.classList.add("active_quote_button");
     delete_button.setAttribute("interactable",1);
 
-  }else{
+  }
+  else{
 
     delete_button.classList.remove("active_quote_button");
     delete_button.setAttribute("interactable",-1);
@@ -94,14 +98,14 @@ function ToggleDelete(element){
 
 function AddFavoriteEvents(){
 
-  for (var i = 0; i < favorite_buttons.length; i++)
-  {
+  for (var i = 0; i < favorite_buttons.length; i++){
 
     var isFav = favorite_buttons[i].getAttribute("isFav");
 
     if(isFav == "true"){
       favorite_buttons[i].classList.add("active_fav");
-    }else{
+    }
+    else{
       favorite_buttons[i].classList.remove("active_fav");
     }
 
@@ -113,7 +117,8 @@ function AddFavoriteEvents(){
 
         if(!isFav || isFav == "false" || isFav == false){
           toggle = true;
-        }else{
+        }
+        else{
           toggle = false;
         }
 
@@ -127,7 +132,8 @@ function AddFavoriteEvents(){
 
         if(toggle){
           e.target.classList.add("active_fav");
-        }else{
+        }
+        else{
           e.target.classList.remove("active_fav");
         }
 
@@ -159,6 +165,7 @@ function Init(){
 
     AddOptionEvents();
     AddFavoriteEvents();
+    
   }
 
 }

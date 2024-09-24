@@ -1,0 +1,50 @@
+.admin_container{
+  margin-top:5%;
+  box-shadow:0px 0px 5px rgba(0,0,0,.5);
+  padding-top:2.5%;
+  padding-bottom:2.5%;
+  width:100%;
+  padding:2%;
+
+}
+
+.admin_text--data{
+  font-weight: bold;
+  padding-left:2.5% ;
+  padding-top:5%;
+}
+
+.admin_text{
+  font-size:20px;
+  font-family: "Akrobat";
+}
+
+.admin_text--home{
+  margin-left:2.5%;
+  font-weight:bold;
+  margin-top:5%;
+}
+
+.admin_button--img{
+width:40px;
+}
+
+
+.admin_button_text{
+  display:inline;
+  height:30px;
+  font-size:20px;
+  color:white
+}
+
+.admin_container--quote_box{
+  margin-top:5%;
+  padding:10px;
+}
+
+.admin_text--total{
+  font-size:30px;
+}
+.admin_text--amount{
+  font-size:25px;
+}
