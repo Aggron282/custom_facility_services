@@ -1,0 +1,28 @@
+.why_us_img{
+  width:50%;
+  margin-left: 25%;
+}
+.why_us_text{
+  text-align: center;
+  color:white;
+  font-size:25px;
+  font-family: "Montserrat";
+  font-weight: 300;
+}
+
+.section_text{
+  font-size:65px;
+  text-align:center;
+  color:white;
+  font-family:'Teko';
+  font-size:200;
+  letter-spacing:2px;
+}
+
+
+.why_choose_us_container{
+  width:100%;
+  margin-top:5%;
+  padding-bottom:10%;
+  padding-top:5%;
+}

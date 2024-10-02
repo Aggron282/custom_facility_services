@@ -2,6 +2,99 @@
   padding-bottom:75%;
 }
 
+p , img{
+  animation: appear 1 ease-in .5s;
+}
+
+@keyframes appear{
+  0%{
+    opacity:0;
+    transform: translateY(5px);
+  }
+  100%{
+    opacity:1;
+    transform: translateY(0px);
+
+  }
+}
+
+.showcase_container--video{
+  margin-top:-5%;
+}
+
+.navbar_container{
+  position: absolute !important;
+}
+
+#showcase_vid{
+  height:100%;
+
+}
+.showcase_container--logo--special{
+  position: absolute;
+  width:100%;
+  top:5%;
+}
+
+.showcase_container--video{
+  height:130vh;
+}
+
+.showcase_container---video--overlay{
+  background:#0069a4;
+  animation:slow_fade 8s ease-in;
+  top: 0%;
+  width:100%;
+  opacity:.6;
+  height:130vh;
+  position:absolute;
+}
+
+@keyframes slow_fade {
+
+  0%{
+    opacity:0;
+  }
+  30%{
+    opacity:.3;
+  }
+  50%{
+    opacity:.5;
+  }
+  70%{
+    opacity:.8
+  }
+  100%{
+    opacity:.6
+  }
+
+}
+
+.special_text{
+  color:white;
+  text-align: center;
+  letter-spacing: 3px;
+  font-family: "Teko";
+
+}
+
+.special_text--title{
+  font-size:60px;
+  font-family: "Teko";
+  font-weight: normal;
+  letter-spacing: 4px;
+}
+
+.special_text--subtitle{
+  font-size:40px;
+}
+
+.showcase_container--logo--special img{
+  width:20%;
+  margin-top:10%;
+  margin-left:40%;
+}
+
 @media screen and (max-width:490px) and (orientation:portrait){
 
   .form_col--inner{

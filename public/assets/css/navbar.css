@@ -7,7 +7,6 @@ a:hover p{
 }
 
 .navbar_custom{
-  background:  #0069a4 !important;
   cursor: pointer !important
 }
 
@@ -15,7 +14,14 @@ a:hover p{
   padding:1%;
   z-index: 99229;
   position: relative;
-  background:  #0069a4 !important;
+  background:  #0069a4;
+}
+
+.showcase_navbar{
+  padding:1%;
+  z-index: 99229;
+  position: relative;
+  background:  transparent !important;
 }
 
 .navbar_home{

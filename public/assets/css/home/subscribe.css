@@ -1,0 +1,63 @@
+.subscribe_container{
+  background:white;
+  width:100%;
+  position: relative;
+  z-index:999;
+  overflow: hidden;
+}
+
+.subscribe_container--form{
+  padding:40px;
+  padding-bottom:10%;
+  padding-top:5%;
+  float: left;
+  width:50%;
+  background:white;
+
+  z-index:999;
+position: relative;
+}
+
+.subscribe_container--form .text_container{
+  font-size:20px;
+  font-family: "Montserrat"
+}
+
+.subscribe_container--form .text_container .title{
+  font-size:30px;
+}
+
+.subscribe_button{
+  background:black;
+  color:white;
+  border:none;
+  font-size:25px;
+  width:70%;
+  margin-top:5%;
+  font-weight:200;
+  font-family: "Montserrat"
+}
+
+.subscribe_container--graphic{
+  position: absolute;
+  width:80%;
+  right:-10%;
+  transform:skewX(-30deg);
+  background:url("./../../images/slant.png");
+  height:140%;
+  background-position: top;
+  transform: scaleX(-1);
+  top:-35%;
+  z-index:99;
+}
+
+#subscribe{
+  margin-top:5%;
+}
+
+ #subscribe input{
+  padding:25px;
+  font-size:20px;
+  width:70%;
+  font-family: "Montserrat"
+}

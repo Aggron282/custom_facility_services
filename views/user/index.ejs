@@ -1,49 +1,34 @@
 <%- include("./layout/head.ejs") %>
 
-  <div id="wrapper" class="<%=lock %> ">
 
-      <div class="modal_container_toggle"></div>
+  <div class="modal_container_toggle"></div>
 
-      <div class="container-fluid home_page" >
+    <div class="container-fluid home_page" >
 
-        <div class="row navbar_wrapper">
-            <div class="col-12 navbar_container"></div>
-        </div>
-
-        <div class="showcase_container">
-
-          <%- include("./layout/new_showcase.ejs") %>
-
-          <div class='margin-top-medium'>
-            <%- include("./layout/home/quote_form.ejs") %>
-          </div>
-
-        </div>
-
+      <div class="row navbar_wrapper">
+          <div class="col-12 navbar_container showcase_navbar"></div>
       </div>
 
-      <div class="container-fluid about_us_container">
-        <%- include("./layout/home/about.ejs")  %>
-        <%- include("./layout/home/new_our_clients.ejs") %>
-      </div>
+      <%- include("./layout/home/landing.ejs") %>
 
-      <%- include("./layout/home/contact.ejs") %>
+      <%- include("./layout/home/why_us.ejs") %>
 
-      <div class="gallery_home_container">
+      <%- include("./layout/home/values.ejs") %>
 
-        <%- include("./layout/home/gallery.ejs") %>
+      <%- include("./layout/home/client_slideshow.ejs") %>
 
-        <div class="footer_home_container">
-            <%- include("./layout/footer.ejs") %>
-        </div>
+      <%- include("./layout/home/subscribe.ejs") %>
 
-      </div>
+      <%- include("./layout/home/services.ejs") %>
 
-  </div>
+      <!-- <div style="position:relative;z-index:999999;margin-top:0%"> -->
+      <!-- </div> -->
+
+    </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.2/axios.min.js" integrity="sha512-b94Z6431JyXY14iSXwgzeZurHHRNkLt9d6bAHt7BZT38eqV+GyngIi/tVye4jBKPYQ2lBdRs0glww4fmpuLRwA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
 <script src = "./assets/js/submit_quote.js"></script>
 <script src = "./assets/js/our_clients.js"></script>
 
-  <%- include("./layout/end.ejs") %>
+<%- include("./layout/end.ejs") %>
