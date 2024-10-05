@@ -19,20 +19,26 @@
 
 .what_we_do_title{
   color:white;
-  font-size:7rem;
+  font-size:7.3rem;
   text-align:left;
-  font-family:"Akrobat";
+  letter-spacing: 4px;
+  font-family:"Teko";
   font-weight:bold
 }
 
 .what_we_do_link{
    border-bottom:orangered 1px solid;
    padding-top:5%;
-   font-family:"Akrobat";
+   font-family:"Montserrat";
    width:80%;
-   font-size:2rem;
+   font-size:1.6rem;
    color:white;
    text-align:center;
+   transition: all .3s;
+}
+
+.what_we_do_link:hover{
+  border-color:#38b6ff;
 }
 
 .what_we_do_description{

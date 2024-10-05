@@ -1,9 +1,9 @@
 
 .mission_container{
   position: relative;
-  padding-bottom:5%;
-  margin-top:5%;
   text-align: justify !important;
+  z-index: 9999;
+  background: #0069a4
 }
 
 .mission_col{

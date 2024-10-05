@@ -22,26 +22,6 @@
 .showcase_container{
   z-index: 99;
 }
-.why_choose_us_container{
-  position: relative;
-}
-
-.why_choose_us_container{
-  z-index:99;
-  position: relative;
-  overflow: hidden;
-  background:#0069a4;
-}
-
-.watermark {
-  width:70%;
-  animation: none;
-  opacity:.04;
-  position: absolute;
-  top:-30%;
-  left:-15%;
-  z-index:-3;
-}
 
 .company_values_container{
   z-index:2;
