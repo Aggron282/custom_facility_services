@@ -87,17 +87,21 @@ function AddEventsToPromises(){
 
 AddEventsToPromises();
 
-setInterval(()=>{
-  if(!manuallyChanged){
-    counter ++;
-    if(counter > promises.length){
-      counter = 0;
-    }
-    element_ = FindElement(counter);
-    SetPromise(element_);
-  }
-},5000)
+if(promise_elements.length > 0){
 
-setInterval(()=>{
-  manuallyChanged = false;
-},5000);
+  setInterval(()=>{
+    if(!manuallyChanged){
+      counter ++;
+      if(counter > promises.length){
+        counter = 0;
+      }
+      element_ = FindElement(counter);
+      SetPromise(element_);
+    }
+  },5000)
+
+  setInterval(()=>{
+    manuallyChanged = false;
+  },5000);
+
+}

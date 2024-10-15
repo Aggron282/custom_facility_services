@@ -2,9 +2,7 @@
   padding-bottom:75%;
 }
 
-p , img{
-  animation: appear 1 ease-in .5s;
-}
+
 
 @keyframes appear{
   0%{
@@ -29,7 +27,9 @@ p , img{
 #showcase_vid{
   height:100%;
 
+
 }
+
 .showcase_container--logo--special{
   position: absolute;
   width:100%;
@@ -38,34 +38,36 @@ p , img{
 
 .showcase_container--video{
   height:130vh;
+  animation: 1 ease-in blurit 1s;
 }
 
 .showcase_container---video--overlay{
   background:#0069a4;
-  animation:slow_fade 8s ease-in;
+  animation:slow_fade 3s ease-in;
   top: 0%;
   width:100%;
   opacity:.6;
   height:130vh;
   position:absolute;
 }
-
-@keyframes slow_fade {
-
+  @keyframes blurit{
   0%{
     opacity:0;
   }
-  30%{
-    opacity:.3;
-  }
-  50%{
-    opacity:.5;
-  }
-  70%{
-    opacity:.8
-  }
   100%{
-    opacity:.6
+      opacity:1;
+  }
+
+  }
+@keyframes slow_fade {
+  0%{
+    opacity:1;
+
+  }
+
+  100%{
+    opacity:.6;
+
   }
 
 }
@@ -93,6 +95,31 @@ p , img{
   width:20%;
   margin-top:10%;
   margin-left:40%;
+  animation:  logo_2 1s ease-in 1;
+
+}
+
+@keyframes logo_{
+  0%{
+    transform: rotate(30deg) translateY(100px);
+
+  }
+  50%{
+    transform: rotate(-30deg);
+  }
+  100%{
+      transform: rotate(0deg)  translateY(0px);
+  }
+}
+
+@keyframes logo_2{
+  0%{
+    transform: rotate(0deg) scale(0);
+  }
+
+  100%{
+    transform: rotate(1800deg) scale(1);
+  }
 }
 
 @media screen and (max-width:490px) and (orientation:portrait){
