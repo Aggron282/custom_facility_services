@@ -21,6 +21,7 @@
   },
   "homepage": "http://customfacilityservices.herokuapp.com",
   "scripts": {
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build",
+    "start": "node server.js"
   }
 }
