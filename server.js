@@ -20,7 +20,7 @@ app.use(admin_routes);
 
 app.set("view engine","ejs");
 
-db.MongoConnect(()=>{
+
 
   app.listen(port,async()=>{
     console.log(port);
@@ -54,5 +54,3 @@ db.MongoConnect(()=>{
     // console.log(GenerateSchedule(seperateByHours, numberOfJobs,days)[0].schedule[0])
     // console.log("Website is running on localhost:"+port);
   });
-
-});
