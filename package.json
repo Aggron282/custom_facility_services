@@ -19,8 +19,11 @@
     "path": "^0.12.7",
     "sequelize": "^6.28.0"
   },
-  "homepage": "http://customfacilityservices.herokuapp.com/home",
+  "homepage": "http://customfacilityservices.herokuapp.com/",
   "scripts": {
     "start": "node server.js"
-  }
+  },
+  "engines": {
+   "node": "12.11.1"
+   }
 }
