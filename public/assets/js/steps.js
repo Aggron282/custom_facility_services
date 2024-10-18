@@ -1,6 +1,6 @@
-var box = document.querySelector(".steps_box");
-var title = document.querySelector(".steps_title");
-var list = document.querySelector(".steps_list");
+var box = document.querySelector(".progress_clean_container--steps");
+var title = document.querySelector(".progress_clean_text--title");
+var list = document.querySelector(".progress_clean_list--steps");
 
 var progress_container = document.querySelector(".progress_container");
 
@@ -8,11 +8,11 @@ var progress_container = document.querySelector(".progress_container");
 var arrow_left = document.querySelector(".clean_arrow--left");
 var arrow_right = document.querySelector(".clean_arrow--right");
 
-var bubbles = document.getElementsByClassName("clean_bubble");
-var lines = document.getElementsByClassName("what_we_clean_line");
+var bubbles = document.getElementsByClassName("progress_clean_bubble");
+var lines = document.getElementsByClassName("progress_clean_container--line");
 
 var bullets_el = list.children;
-var counter = 0;
+var counter = 1;
 var throttle = 1;
 var isThrottle = true;
 
@@ -24,11 +24,11 @@ function delay(ms) {
 function ToggleBubbleClass(remove,i){
 
   if(remove){
-    bubbles[i].classList.remove("clean_bubble_active");
+    bubbles[i].classList.remove("progress_clean_bubble--active");
     lines[i].classList.remove("clean_line_active");
   }
   else{
-    bubbles[i].classList.add("clean_bubble_active");
+    bubbles[i].classList.add("progress_clean_bubble--active");
     lines[i].classList.add("clean_line_active");
   }
 
@@ -74,7 +74,7 @@ function GenerateBullet(){
 
   var html =
   `
-     <p class="steps_title slidein">${counter + 1}. ${steps_[counter].title} </p>
+     <p class="steps_title slidein">${counter}. ${steps_[counter].title} </p>
 
      <ul class="steps_list_ slidein">
       ${GenerateBullet()}
@@ -108,10 +108,10 @@ function ChangeCounter(increment){
   var length = bullets_el.length;
 
   if(counter < 0){
-    counter = length;
+    counter = length + 1;
   }
-  else if(counter > length){
-    counter = 0;
+  else if(counter > length + 1){
+    counter = 1;
   }
 
   ToggleSteps();
@@ -120,7 +120,7 @@ function ChangeCounter(increment){
 
 function ToggleSteps(){
 
-  var steps_box = document.querySelector(".steps_box");
+  var steps_box = document.querySelector(".progress_clean_container--steps");
 
   steps_box.innerHTML = GenerateSlide();
 

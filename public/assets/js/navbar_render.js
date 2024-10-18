@@ -25,7 +25,7 @@ var desktop_nav = `
       <p class="link_nav">Contact Us</p>
     </a>
 
-    <a class="col-2  nav_col sc_col nav_col--schedule" href="/#hq">
+    <a class="col-2  nav_col sc_col nav_col--schedule" href="/#subhere">
       <p class="link_nav">Free Quote</p>
     </a>
 

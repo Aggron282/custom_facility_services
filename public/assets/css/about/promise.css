@@ -23,7 +23,7 @@
 
 .promise_container--graphic{
   float: right;
-  width:50%;
+  width:60%;
   overflow: hidden;
   margin-top:10%;
 }
@@ -33,12 +33,11 @@
   background:rgba(56, 182, 255, 1);
   float: right;
   margin-right:10%;
-
   height:430px;
   width:430px;
   transform: rotateY(10deg);
   border:2px solid rgba(56, 182, 255, 1);
-  box-shadow:23px 0px 10px rgba(0,0,0,.5);
+  box-shadow:23px 0px 5px rgba(0,0,0,.5);
 }
 
 .promise_content_container{
@@ -67,6 +66,7 @@
 .promise_content_container .text_container{
   float: left;
   width:40%;
+
 }
 
 .promise_name--value{
@@ -136,7 +136,8 @@
 .promise_content_container .text_container p {
   color:white;
   font-size: 20px;
-  font-family: "Montserrat"
+  font-family: "Montserrat";
+  padding:20px;
 }
 
 .promise_content_container .text_container .title {

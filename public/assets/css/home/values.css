@@ -4,6 +4,7 @@
   position: relative;
   z-index:1;
   background: transparent;
+  padding-left: 10px;
 }
 
 .company_values_background{
@@ -34,10 +35,11 @@
   width:100%;
   padding:20px;
 }
-.
+
 .content_value_container--title{
   width:50%;
   position: absolute;
+  padding-left: 40px;
   bottom:45%;
 }
 
@@ -64,7 +66,7 @@
   position:absolute;
   width:60%;
    right:0%;
-   top:7.5%;
+   top:10%;
 }
 
 .content_value_text--subtitle{
@@ -117,6 +119,7 @@
 .value_detail_box img {
   width:50%;
   margin-left: 25%;
+  filter: invert(18%) sepia(45%) saturate(4799%) hue-rotate(186deg) brightness(97%) contrast(98%);
 }
 
 .value_detail_box{
@@ -136,3 +139,5 @@
   letter-spacing: 4px;
   font-family: "Teko";
 }
+
+.

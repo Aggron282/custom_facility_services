@@ -10,6 +10,18 @@
   margin-top:10%;
 }
 
+.steps_list_{
+  color:white;
+  font-size:20px;
+}
+.progress_clean_bubble--active{
+  border-radius: 50%;
+}
+.steps_title {
+  color:white !important;
+  font-family: "Teko" !important;
+  font-size:25px !important;
+}
 .progress_clean_divider--line{
   width:100%;
   height:1px;
@@ -99,7 +111,7 @@
 
 .progress_clean_bubble--active .progress_clean_text--bubble{
   opacity:1 !important;
-  color:black !important;
+  color:#0069a4 !important;
 }
 
 .progress_clean_bubble--active{
@@ -129,7 +141,9 @@
 
 .clean_arrow--left{
   left:0;
+  transform: rotate(90deg) !important;
 }
+
 
 .clean_arrow_fade{
   opacity:.5;
