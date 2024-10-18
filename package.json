@@ -22,5 +22,9 @@
   "homepage": "http://customfacilityservices.herokuapp.com/",
   "scripts": {
     "start": "node server.js"
+  },
+  "engines":{
+    "node":"20.15.1",
+    "npm":"10.7.0"
   }
 }
