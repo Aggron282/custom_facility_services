@@ -19,7 +19,7 @@
     "path": "^0.12.7",
     "sequelize": "^6.28.0"
   },
-  "homepage": "https://e-commerce-store-cd5f40a83842.herokuapp.com/",
+  "homepage": "http://customfacilityservices.herokuapp.com",
   "scripts": {
     "deploy": "gh-pages -d build"
   }
