@@ -19,9 +19,8 @@
     "path": "^0.12.7",
     "sequelize": "^6.28.0"
   },
-  "homepage": "http://customfacilityservices.herokuapp.com",
+  "homepage": "http://customfacilityservices.herokuapp.com/home",
   "scripts": {
-    "deploy": "gh-pages -d build",
     "start": "node server.js"
   }
 }
