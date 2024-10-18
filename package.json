@@ -20,10 +20,10 @@
     "sequelize": "^6.28.0"
   },
   "homepage": "http://customfacilityservices.herokuapp.com/",
+  "engines": {
+   "node": "^20.15.1"
+  },
   "scripts": {
     "start": "node server.js"
   },
-  "engines": {
-   "node": "20.15.1"
-   }
 }
