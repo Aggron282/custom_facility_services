@@ -23,7 +23,7 @@ app.set("view engine","ejs");
 db.MongoConnect(()=>{
 
   app.listen(port,async()=>{
-    
+    console.log(port);
 
 
     // var days = ["Monday","Tuesday","Wendsday","Thursday","Friday","Saturday","Sunday"];
