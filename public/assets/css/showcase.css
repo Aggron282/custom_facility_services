@@ -187,10 +187,15 @@
 /* IPad Portrait */
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
 
+  body{
+    overflow-x:none !important;
+  }
+
   .showcase_container{
     margin-top: 2.5% !important;
-    height:70vh;
+    height:100vh;
   }
+
   .intro-text-container {
     width: 100%;
     margin-top: 0%;

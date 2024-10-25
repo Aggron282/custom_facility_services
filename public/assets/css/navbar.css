@@ -58,9 +58,7 @@ a:hover p{
 
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
 
-  body{
-    overflow-x:none !important;
-  }
+
 
   .navbar_wrapper{
     padding:0 5%;
