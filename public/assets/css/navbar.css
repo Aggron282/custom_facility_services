@@ -92,7 +92,8 @@ a:hover p{
   }
 
   .link_nav--title{
-    font-size:1.5rem;
+    font-size:2rem;
+    font-family:"Teko";
     font-weight:600;
   }
   .no_col{
