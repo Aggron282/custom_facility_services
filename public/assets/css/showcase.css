@@ -198,7 +198,8 @@
   }
 
   .showcase_background{
-  height:80vh;
+    height:80vh;
+    opacity:.6;
   }
 
   .showcase_container{
