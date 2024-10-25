@@ -191,9 +191,13 @@
     overflow-x:none !important;
   }
 
+  #showcase_vid{
+    width:100vw;
+  }
+
   .showcase_container{
     margin-top: 2.5% !important;
-    height:100vh;
+    height:80vh;
   }
 
   .intro-text-container {
