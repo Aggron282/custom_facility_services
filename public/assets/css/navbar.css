@@ -54,12 +54,6 @@ a:hover p{
 
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
 
-  .navbar_custom {
-    margin-top: 2.5%;
-    padding: 0 1;
-    height: 3rem;
-    background: #0069a4 !important;
-  }
 
   .navbar_wrapper{
     padding:0 5%;
@@ -82,7 +76,7 @@ a:hover p{
   }
 
   .link_nav{
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin-left: 10%;
     text-align: center;
     z-index:9999;
