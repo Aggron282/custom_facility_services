@@ -92,8 +92,13 @@ a:hover p{
   }
 
   .link_nav--title{
-    font-size:1.5rem;
+    font-size:2rem;
     font-weight:600;
+  }
+  .no_col{
+    width:0%;
+    flex:0%;
+    max-width:0%;
   }
 
 }
