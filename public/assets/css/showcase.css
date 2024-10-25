@@ -187,15 +187,7 @@
 /* IPad Portrait */
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
 
-  body{
-    overflow-x:none !important;
-  }
 
-  #showcase_vid{
-    width:100vw;
-    height:100vh;
-    visibility: hidden;
-  }
 
   .showcase_background{
     height:90vh;

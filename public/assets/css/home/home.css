@@ -77,9 +77,17 @@
   }
 
   .showcase_container--logo--special{
-    top:15%;
+    top:20%;
   }
 
+  body{
+    overflow-x:none !important;
+  }
+
+  #showcase_vid{
+    width:100vw;
+    height:100vh;
+  }
 }
 
   @keyframes blurit{
