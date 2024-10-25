@@ -65,13 +65,23 @@
 }
 
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
-.showcase_container---video--overlay{
-  animation:none;
-  opacity:.5;
-  height:100vh;
-}
+
+  .showcase_container---video--overlay{
+    animation:none;
+    opacity:.5;
+    height:100vh;
+  }
+
+  #showcase_number{
+    top:15%;
+  }
+
+  .showcase_container--logo--special{
+    top:12.5%;
+  }
 
 }
+
   @keyframes blurit{
   0%{
     opacity:0;
