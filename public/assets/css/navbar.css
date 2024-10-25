@@ -59,8 +59,9 @@ a:hover p{
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
 
   body{
-    overflow-x:none;
+    overflow-x:none !important;
   }
+
   .navbar_wrapper{
     padding:0 5%;
   }
@@ -96,8 +97,9 @@ a:hover p{
   .link_nav--title{
     font-size:2rem;
     width:130%;
+    margin-left:-5px;
     font-family:"Teko";
-    font-weight:600;
+    font-weight:200;
   }
   .no_col{
     width:0%;
