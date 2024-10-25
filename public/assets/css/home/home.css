@@ -78,6 +78,7 @@
 
   .showcase_container--logo--special{
     top:20%;
+    margin-top:10%;
   }
 
   body{
@@ -88,6 +89,7 @@
     width:100vw;
     height:100vh;
   }
+
 }
 
   @keyframes blurit{
