@@ -194,15 +194,16 @@
   #showcase_vid{
     width:100vw;
     height:100vh;
+    visibility: hidden;
   }
 
   .showcase_background{
-  height:90vh;
+  height:80vh;
   }
 
   .showcase_container{
     margin-top: 2.5% !important;
-    height:90vh;
+    height:80vh;
   }
 
   .intro-text-container {
