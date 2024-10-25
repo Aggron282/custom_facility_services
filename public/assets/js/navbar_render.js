@@ -109,7 +109,7 @@ function NavClick(){
 
 function Init(){
 
-  if(width >= 690){
+  if(width > 690){
 
     navbar_element.innerHTML = desktop_nav;
 
