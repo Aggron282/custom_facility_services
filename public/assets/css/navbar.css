@@ -88,11 +88,12 @@ a:hover p{
   }
 
   .navbar_custom{
-    padding-top:1.5%;
+    padding-top:2.5%;
   }
 
   .link_nav--title{
-    font-size:1.5rem;
+    font-size:1.7rem;
+    font-weight:600;
   }
 
 }
