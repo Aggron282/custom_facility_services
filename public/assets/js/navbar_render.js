@@ -8,7 +8,7 @@ var desktop_nav = `
   <div class="row navbar_custom">
 
     <div class="col-3">
-      <p class="link_nav"style="margin-left:10%;position:relative"> Custom Facility Service</p>
+      <p class="link_nav link_nav--title"> Custom Facility Service</p>
     </div>
 
     <div class="col-1 no_col"></div>
