@@ -63,6 +63,15 @@
   height:130vh;
   position:absolute;
 }
+
+@media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
+.showcase_container---video--overlay{
+  animation:none;
+  opacity:.5;
+  height:90vh;
+}
+
+}
   @keyframes blurit{
   0%{
     opacity:0;
