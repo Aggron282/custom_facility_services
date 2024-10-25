@@ -39,8 +39,6 @@
 
 #showcase_vid{
   height:100%;
-
-
 }
 
 .showcase_container--logo--special{
@@ -72,13 +70,20 @@
     height:100vh;
   }
 
+  .showcase_container--logo--special img{
+    width:40%;
+    margin-top:10%;
+    margin-left:20%;
+    animation:  logo_2 1s ease-in 1;
+  }
+
   #showcase_number{
     top:15%;
   }
 
   .showcase_container--logo--special{
     top:20%;
-    margin-top:10%;
+    margin-top:5%;
   }
 
   body{
