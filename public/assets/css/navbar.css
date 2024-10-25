@@ -95,6 +95,7 @@ a:hover p{
 
   .link_nav--title{
     font-size:2rem;
+    width:130%;
     font-family:"Teko";
     font-weight:600;
   }
