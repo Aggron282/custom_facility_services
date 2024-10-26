@@ -77,3 +77,11 @@
   z-index:9;
   position: relative;
 }
+
+@media screen and (min-width:700px) and (max-width:900px) and (orientation:portrait){
+  .who_we_serve_container{
+    height:100vh;
+    background:linear-gradient( to bottom, rgba(0, 105, 164, 1),rgba(0, 105, 164, 1), rgba(0, 105, 164, .5) );
+  }
+
+}
