@@ -174,7 +174,7 @@
   .promise_content_container .text_container{
     width:100%;
     position: absolute;
-    top:70%;
+    top:100%;
   }
   .promise_content_container .text_container .title {
     width:100%;
