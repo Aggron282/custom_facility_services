@@ -140,4 +140,9 @@
   font-family: "Teko";
 }
 
-.
+@media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
+  .company_values_background{
+    z-index: 3;
+    height: 160vh;
+  }
+}
