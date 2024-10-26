@@ -180,6 +180,9 @@
     width:100%;
 
   }
+  .promise_container{
+    height:100vh;
+  }
   .promise_container--graphic{
     position: absolute;
     width:80%;
