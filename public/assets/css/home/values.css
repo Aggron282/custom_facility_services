@@ -147,9 +147,13 @@
   }
 
   .value_detail_col{
-    width:33.33%;
-    max-width: 33.33%;
-    flex:33%;
+    width:25%;
+    max-width:25%;
+    flex:25%;
+  }
+
+  .value_detail_row{
+    margin-top:5%;
   }
 
   .content_value_container--title{
