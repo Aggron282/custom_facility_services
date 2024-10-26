@@ -164,7 +164,9 @@
   position: relative;
   bottom:5rem;
 }
-
+*{
+  box-sizing: border-box;
+}
 /* End of Section 3 */
 /* Section 4: Phone Number */
 .showcase_number{
@@ -194,7 +196,7 @@
   }
 
   .showcase_container{
-    margin-top: 5% !important;
+    padding-top: 5% !important;
     height:90vh;
   }
 
