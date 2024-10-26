@@ -100,7 +100,11 @@
 
   .client_slideshow_container--box{
     width:65%;
-    height:20%;
+    height:70%;
+  }
+
+  .client_slideshow_container{
+    height:80vh;
   }
 
 }
