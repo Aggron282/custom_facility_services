@@ -49,8 +49,10 @@
 }
 
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
-.why_choose_us_container{
-  padding-top:5%;
-  padding-bottom:5%;
-}
+
+  .why_choose_us_container{
+    padding-top:15%;
+    padding-bottom:15%;
+  }
+
 }
