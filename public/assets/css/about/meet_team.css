@@ -109,6 +109,9 @@
     float:left;
     width:70%;
   }
+  .img_wrapper img{
+    margin-left:25%;
+  }
 
   .text_wrapper{
     padding:20px;
