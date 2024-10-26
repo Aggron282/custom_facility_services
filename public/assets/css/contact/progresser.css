@@ -188,6 +188,8 @@
   .progress_clean_container--line{
     margin-left: 4%;
     float:left;
+    width:50px;
+    height:2px;
   }
 
   .progress_clean_bubble{
