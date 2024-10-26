@@ -172,4 +172,12 @@
     font-size:24px;
   }
 
+  .value_banner{
+    background: #38b6ff;
+    height:55px;
+    position:absolute;
+    width:90%;
+    left:0%;
+    top:40%;
+  }
 }
