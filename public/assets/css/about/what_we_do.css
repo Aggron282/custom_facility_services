@@ -168,7 +168,8 @@
 @media screen and (orientation:portrait) and (min-width:700px) and (max-width:900px){
 .what_we_do_title{
   font-size:5rem;
-  letter-spacing: 1px;
+  font-weight: 200;
+  letter-spacing: 0px;
 
 }
 }
