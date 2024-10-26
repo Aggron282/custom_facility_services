@@ -97,3 +97,17 @@
   font-weight:300;
   font-size:16px;
 }
+
+@media screen and (min-width:601px) and (max-width:900px) and (orientation:landscape){
+
+  .meet_team_container--overlay{
+    position: absolute;
+    background: linear-gradient(to bottom, rgba(3, 77, 118, .5),rgba(3, 77, 118, 1),rgba(3, 77, 118, 1),rgba(3, 77, 118, 1)), url("./../../images/ceo_b.png");
+  }
+
+  .img_wrapper{
+    float:left;
+    width:70%;
+  }
+
+}
