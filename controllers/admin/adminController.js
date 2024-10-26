@@ -5,6 +5,13 @@ var rootDir = require("./../../util/path.js");
 var Schedule = require("./../../data/schedule.js");
 var Meta = require("./../../data/meta.js");
 var Labor = require("./../../data/labor.js");
+var Prospects = require("./../../models/prospects.js");
+
+const nodemailer = require("nodemailer");
+const sendgridTransport = require("nodemailer-sendgrid-transport");
+const auth_config = require('/util/nodemailer.js');
+const transport = nodemailer.createTransport(sendgridTranspor(auth_config));
+
 var utility = require("./admin_utility.js");
 
 var brow = {
@@ -162,6 +169,13 @@ const CompletedQuotes = (req,res,next) => {
 
 }
 
+const Subscribe = (req,res,next) => {
+  var body = req.body;
+  var new_prospect = new Prospect(body.name,body.email);
+  new_prospect.save();
+  res.redirect("/")
+}
+
 exports.DeleteQuotes = DeleteQuotes;
 exports.GetIndexPage = GetIndexPage;
 exports.RootCount = RootCount;
@@ -173,3 +187,4 @@ exports.CompleteQuotes = CompleteQuotes;
 exports.GetQuotePage = GetQuotePage;
 exports.AddBrowserView = AddBrowserView;
 exports.MakeFavorite = MakeFavorite;
+exports.Subscribe = Subscribe;
