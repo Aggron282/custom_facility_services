@@ -150,5 +150,12 @@
     width:100%;
     position: relative;
   }
+  .content_value_container--value{
+    float:left;
+    top:0%;
+    width:80%;
+    position: relative;
+    z-index:99;
+  }
 
 }
