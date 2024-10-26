@@ -205,5 +205,7 @@
     transition: .4s all;
     border: 5px solid transparent;
   }
-
+  .promise_name--right{
+    float:left;
+  }
 }
