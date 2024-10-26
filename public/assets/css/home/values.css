@@ -143,6 +143,12 @@
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
   .company_values_background{
     z-index: 3;
-    height: 160vh;
+    height: 180vh;
   }
+
+  .content_value_container--title{
+    width:100%;
+    position: relative;
+  }
+
 }
