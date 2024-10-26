@@ -179,7 +179,7 @@
 
 }
 
-@media screen and (max-width:1100px) and (min-width:600px) and (orientation:portrait){
+@media screen and (max-width:1100px) and (min-width:700px) and (orientation:portrait){
 
   .progress_clean_row{
     margin-top:10%;
@@ -187,11 +187,13 @@
 
   .progress_clean_container--line{
     margin-left: 4%;
+    float:left;
   }
 
   .progress_clean_bubble{
-    height:3rem;
-    width:3rem;
+    height:5rem;
+    float:left;
+    width:5rem;
   }
 
   .progress_clean_bubble p{
