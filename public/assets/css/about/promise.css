@@ -174,7 +174,7 @@
   .promise_content_container .text_container{
     width:100%;
     position: absolute;
-    top:30%;
+    top:50%;
   }
   .promise_content_container .text_container .title {
     width:100%;
@@ -186,6 +186,7 @@
   .promise_container--graphic{
     position: absolute;
     width:80%;
+    left:7.5%;
     top:10%
   }
 }
