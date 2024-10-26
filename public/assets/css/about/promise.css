@@ -170,8 +170,13 @@
 
 
 @media screen and (orientation:portrait) and (min-width:700px) and (max-width:900px){
+
+  .promise_content_container .text_container{
+    width:100%;
+
+  }
   .promise_content_container .text_container .title {
     width:100%;
-    
+
   }
 }
