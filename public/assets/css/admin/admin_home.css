@@ -5,6 +5,33 @@ p{
 body{
   background:white !important;
 }
+.subscribed--contact{
+  font-family: "Teko";
+  color:orange;
+  font-weight: 200;
+  font-size:40px;
+}
+.subscribed--subscribed{
+  font-family: "Teko";
+  color:grey;
+  font-weight: 200;
+
+  font-size:40px;
+}
+.subscribed--completed{
+  font-family: "Teko";
+  color:azure;
+  font-weight: 200;
+
+  font-size:40px;
+}
+.subscribed--quoted{
+  font-family: "Teko";
+  color:limegreen;
+  font-size:40px;
+  font-weight: 200;
+
+}
 
 .container-fluid{
   max-width: 100%;

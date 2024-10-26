@@ -1,7 +1,8 @@
 var express = require("express");
 var path = require("path");
 var rootDir = require("./../../util/path.js");
-
+var mongoose= require("mongoose");
+var ObjectId = mongoose.Types.ObjectId;
 var Schedule = require("./../../data/schedule.js");
 var Meta = require("./../../data/meta.js");
 var Labor = require("./../../data/labor.js");
@@ -39,6 +40,44 @@ var data_rendered_to_page = {
 
 }
 
+const AddProspectDetails = async (req,res,next)=>{
+  var body = req.body;
+  console.log(body);
+  var found_prospect = await Prospect.findOne({_id:new ObjectId(body._id)});
+
+  if(found_prospect){
+
+    var new_prospect = {...found_prospect};
+
+    if(!new_prospect.quote){
+      new_prospect.quote = body.quote > 0 ? body.quote : new_prospect.quote;
+    }
+    else{
+      new_prospect.address = body.address.length > 0 ? body.address : new_prospect.address;
+    }
+    if(!new_prospect.address){
+      new_prospect.address = body.address;
+    }
+    else{
+      new_prospect.address = body.address.length > 0 ? body.address : new_prospect.address;
+    }
+    if(!new_prospect.schedule){
+      new_prospect.schedule = body.schedule_date;
+    }
+    else{
+      new_prospect.schedule = body.schedule_date.length > 0 ? body.schedule_date : new_prospect.schedule;
+    }
+    var update = { $set: { quote: new_prospect.quote, schedule:new_prospect.schedule, address:new_prospect.address } }
+
+    const exec = await Prospect.findOneAndUpdate({_id:new ObjectId(body._id)},update);
+    console.log(exec);
+    res.json(true);
+  }
+  else{
+    res.json(false);
+  }
+
+}
 
 const EditSchedule = async (req,res,next) => {
 
@@ -221,6 +260,7 @@ const Subscribe = async (req,res,next) => {
 
 }
 
+exports.AddProspectDetails = AddProspectDetails;
 exports.DeleteQuotes = DeleteQuotes;
 exports.GetIndexPage = GetIndexPage;
 exports.RootCount = RootCount;

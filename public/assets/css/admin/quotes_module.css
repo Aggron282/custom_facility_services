@@ -1,6 +1,7 @@
 .quote_display_container{
-  margin-top:2.5%;
-  padding:2%;
+  margin-top:10px;
+  padding:20px;
+  padding-top:10px;
   box-shadow:0px 0px 5px rgba(0,0,.5);
   position: relative;
   width:100%;
@@ -27,10 +28,14 @@ body p {
 .complete_quote_button{
   width:100%;
 }
-
+.admin_text{
+  position:relative;
+  z-index: 9;
+}
 .quote_display_text{
   font-size:16px;
-  font-family: "Montserrat"
+  font-family: "Montserrat";
+
 }
 
 .quote_display_text--outside{

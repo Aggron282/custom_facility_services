@@ -1,0 +1,68 @@
+.quote_detail_modal{
+  width:100%;
+  transition: all .4s;
+  padding-top:20px;
+  position: relative;
+  overflow: hidden;
+  padding-bottom:20px;
+}
+
+.updated_banner{
+  width:100%;
+  position: absolute;
+  z-index:999;
+  background: white;
+  top:0%;
+  text-align: center;
+  font-size:16px;
+  padding:10px;
+  box-shadow:0px 0px 10px rgba(0,0,0,.5);
+  transition: all .4s;
+  transform: translateY(-10px);
+  opacity:0;
+}
+.form_detail_button{
+  color:white;
+  font-size:20px;
+}
+.updated_banner--updated{
+  transform: translateY(60px);
+  opacity:1;
+}
+.form_detail_button{
+  margin-top:2.5%;
+}
+
+.quote_detail_modal--inactive *{
+  visibility: hidden;
+  opacity:0;
+  width:0px;
+  transform:translateY(-10px);
+  height:0px;
+}
+
+.quote_detail_modal--active *{
+  opacity:1;
+}
+
+.quote_detail_modal--active {
+  transform:translateY(0px);
+}
+
+.form_detail_button{
+  width:50%;
+  height:40px;
+  background:black;
+  color:white;
+  margin-left:25%;
+}
+
+.quote_detail_input{
+  height:40px;
+  font-size:20px;
+}
+
+label{
+  font-size:20px !important;
+  font-family: "Montserrat";
+}

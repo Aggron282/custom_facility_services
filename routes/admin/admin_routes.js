@@ -10,6 +10,7 @@ router.get("/admin/schedule",adminController.ShowSchedule);
 
 router.post("/admin/edit/schedule",adminController.EditSchedule);
 router.post("/admin/edit/delete",adminController.DeleteSchedule);
+router.post("/admin/prospect/details",adminController.AddProspectDetails);
 
 router.post("/admin/favorite",adminController.MakeFavorite);
 router.post("/admin/browser",adminController.AddBrowserView);

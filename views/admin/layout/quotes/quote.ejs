@@ -1,16 +1,16 @@
 <ul class="quote_display_container margin-top-5">
-
       <% var prospects = path == "/admin/home"  ? limited_prospects : prospects %>
-      <% console.log(prospects) %>
+
       <% if (prospects.length <= 0) {%>
           <p> No Quotes Yet..</p>
       <% }else{ %>
 
         <% for (let prospect of prospects){%>
+
+
           <% var status = {name:"Subscribed",style:"subscribed--status"} %>
 
-          <% console.log(prospect) %>
-          <% if(prospect.status > 0 && prospect.status < 2 || prospect.status >= 1 && !prospect.quote || !prospect.schedule){%>
+          <% if(prospect.status > 0 && prospect.status < 2 || prospect.status >= 1 && !prospect.quote && !prospect.schedule){%>
             <% status.name = "In Contact" %>
             <% status.style = "subscribed--contact" %>
           <%}else if (prospect.status >= 1 && prospect.status < 2){%>
@@ -24,7 +24,10 @@
             <% status.style = "subscribed--completed" %>
           <%}%>
 
-          <li class="quote_display_container row no-shadow" quote_id = <%= prospect._id %>>
+          <div class="quote_display_container row no-shadow" quote_id = <%= prospect._id %>>
+            <div class="updated_banner"> Updated Client </div>
+            <%- include("./quote_menu.ejs") %>
+            <%- include("./quote_detail_modal.ejs") %>
             <div class="col-12">
               <p class="admin_text admin_text--quote"> <%= "Date Created: "+prospect.time_created.toString().split('(')[0] %></p>
             </div>
@@ -34,14 +37,34 @@
               <div class="col-12">
                 <p class="admin_text admin_text--quote"> <%= "Email: "+prospect.email %></p>
               </div>
+              <% if(prospect.quote) {%>
+                <div class="col-6">
+                  <p class="admin_text admin_text--quote"> <%= "Quote: "+prospect.quote %></p>
+                </div>
+              <%}%>
+              <% if(prospect.phone_number) {%>
+                <div class="col-6">
+                  <p class="admin_text admin_text--quote"> <%= "Phone Number: "+prospect.phone_number %></p>
+                </div>
+              <%}%>
+              <% if(prospect.address) {%>
+                <div class="col-6">
+                  <p class="admin_text admin_text--quote"> <%= "Address: "+prospect.address %></p>
+                </div>
+              <%}%>
+              <% if(prospect.address) {%>
+                <div class="col-6">
+                  <p class="admin_text admin_text--quote"> <%= "Schedule Cleaning: "+prospect.schedule %></p>
+                </div>
+              <%}%>
               <div class="col-12">
-                <p class=<%="admin_text admin_text--quote "+status.style %> > <%= "Status: "+status.name %></p>
+                <p class='<%= "admin_text admin_text--quote "%>' > Status: <strong class="<%= status.style %>">
+                <%=  status.name %>
+                </strong></p>
               </div>
 
-              <div  class="quote_display_selector" ></div>
 
-
-          </li>
+          </div>
 
         <%}%>
 
@@ -49,7 +72,7 @@
 
       <% if(prospects.length > 0 && active_path == "/admin/home"){ %>
 
-        <li class="quote_display_container--more row" >
+        <li class="quote_display_container--more row">
           <div class="col-12">
             <p class="admin_text "> See More...</p>
           </div>

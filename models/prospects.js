@@ -29,6 +29,10 @@ const Prospects = new Schema (
     address:{
       type:String,
       required:false
+    },
+    schedule:{
+      type:Date,
+      required:false
     }
   }
 )
