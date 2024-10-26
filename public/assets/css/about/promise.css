@@ -189,4 +189,21 @@
     left:7.5%;
     top:10%
   }
+
+  .promise_box{
+    background-color:white;
+    padding:60px;
+    border-radius: 5%;
+    box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+    clear: both;
+    margin-top:10%;
+    width:25%;
+    position: relative;
+    height:50px;
+    padding-bottom:45px;
+    margin-top:10px;
+    transition: .4s all;
+    border: 5px solid transparent;
+  }
+
 }
