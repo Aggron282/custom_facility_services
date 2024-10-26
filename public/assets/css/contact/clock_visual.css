@@ -169,9 +169,9 @@
 @media screen and (max-width:1100px) and (min-width:700px) and (orientation:portrait) {
 
   .clock_visual_img--clock{
-    left: 20%;
+    left: 30%;
     position: relative;
-    top: 100px;
+    top: 250px;
   }
 
   .clock_visual_row{
@@ -179,8 +179,8 @@
   }
 
   .clock_knob{
-    top: -60px !important;
-    right: -15px !important;
+    top: 0px !important;
+    right: 5px !important;
     position: relative
    }
 
