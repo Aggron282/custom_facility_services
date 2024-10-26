@@ -110,4 +110,10 @@
     width:70%;
   }
 
+  .text_wrapper{
+    padding:20px;
+    float:left;
+    width:100%;
+  }
+
 }
