@@ -191,9 +191,10 @@
   }
 
   .progress_clean_container--line{
-    margin-left: 4%;
+
     float:left;
     width:50px;
+    margin-top:20%;
     height:2px;
   }
 
@@ -322,6 +323,11 @@
     width:80% !important;
     flex:80% !important;
     max-width:80% !important;
+    padding:30px;
   }
 
+}
+
+*{
+  box-sizing: border-box;
 }
