@@ -174,7 +174,7 @@
   .promise_content_container .text_container{
     width:100%;
     position: absolute;
-    top:50%;
+    top:70%;
   }
   .promise_content_container .text_container .title {
     width:100%;
@@ -205,7 +205,5 @@
     transition: .4s all;
     border: 5px solid transparent;
   }
-  .promise_name--right{
-    float:left;
-  }
+
 }
