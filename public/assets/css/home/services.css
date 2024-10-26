@@ -78,3 +78,16 @@
 .service_image_container--4{
   background:url("./../../images/services/9.png");
 }
+
+
+@media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
+  .services_container{
+    height:80vh;
+  }
+
+  .service_image_container{
+    width:50%;
+    height:70%;
+  }
+
+}
