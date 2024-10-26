@@ -50,13 +50,17 @@
 
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
 
+  .watermark{
+    bottom:0%;
+    width:120%;
+  }
   .why_choose_us_container{
-    padding-top:15%;
+    padding-top:10%;
     padding-bottom:15%;
   }
-  
+
   .why_us_row{
-    padding-top:5%;
+    padding-top:15%;
   }
 
 }
