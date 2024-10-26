@@ -167,3 +167,11 @@
 .promise_name--right{
   float: right;
 }
+
+
+@media screen and (orientation:portrait) and (min-width:700px) and (max-width:900px){
+  .promise_content_container .text_container .title {
+    width:100%;
+    
+  }
+}
