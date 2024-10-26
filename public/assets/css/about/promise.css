@@ -175,6 +175,7 @@
     width:100%;
     position: absolute;
     top:70%;
+    margin-top:20%;
   }
   .promise_content_container .text_container .title {
     width:100%;
@@ -187,7 +188,7 @@
     position: absolute;
     width:80%;
     left:7.5%;
-    top:10%
+    top:12%
   }
 
   .promise_box{
