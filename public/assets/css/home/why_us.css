@@ -51,7 +51,7 @@
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
 
   .watermark{
-    bottom:0%;
+    bottom:-15%;
     width:120%;
   }
   .why_choose_us_container{
