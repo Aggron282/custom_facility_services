@@ -1,5 +1,5 @@
 const Status = {
-  Subsribed: 0,
+  Subscribed: 0,
   Quoted: 1,
   Scheduled: 2,
   Completed: 3,

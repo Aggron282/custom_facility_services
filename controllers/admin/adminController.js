@@ -5,12 +5,13 @@ var rootDir = require("./../../util/path.js");
 var Schedule = require("./../../data/schedule.js");
 var Meta = require("./../../data/meta.js");
 var Labor = require("./../../data/labor.js");
-var Prospects = require("./../../models/prospects.js");
-
+var Prospect = require("./../../models/prospects.js");
+var enums = require("./../../util/enums.js");
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
-const auth_config = require('/util/nodemailer.js');
-const transport = nodemailer.createTransport(sendgridTranspor(auth_config));
+const auth_config = require('./../../util/nodemailer.js');
+const transport = nodemailer.createTransport(sendgridTransport(auth_config));
+const {validationResult} = require("express-validator");
 
 var utility = require("./admin_utility.js");
 
@@ -23,10 +24,10 @@ var brow = {
 
 var data_rendered_to_page = {
 
-  quotes:null,
+  prospects:null,
   total_potential_sales:0,
   modal:null,
-  limited_quotes:null,
+  limited_prospects:null,
   path:null,
   pageTitle:null,
   people:null,
@@ -169,11 +170,55 @@ const CompletedQuotes = (req,res,next) => {
 
 }
 
-const Subscribe = (req,res,next) => {
-  var body = req.body;
-  var new_prospect = new Prospect(body.name,body.email);
-  new_prospect.save();
-  res.redirect("/")
+const Subscribe = async (req,res,next) => {
+  var errors = validationResult(req);
+
+  if(errors.isEmpty()){
+    var body = req.body;
+    var new_prospect = new Prospect();
+    new_prospect.email = body.email;
+    new_prospect.name = body.name;
+    new_prospect.time_created = new Date();
+    new_prospect.status = enums.Subscribed;
+    prospect_found = await Prospect.findOne({email:body.email});
+    console.log(prospect_found)
+    if(prospect_found != null){
+      res.redirect("/");
+      return;
+    }
+
+    new_prospect.save();
+    console.log(new_prospect)
+    transport.sendMail({
+      to:body.email,
+      from:"marcokhodr16@gmail.com",
+      subject:"Thank You for signing up!",
+      html:`
+        <div style="position:relative;box-shadow:0px 0px 10px rgba(0,0,0,.5);text-align:center;padding:30px;border-radius:10px;border:1px solid black">
+          <img style="position:absolute;width:100px;margin-left:-40px;top:0%;opacity:1"
+          src = "https://cdn.shopify.com/s/files/1/0300/2577/7251/files/Untitled_design_-_2024-10-25T234426.750.png?v=1729925216"
+          />
+          <h1 style="text-align:center;font-size:25px">Thank You ${body.name} for Signing Up </h1>
+
+          <p style="font-size:20px;font-weight:300">
+            Call 480-822-0511 or email us at this address to schedule a free quote / window cleaning!
+          </p>
+
+          <p style="font-size:16px;font-weight:300">
+            Show this to your window cleaner and get 15% off!
+          </p>
+          <br>
+
+          <h2> We hope to hear from you soon! </2>
+          <h2> Custom Facility Services | Window Cleaning Experts </h2>
+
+        </div>
+       `
+    });
+
+    res.redirect("/")
+  }
+
 }
 
 exports.DeleteQuotes = DeleteQuotes;

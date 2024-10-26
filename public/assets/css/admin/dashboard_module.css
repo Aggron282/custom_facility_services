@@ -7,7 +7,9 @@
   padding:2%;
 
 }
-
+.no-shadow{
+  box-shadow: none !important;
+}
 p {
   font-family: "Monstserrat";
 }

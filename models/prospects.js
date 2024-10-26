@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const enums = require("/util/enums.js")
 const Prospects = new Schema (
   {
     name:{
@@ -10,6 +9,10 @@ const Prospects = new Schema (
     email:{
       type:String,
       required:true
+    },
+    time_created:{
+      type:Date,
+      require:false
     },
     quote:{
       type:Number,

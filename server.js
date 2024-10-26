@@ -9,7 +9,7 @@ var bodyParser = require("body-parser");
 var axios = require("axios");
 var app = express();
 var port = process.env.PORT || 3002;
-
+var mongoose = require("mongoose");
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended:true}));
@@ -20,7 +20,7 @@ app.use(admin_routes);
 
 
 app.set("view engine","ejs");
-
+mongoose.connect("mongodb+srv://marcokhodr116:sableye12@cluster0.6s1n3.mongodb.net/?retryWrites=true&w=majority").then((s)=>{
 db.MongoConnect((result)=>{
 
   app.listen(port,async()=>{
@@ -56,4 +56,5 @@ db.MongoConnect((result)=>{
     // console.log("Website is running on localhost:"+port);
   });
 
+});
 });

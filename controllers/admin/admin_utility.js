@@ -1,6 +1,7 @@
 var Schedule = require("./../../data/schedule.js");
 var Meta = require("./../../data/meta.js");
 var Labor = require("./../../data/labor.js");
+var Prospects = require("./../../models/prospects.js");
 
 var brow = {
   firefox:0,
@@ -71,36 +72,36 @@ function MakeFavoritesBeginningArray(schedules){
 
 const renderAllData = async(req,res)=>{
 
-      var limited_schedules = [];
-      var full_schedules = [];
+      var limited_prospects = [];
+      var full_prospects = [];
       var total_potential_sales = 0;
       var roots = await Meta.FindAllRoots();
-      var schedules = await Schedule.returnAll();
-      var count = schedules.length;
+      var prospects = await Prospects.find({});
+      var count = prospects.length;
       var meta_views = await Meta.GetVisitorCount();
       var new_brow = await GetBrowserCounts();
       var laborers = await Labor.ReturnAllLaborers();
 
-      if(req.path == "/admin/home" && schedules.length >= 3){
+      if(req.path == "/admin/home" && prospects.length >= 3){
         count = 3;
       }
 
       for(var i = 0; i < count; i++){
-        limited_schedules.push(schedules[i]);
+        limited_prospects.push(prospects[i]);
       }
 
-      for(var i = 0; i < schedules.length; i++){
-        full_schedules.push(schedules[i]);
+      for(var i = 0; i < prospects.length; i++){
+        full_prospects.push(prospects[i]);
       }
 
-      for(var i = 0; i < schedules.length; i++){
-        total_potential_sales += schedules[i].total;
+      for(var i = 0; i < prospects.length; i++){
+        total_potential_sales += prospects[i].total;
       }
 
       var new_data_to_page = {...data_rendered_to_page};
 
-      new_data_to_page.limited_quotes = limited_schedules
-      new_data_to_page.quotes = full_schedules;
+      new_data_to_page.limited_prospects = prospects
+      new_data_to_page.prospects = prospects;
       new_data_to_page.pageTitle = "Admin";
       new_data_to_page.people = laborers;
       new_data_to_page.path = req.path;

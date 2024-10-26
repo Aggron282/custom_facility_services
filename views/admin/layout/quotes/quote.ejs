@@ -1,47 +1,45 @@
 <ul class="quote_display_container margin-top-5">
 
-      <% var new_quotes = path == "/admin/home"  ? limited_quotes : quotes %>
-
-      <% if (new_quotes.length < 0) {%>
+      <% var prospects = path == "/admin/home"  ? limited_prospects : prospects %>
+      <% console.log(prospects) %>
+      <% if (prospects.length <= 0) {%>
           <p> No Quotes Yet..</p>
       <% }else{ %>
 
-        <% for (let quote of quotes){%>
+        <% for (let prospect of prospects){%>
+          <% var status = {name:"Subscribed",style:"subscribed--status"} %>
 
-          <li class="quote_display_container row" quote_id = <%= quote._id %>>
+          <% console.log(prospect) %>
+          <% if(prospect.status > 0 && prospect.status < 2 || prospect.status >= 1 && !prospect.quote || !prospect.schedule){%>
+            <% status.name = "In Contact" %>
+            <% status.style = "subscribed--contact" %>
+          <%}else if (prospect.status >= 1 && prospect.status < 2){%>
+            <% status.name = "Quoted" %>
+            <% status.style = "subscribed--quoted" %>
+          <%}else if(prospect.status >= 2 && prospect.status < 3){%>
+            <% status.name = "Scheduled" %>
+            <% status.style = "subscribed--schedule" %>
+          <%}else if(prospect.status >= 3){%>
+            <% status.name = "Completed" %>
+            <% status.style = "subscribed--completed" %>
+          <%}%>
 
-              <div class="col-6">
-                <p class="admin_text admin_text--quote"> <%= "Name: "+quote.name %></p>
-              </div>
-
-              <div class="col-6">
-                <p class="admin_text admin_text--quote"> Small (qty) : <%= quote.small %></p>
-              </div>
-
-              <div class="col-6">
-                <p class="admin_text admin_text--quote"> Medium (qty): <%= quote.medium %></p>
-              </div>
-
-              <div class="col-6">
-                <p class="admin_text admin_text--quote"> Large (qty): <%= quote.large %></p>
+          <li class="quote_display_container row no-shadow" quote_id = <%= prospect._id %>>
+            <div class="col-12">
+              <p class="admin_text admin_text--quote"> <%= "Date Created: "+prospect.time_created.toString().split('(')[0] %></p>
+            </div>
+              <div class="col-12">
+                <p class="admin_text admin_text--quote"> <%= "Name: "+prospect.name %></p>
               </div>
               <div class="col-12">
-                <p class="admin_text admin_text--quote"> Screens (qty): <%= quote.screens %></p>
+                <p class="admin_text admin_text--quote"> <%= "Email: "+prospect.email %></p>
               </div>
-
-              <div class="col-6">
-                <p class="quote_display_text"> Total: <%= quote.total %></p>
-              </div>
-
-              <div class="col-6">
-                <p class="admin_text admin_text--quote"> Outside / Inside: <%= quote.outside %></p>
+              <div class="col-12">
+                <p class=<%="admin_text admin_text--quote "+status.style %> > <%= "Status: "+status.name %></p>
               </div>
 
               <div  class="quote_display_selector" ></div>
 
-              <div  class="quote_display_container--favorite" quote_id = <%= quote._id %> isFav = <%= quote.isFavorite %> >
-                <img class="favorite_icon" quote_id = <%= quote._id %> isFav = <%= quote.isFavorite %> src= "./../assets/images/fav.png"/>
-              </div>
 
           </li>
 
@@ -49,7 +47,7 @@
 
       <%}%>
 
-      <% if(quotes.length > 0 && active_path == "/admin/home"){ %>
+      <% if(prospects.length > 0 && active_path == "/admin/home"){ %>
 
         <li class="quote_display_container--more row" >
           <div class="col-12">
