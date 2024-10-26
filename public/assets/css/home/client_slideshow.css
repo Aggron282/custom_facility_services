@@ -37,6 +37,8 @@
   font-family: "Teko";
 }
 
+
+
 .arrow_container--left{
   left:1%;
 }
@@ -92,4 +94,13 @@
 .slideshow_box--4{
   /* left:105%; */
   background:url("./../../images/clients/4.png");
+}
+
+@media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
+
+  .client_slideshow_container--box{
+    width:65%;
+    height:60%;
+  }
+
 }
