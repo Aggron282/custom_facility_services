@@ -5,15 +5,32 @@
   position: relative;
   width:100%;
 }
-
+.delete_quote_button--inactive{
+  visibility: hidden;
+}
+.complete_quote_button--inactive{
+  visibility: hidden;
+}
+body p {
+  font-family: "Montserrat" !important
+}
 .quote_display_container--more{
    border:#e6e6e6 1px;
    padding:2%;
    padding-top:2.5%;
 }
 
+.delete_quote_button{
+  width:100%;
+}
+
+.complete_quote_button{
+  width:100%;
+}
+
 .quote_display_text{
   font-size:16px;
+  font-family: "Montserrat"
 }
 
 .quote_display_text--outside{

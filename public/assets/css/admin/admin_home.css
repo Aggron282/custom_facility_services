@@ -239,15 +239,18 @@ body{
 }
 
 .add_box{
-  border:2px solid #e6e6e6;
+  border:0px solid #e6e6e6;
 }
 
 .add_box:hover{
-  transform:translateY(-20px);
+  transform:translateY(5px);
   transition: transform .5s;
   background:#38B6FF;
+  color:white;
 }
-
+.add_box{
+  color:#e6e6e6;
+}
 .number_one{
   border:2px solid yellow;
   color:yellow
@@ -280,16 +283,27 @@ body{
   opacity:1;
   background:#38B6FF !important;
 }
-
+.add_box img {
+  width:50%;
+  margin-top:15%;
+  margin-left:25%;
+}
 .add_box{
+
   box-shadow:0px 0px  10px rgba(0,0,0,.3);
 }
 
 .delete_quote_button{
-  background:none;
-  color:#FF5757;
+  background:#FF5757;
+  color:white;
   border-radius:0px;
-  border-color:#FF5757 !important;
+  font-size:16px;
+  font-family: "Montserrat";
+  height:50px;
+  border-radius:5px;
+
+}
+.delete_quote_button--inactive{
   visibility: hidden;
 }
 
@@ -300,8 +314,9 @@ body{
   font-weight:400;
   font-family:"Akrobat";
 }
+
 .text-quote-col{
-  margin-top:10%;
+  margin-top:2.5%;
 }
 
 .subtitle_quote{
@@ -355,13 +370,11 @@ body{
   color:#38B6FF !important;
   transition: all .5s;
 }
-
-.root_views_box{
-  background:white;
-  border-radius:50%;
-  margin-left:25%;
-  height:12vh;
-  width:50%
+*{
+  box-sizing: border-box;
+}
+.admin_container--website{
+  padding-bottom:2.5%;
 }
 
 .root_page:hover{

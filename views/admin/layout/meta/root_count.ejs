@@ -1,23 +1,22 @@
 <div class="row meta_root_row">
 
-      <% for(var i =0; i < meta.pages.length - 1; i++){ %>
+      <% for(var i =0; i < meta.pages.length; i++){ %>
+        <% if(meta.pages[i].name){ %>
+          <div class= "col-4 meta_col--root">
 
-        <div class= "col-4 meta_col--root  ">
+              <div class="meta_root_container" views = <%= parseInt(meta.pages[i].qty) %> >
 
-            <div class="meta_root_container" >
+                <p class="meta_text meta_text--root"><%= meta.pages[i].name %> </p>
 
-              <p class="meta_text meta_text--root"><%= meta.pages[i].name %> </p>
+                <div  class="root_views_box ">
+                  <p class="meta_text meta_text--root_subtitle" ><%= meta.pages[i].qty  %> Views </p>
+                </div>
 
-              <div  class="root_views_box ">
-                <p class="meta_text meta_text--root_subtitle" ><%= meta.pages[i].qty  %></p>
+
               </div>
 
-                <p class="meta_text--root_subtitle ">Views</p>
-
             </div>
-
-        </div>
-
+          <%}%>
       <%}%>
 
 </div>

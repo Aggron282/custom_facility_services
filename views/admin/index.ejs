@@ -1,70 +1,70 @@
 <%- include("./layout/head.ejs") %>
 
-        <div class="container-fluid page--admin">
+        <div class="page--admin">
 
           <div class="overlay_container relative z-9"></div>
 
           <%- include("./layout/navbar.ejs") %>
+          <div class="container-fluid">
+            <p class="admin_text admin_text--home " > Overview </p>
 
-          <p class="admin_text admin_text--home " > Overview </p>
+            <div class="admin_container admin_container--quotes">
 
-          <div class="admin_container admin_container--quotes">
+              <p class="admin_text admin_text--quote"> Online Quotes </p>
 
-            <p class="admin_text admin_text--quote"> Online Quotes </p>
+              <%- include("./layout/quotes/edit_quotes.ejs") %>
 
-            <%- include("./layout/quotes/edit_quotes.ejs") %>
+              <div class="row">
 
-            <div class="row">
+                <div clas="col-8">
+                    <%- include("./layout/quotes/quote.ejs") %>
+                </div>
 
-              <div clas="col-8">
-                  <%- include("./layout/quotes/quote.ejs") %>
-              </div>
+                <div class="col-4 text-quote-col">
+                     <%- include("./layout/quotes/total_quotes.ejs") %>
+                </div>
 
-              <div class="col-4 text-quote-col">
-                   <%- include("./layout/quotes/total_quotes.ejs") %>
               </div>
 
             </div>
 
+            <div class="admin_container admin_container--website">
+
+                <p class=" admin_text"> Website Data </p>
+
+                <div class="container-fluid">
+                  <div class="row">
+
+                    <div class="col-8">
+                      <%- include("./layout/meta/page_count.ejs") %>
+                    </div>
+
+                    <div class="col-4">
+                        <%- include("./layout/meta/browser_count.ejs") %>
+                    </div>
+
+                    <div class="col-12">
+                        <%- include("./layout/meta/root_count.ejs") %>
+                    </div>
+
+                 </div>
+                 </div>
+
+            </div>
+
+            <div class="admin_container admin_container--planner">
+
+              <p class="admin_text admin_text--planner"> Planner </p>
+
+              <%- include("./layout/labor/labor_boxes.ejs") %>
+              <%- include("./layout/labor/add_laborer.ejs") %>
+
+            </div>
+
+            <div class="admin_container admin_container--sales">
+              <p class="admin_text admin_text--sales"> Sales </p>
+            </div>
+
           </div>
-
-          <div class="admin_container admin_container--website">
-
-              <p class=" admin_text--data  "> Website Data </p>
-
-              <div class="margin-top-5">
-                <div class="row">
-
-                  <div class="col-8">
-                    <%- include("./layout/meta/page_count.ejs") %>
-                  </div>
-
-                  <div class="col-4">
-                      <%- include("./layout/meta/browser_count.ejs") %>
-                  </div>
-
-                  <div class="col-12">
-                      <%- include("./layout/meta/root_count.ejs") %>
-                  </div>
-
-               </div>
-               </div>
-
-          </div>
-
-          <div class="admin_container admin_container--planner">
-
-            <p class="admin_text admin_text--planner"> Planner </p>
-
-            <%- include("./layout/labor/labor_boxes.ejs") %>
-            <%- include("./layout/labor/add_laborer.ejs") %>
-
-          </div>
-
-          <div class="admin_container admin_container--sales">
-            <p class="admin_text admin_text--sales"> Sales </p>
-          </div>
-
         </div>
-
       <%- include("./layout/end.ejs")%>

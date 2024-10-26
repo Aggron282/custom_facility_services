@@ -1,5 +1,5 @@
 .admin_container{
-  margin-top:5%;
+  margin-top:2.5%;
   box-shadow:0px 0px 5px rgba(0,0,0,.5);
   padding-top:2.5%;
   padding-bottom:2.5%;
@@ -8,21 +8,30 @@
 
 }
 
+p {
+  font-family: "Monstserrat";
+}
+
 .admin_text--data{
   font-weight: bold;
   padding-left:2.5% ;
   padding-top:5%;
 }
 
+.admin_container--quote_box{
+  font-family: "Montserrat";
+}
+
 .admin_text{
   font-size:20px;
-  font-family: "Akrobat";
+  font-family: "Monstserrat";
 }
 
 .admin_text--home{
   margin-left:2.5%;
   font-weight:bold;
   margin-top:5%;
+  font-family: "Montserrat";
 }
 
 .admin_button--img{

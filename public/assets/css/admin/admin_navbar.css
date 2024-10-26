@@ -1,17 +1,28 @@
 .navbar_admin{
   font-size:15px;
   padding:1%;
+
+  background:rgba(3, 77, 118, 1)
 }
 
 .navbar_admin p{
   color:white;
   margin-top:5%;
+  text-align: center;
 }
 
 .admin_navbar_subtitle:hover{
   font-weight: bold;
 }
+.admin_navbar_title{
+  font-family: "Teko" !important;
+  font-size:20px;
+  text-align: left !important;
 
+}
+.admin_title_col{
+  padding:0 !important
+}
 
 .admin_navbar_title{
   color:white;
@@ -20,10 +31,11 @@
 .admin_logo{
   position: relative;
   bottom:5px;
+  width:100%;
 }
 
 .admin_navbar_text{
   color:white;
-  font-size:20px;
-  font-weight:300;
+  font-size:17px;
+  font-weight:200;
 }
