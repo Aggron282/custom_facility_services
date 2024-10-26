@@ -48,9 +48,9 @@ async function SubmitDetails(modal,form){
   }
   console.log(modal.parentElement)
   data._id = modal.parentElement.getAttribute("quote_id");
-  console.log(data);
-  var response = await axios.post("/admin/prospect/details/",data);
 
+  var response = await axios.post("/admin/prospect/details/",data);
+  
   setTimeout(()=>{
     banner.classList.remove("updated_banner--updated")
   },3000);

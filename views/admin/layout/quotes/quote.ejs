@@ -9,7 +9,7 @@
 
 
           <% var status = {name:"Subscribed",style:"subscribed--status"} %>
-
+          <% console.log(prospect.status) %>
           <% if(prospect.status > 0 && prospect.status < 2 || prospect.status >= 1 && !prospect.quote && !prospect.schedule){%>
             <% status.name = "In Contact" %>
             <% status.style = "subscribed--contact" %>
@@ -39,7 +39,13 @@
               </div>
               <% if(prospect.quote) {%>
                 <div class="col-6">
-                  <p class="admin_text admin_text--quote"> <%= "Quote: "+prospect.quote %></p>
+
+                  <% const formattedNumber = new Intl.NumberFormat('en-US', {
+                    style: 'currency',
+                    currency: 'USD'
+                  }).format(prospect.quote); %>
+
+                  <p class="admin_text admin_text--quote"> <%= "Quote: "+formattedNumber %></p>
                 </div>
               <%}%>
               <% if(prospect.phone_number) {%>
@@ -48,13 +54,13 @@
                 </div>
               <%}%>
               <% if(prospect.address) {%>
-                <div class="col-6">
+                <div class="col-12">
                   <p class="admin_text admin_text--quote"> <%= "Address: "+prospect.address %></p>
                 </div>
               <%}%>
-              <% if(prospect.address) {%>
-                <div class="col-6">
-                  <p class="admin_text admin_text--quote"> <%= "Schedule Cleaning: "+prospect.schedule %></p>
+              <% if(prospect.schedule) {%>
+                <div class="col-12">
+                  <p class="admin_text admin_text--quote"> <%= "Schedule Cleaning: "+prospect.schedule.toString().split('(')[0] %></p>
                 </div>
               <%}%>
               <div class="col-12">
