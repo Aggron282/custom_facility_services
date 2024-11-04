@@ -1,0 +1,30 @@
+<%- include("./layout/head.ejs") %>
+    
+   <div class="container-fluid auth_container">
+    <div class="auth_background"></div>
+    <div class="auth_modal">
+        <img class="logo_auth" src = "/assets/images/logo.png"/>
+        <form action = "/auth/login/" method = "POST">
+            <input class="auth_form" name="username" placeholder="Enter Username">
+            <input class="auth_form" name="key" placeholder="Enter Secret Key">
+            <button class="auth_submit" type="submit">Submit</button> 
+            <p  class="forgot_auth">
+                If you are the owner of this company,
+                <br/>
+                login with your secret key that is emailed to you 
+                <br />
+                Didn't recieve a email?</p> 
+                <a href = "/admin/auth/forgot" id="email">Click Here</a>
+            
+        </form>
+    </div>
+  </div>
+
+  <script async src="https://api.countapi.xyz/hit/cfswindows.com/56ce2f5b-45e5-470f-8d13-34084938dd33?callback=websiteVisits"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src = "/assets/js/admin/auth.js"></script>
+  
+  </body>
+  
+  </html>
+  

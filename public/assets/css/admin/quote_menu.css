@@ -8,8 +8,33 @@
 .prospect_menu{
   width:100%;
 }
+.add_prospect_button{
+  width:30%;
+  clear:both;
+  background:black;
+  border:none;
+  color:white;
+  height:40px;
+  margin-top:2.5%;
+  margin-left:5%;
+  font-size:20px;
+}
+.add_prospect_button--g{
+  width:30%;
+  clear:both;
+  background:black;
+  border:none;
+  color:white;
+  height:40px;
+  margin-top:2.5%;
+  margin-left:5%;
+  font-size:20px;
+}
 .choice_container{
   float: left;
   font-size:20px;
   margin-left:5%;
+}
+.add_prospect_button--g{
+  width:100%;
 }

@@ -3,3 +3,5 @@
 # Local Netlify folder
 .netlify
 /util/nodemailer.js
+/util/db.js
+/util/sensitive.js

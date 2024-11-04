@@ -1,9 +1,10 @@
 const Status = {
   Subscribed: 0,
-  Quoted: 1,
-  Scheduled: 2,
-  Completed: 3,
-  Repeat_Schedule:4
+  Quoted: 2,
+  Contact: 1,
+  Scheduled: 3,
+  Completed: 4,
+  Loyal:5
 };
 
 

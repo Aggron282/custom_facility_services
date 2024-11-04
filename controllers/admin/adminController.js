@@ -7,15 +7,17 @@ var Schedule = require("./../../data/schedule.js");
 var Meta = require("./../../data/meta.js");
 var Labor = require("./../../data/labor.js");
 var Prospect = require("./../../models/prospects.js");
+var Owner = require("./../../models/owner.js");
 var enums = require("./../../util/enums.js");
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
 const auth_config = require('./../../util/nodemailer.js');
 const transport = nodemailer.createTransport(sendgridTransport(auth_config));
 const {validationResult} = require("express-validator");
-
 var utility = require("./admin_utility.js");
-
+var email_sensitive = require("./../../util/sensitive.js").email;
+var AUTHPAGE = path.join(rootDir,"views","admin","login.ejs");
+var server = require("./../../server.js");
 var brow = {
   firefox:0,
   safari:0,
@@ -40,10 +42,126 @@ var data_rendered_to_page = {
 
 }
 
+const Login = (req,res) => {
+  
+  var {key,username} = req.body;
+  console.log(key,username)
+  Owner.findOne({username:username,secret_key:key}).then((found_owner)=>{
+    
+    if(!found_owner){
+      res.render(AUTHPAGE);
+      req.session.isAuth = false;
+    
+      return;
+    }
+
+    req.session.isAuth = true;
+    req.session.save();
+    res.redirect("/admin");
+
+  });
+
+}
+const ForgotKey = async (req,res) =>{
+  await SetNewKey(false);
+  res.redirect("/auth/login")
+}
+
+const SetNewKey = async (manual) => {
+  
+  var new_key = Math.ceil(Math.random() * 999999999);
+  
+  const exec = await Owner.updateOne({email:email_sensitive},{$set:{secret_key:new_key}});
+ 
+  if(!server.CheckIfCanEmail(manual)){
+    console.log("Could not email");
+    return;
+  }
+  if(!exec){
+    console.log("Could not email");
+    return;
+  }
+
+  SendEmailToOwner();
+  
+}
+
+function SendEmailToOwner(new_key){
+  console.log(email_sensitive)
+  transport.sendMail({
+    to:email_sensitive,
+    from:email_sensitive,
+    subject:"Your Secret Key has been Changed",
+    html:`
+      <div style="position:relative;box-shadow:0px 0px 10px rgba(0,0,0,.5);text-align:center;padding:30px;border-radius:10px;border:1px solid black">
+       
+      <img style="position:absolute;width:100px;margin-left:-40px;top:0%;opacity:1"
+        src = "https://cdn.shopify.com/s/files/1/0300/2577/7251/files/Untitled_design_-_2024-10-25T234426.750.png?v=1729925216"
+        />
+       
+        <p style="text-align:center;font-size:20px">Your New Key</p>
+       
+        <p style="text-decoration:underline;font-size:22px;text-align:center"> 
+         ${new_key}
+        </p>
+        
+        <h2> Custom Facility Services | Window Cleaning Experts </h2>
+
+      </div>
+     `
+  }).then((exec_)=>{
+    console.log(exec_)
+  }).catch((err)=>{console.log(err)});
+}
+
+const GetLoginPage = (req,res) =>{
+  res.render(AUTHPAGE);
+}
+
+const AddProspect = async(req,res,next) =>{
+  
+  var {name,phone_number,email,quote,address,schedule_date} = req.body;
+  var errors = validationResult(req);
+
+  if(errors.isEmpty()){
+    var new_prospect = new Prospect();
+    new_prospect.name = name;
+    new_prospect.phone_number = phone_number;
+    new_prospect.quote = quote;
+    new_prospect.email = email;
+    new_prospect.schedule_date = schedule_date;
+    new_prospect.time_created = new Date();
+    new_prospect.status = 0;
+    await new_prospect.save();
+    res.json(true);
+  }
+  else{
+    res.json(false);
+  }
+
+}
+
+const ChangeProspectStatus = async (req,res,next)=>{
+  var body = req.body;
+  var found_prospect = await Prospect.findOne({_id:new ObjectId(body._id)});
+  if(found_prospect){
+
+    var new_prospect = {...found_prospect._doc};
+    var update = { $set: {status: body.status } }
+    
+    const exec = await Prospect.findOneAndUpdate({_id:new ObjectId(body._id)},update);
+   
+    res.json(true);
+
+  }else{
+    res.json(false);
+  }
+}
+
 const AddProspectDetails = async (req,res,next)=>{
   var body = req.body;
-  console.log(body);
   var found_prospect = await Prospect.findOne({_id:new ObjectId(body._id)});
+ 
   if(found_prospect){
 
     var new_prospect = {...found_prospect._doc};
@@ -67,16 +185,18 @@ const AddProspectDetails = async (req,res,next)=>{
       new_prospect.schedule = body.schedule_date.length > 0 ? body.schedule_date : new_prospect.schedule;
     }
     if(new_prospect.schedule || new_prospect.address && new_prospect.quote){
-      console.log(new_prospect)
+      
       if(new_prospect.status == enums.Subscribed){
         new_prospect.status = enums.Quoted;
       }
+
     }
     var update = { $set: { quote: new_prospect.quote, schedule:new_prospect.schedule, address:new_prospect.address, status: new_prospect.status } }
 
     const exec = await Prospect.findOneAndUpdate({_id:new ObjectId(body._id)},update);
-    console.log(exec);
+   
     res.json(true);
+  
   }
   else{
     res.json(false);
@@ -87,7 +207,7 @@ const AddProspectDetails = async (req,res,next)=>{
 const EditSchedule = async (req,res,next) => {
 
   var data  = req.body;
-  console.log(data);
+
   await Labor.EditSchedule(data,()=>{
     res.redirect("/admin/schedule");
   });
@@ -97,10 +217,10 @@ const EditSchedule = async (req,res,next) => {
 const DeleteSchedule = async (req,res,next) => {
 
   var data  = req.body;
+  
   data.name_of_job = "";
   data.address = "";
-  console.log(data)
-
+  
   await Labor.EditSchedule(data,()=>{
     res.redirect("/admin/schedule");
   });
@@ -218,21 +338,23 @@ const Subscribe = async (req,res,next) => {
   var errors = validationResult(req);
 
   if(errors.isEmpty()){
+    
     var body = req.body;
     var new_prospect = new Prospect();
+   
     new_prospect.email = body.email;
     new_prospect.name = body.name;
     new_prospect.time_created = new Date();
     new_prospect.status = enums.Subscribed;
     prospect_found = await Prospect.findOne({email:body.email});
-    console.log(prospect_found)
+
     if(prospect_found != null){
       res.redirect("/");
       return;
     }
 
     new_prospect.save();
-    console.log(new_prospect)
+   
     transport.sendMail({
       to:body.email,
       from:"marcokhodr16@gmail.com",
@@ -261,20 +383,38 @@ const Subscribe = async (req,res,next) => {
     });
 
     res.redirect("/")
+
   }
 
 }
 
-exports.AddProspectDetails = AddProspectDetails;
-exports.DeleteQuotes = DeleteQuotes;
-exports.GetIndexPage = GetIndexPage;
-exports.RootCount = RootCount;
-exports.EditSchedule = EditSchedule;
-exports.DeleteSchedule = DeleteSchedule;
-exports.AddLaborer = AddLaborer;
-exports.ShowSchedule = ShowSchedule;
-exports.CompleteQuotes = CompleteQuotes;
-exports.GetQuotePage = GetQuotePage;
-exports.AddBrowserView = AddBrowserView;
-exports.MakeFavorite = MakeFavorite;
-exports.Subscribe = Subscribe;
+const DeleteProspect = async (req,res,next)=>{
+ 
+  var body = req.body;
+
+  const delete_ = await Prospect.deleteOne({_id:new ObjectId(body._id)});
+
+  res.json(delete_);
+
+}
+
+module.exports.DeleteProspect = DeleteProspect;
+module.exports.AddProspectDetails = AddProspectDetails;
+module.exports.AddProspect= AddProspect;
+module.exports.DeleteQuotes = DeleteQuotes;
+module.exports.GetIndexPage = GetIndexPage;
+module.exports.RootCount = RootCount;
+module.exports.EditSchedule = EditSchedule;
+module.exports.DeleteSchedule = DeleteSchedule;
+module.exports.AddLaborer = AddLaborer;
+module.exports.ShowSchedule = ShowSchedule;
+module.exports.CompleteQuotes = CompleteQuotes;
+module.exports.GetQuotePage = GetQuotePage;
+module.exports.AddBrowserView = AddBrowserView;
+module.exports.MakeFavorite = MakeFavorite;
+module.exports.Subscribe = Subscribe;
+module.exports.GetLoginPage = GetLoginPage;
+module.exports.Login = Login;
+module.exports.SetNewKey = SetNewKey;
+module.exports.ForgotKey = ForgotKey;
+module.exports.ChangeProspectStatus = ChangeProspectStatus;

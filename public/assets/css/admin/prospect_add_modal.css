@@ -1,0 +1,29 @@
+.prospect_modal--add .title{
+  font-size: 25px;
+}
+.quote_detail_input--full{
+  clear:both;
+}
+.quote_detail_input--mid{
+  width:40%;
+  float: left;
+  margin-left:5%;
+  margin-top:1.5%;
+}
+.prospect_modal--add{
+  padding-bottom:20px;
+  margin-bottom:5%;
+
+}
+.prospect_modal--inactive *{
+  opacity:0;
+  height:0px;
+  width:0px;
+}
+
+.prospect_modal--inactive {
+  opacity:0;
+  height:0px;
+  width:0px;
+  margin-bottom:0%;
+}

@@ -1,4 +1,5 @@
 <ul class="quote_display_container margin-top-5">
+      <%- include("./add_prospect_modal.ejs") %>
       <% var prospects = path == "/admin/home"  ? limited_prospects : prospects %>
 
       <% if (prospects.length <= 0) {%>
@@ -10,7 +11,10 @@
 
           <% var status = {name:"Subscribed",style:"subscribed--status"} %>
           <% console.log(prospect.status) %>
-          <% if(prospect.status > 0 && prospect.status < 2 || prospect.status >= 1 && !prospect.quote && !prospect.schedule){%>
+          <% if(prospect.status < 1 ){%>
+            <% status.name = "Subscribed" %>
+            <% status.style = "subscribed--subscribe" %>
+          <%}else if(prospect.status > 0 && prospect.status < 2 || prospect.status >= 1 && !prospect.quote && !prospect.schedule){%>
             <% status.name = "In Contact" %>
             <% status.style = "subscribed--contact" %>
           <%}else if (prospect.status >= 1 && prospect.status < 2){%>
@@ -22,12 +26,16 @@
           <%}else if(prospect.status >= 3){%>
             <% status.name = "Completed" %>
             <% status.style = "subscribed--completed" %>
+          <%}else if(prospect.status >= 4){%>
+            <% status.name = "Loyal Customer" %>
+            <% status.style = "subscribed--loyal" %>
           <%}%>
 
           <div class="quote_display_container row no-shadow" quote_id = <%= prospect._id %>>
             <div class="updated_banner"> Updated Client </div>
             <%- include("./quote_menu.ejs") %>
             <%- include("./quote_detail_modal.ejs") %>
+            <%- include("./quote_status_modal.ejs") %>
             <div class="col-12">
               <p class="admin_text admin_text--quote"> <%= "Date Created: "+prospect.time_created.toString().split('(')[0] %></p>
             </div>
@@ -49,7 +57,7 @@
                 </div>
               <%}%>
               <% if(prospect.phone_number) {%>
-                <div class="col-6">
+                <div class="col-12">
                   <p class="admin_text admin_text--quote"> <%= "Phone Number: "+prospect.phone_number %></p>
                 </div>
               <%}%>
@@ -64,7 +72,7 @@
                 </div>
               <%}%>
               <div class="col-12">
-                <p class='<%= "admin_text admin_text--quote "%>' > Status: <strong class="<%= status.style %>">
+                <p class='<%= "admin_text admin_text--quote "%>' > Status: <strong status="<%= prospect.status %>"  id="currentstatus" class="<%= status.style %>">
                 <%=  status.name %>
                 </strong></p>
               </div>

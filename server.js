@@ -9,52 +9,63 @@ var bodyParser = require("body-parser");
 var axios = require("axios");
 var app = express();
 var port = process.env.PORT || 3002;
+var connection_name = require("./util/connnection_name.js");
 var mongoose = require("mongoose");
+var Owner = require("./models/owner.js");
+var session = require("express-session");
+var MongoDBStore = require('connect-mongodb-session')(session);
+var admin_controller = require("./controllers/admin/adminController.js");
 app.use(bodyParser.json());
+app.use(session({secret:"0gunio4tngvjnvjwnvjjvnirjwnvbirjnb",saveUninitialized:false,store:StoreSession}));
+
 
 app.use(bodyParser.urlencoded({extended:true}));
-
 app.use(express.static('public'));
 app.use(user_routes);
 app.use(admin_routes);
 
+const days_constant = 7;
+const seconds = 1000;
+const minutes = 60 * seconds;
+const hour = minutes * 60;
+const days_unit = hour * 24;
+const days_to_email = days_unit * days_constant
+var countdown = 0;
+const throttle_email = 2 * hour;
+
+
+var StoreSession =  new MongoDBStore({
+  uri:connection_name,
+  collection:"session"
+});
+
+function CheckIfCanEmail(manual){
+  if(!manual){
+    return true;
+  }
+  if(countdown <= 0){
+    countdown = throttle_email;
+    return true;
+  }else{
+    return false;
+  }
+}
 
 app.set("view engine","ejs");
-mongoose.connect("mongodb+srv://marcokhodr116:sableye12@cluster0.6s1n3.mongodb.net/?retryWrites=true&w=majority").then((s)=>{
+
 db.MongoConnect((result)=>{
+ 
+  mongoose.connect(connection_name).then((s)=>{
 
-  app.listen(port,async()=>{
-    console.log(port);
+    setInterval(()=>{admin_controller.EmailNewKey(false)},days_to_email)
+    setInterval(()=>{countdown - 1, 1000});
+    app.listen(port,async()=>{
+      console.log(port);
+    });
 
-
-    // var days = ["Monday","Tuesday","Wendsday","Thursday","Friday","Saturday","Sunday"];
-    // var seperateByHours = 2;
-    // var numberOfJobs = 8;
-    // var schedule = [];
-    //
-    // function GenerateSchedule(seperateByHours, numberOfJobs,days){
-    //   var arr = [];
-    //   for(var i = 0; i < days.length; i++){
-    //     var startTime = 7;
-    //     var daySchedule = [];
-    //     for(var k = 0; k < numberOfJobs; k++){
-    //
-    //       daySchedule.push({
-    //         job:"Job Name",
-    //         time:startTime
-    //       })
-    //       startTime += 2
-    //     }
-    //     arr.push({
-    //       day:days[i],
-    //       schedule:daySchedule
-    //     })
-    //   }
-    //   return arr;
-    // }
-    // console.log(GenerateSchedule(seperateByHours, numberOfJobs,days)[0].schedule[0])
-    // console.log("Website is running on localhost:"+port);
   });
 
 });
-});
+
+
+module.exports.CheckIfCanEmail = CheckIfCanEmail;

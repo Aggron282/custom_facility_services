@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const Prospects = new Schema (
+const Owner = new Schema (
   {
     name:{
       type:String,
@@ -14,28 +14,32 @@ const Prospects = new Schema (
       type:Date,
       require:false
     },
-    quote:{
-      type:Number,
-      required:false
-    },
-    status:{
-      type:Number,
-      required:false
-    },
-    phone_number:{
+    username:{
       type:String,
       required:false
     },
-    address:{
+    secret_key:{
       type:String,
       required:false
     },
-    schedule:{
-      type:Date,
+    accounting:{
+      type:Object,
       required:false
+    },
+    laborers:{
+      type:Array,
+      required:false
+    },
+    meta:{
+      type:Object,
+      required:false
+    },
+    prospects:{
+        type:Array,
+        required:false
     }
   }
 )
 
 
-module.exports = mongoose.model("prospects",Prospects);
+module.exports = mongoose.model("owner",Owner);
