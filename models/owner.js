@@ -30,6 +30,10 @@ const Owner = new Schema (
       type:Array,
       required:false
     },
+    completed_jobs:{
+      type:Array,
+      required:false
+    },
     meta:{
       type:Object,
       required:false

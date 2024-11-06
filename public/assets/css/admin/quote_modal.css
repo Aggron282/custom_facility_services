@@ -4,9 +4,39 @@
   padding-top:0px;
   position: relative;
   overflow: hidden;
+
+
+}
+.quote_modal--active{
+  padding-bottom: 20px;
   border-bottom:1px solid #e6e6e6;
-  padding-bottom:10px;
-  margin-bottom:20px;
+}
+.quote_modal--inactive{
+  height: 0px;
+}
+.form_completed_button{
+  background:cornflowerblue;
+  color:white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 18px;
+  width:50%;
+  margin-left:25%;
+}
+.quote_row{
+  margin-top:20px;
+}
+#repeat{
+  width:50px;
+  height:50px;
+}
+.quote_completed_modal label{
+  font-size:18px !important;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  padding-top:0px !important;
+  margin-top:10px !important;
+}
+.quote_completed_modal input{
+  margin-top:5px !important;
 }
 .quote_status_modal label{
   font-size:17px;

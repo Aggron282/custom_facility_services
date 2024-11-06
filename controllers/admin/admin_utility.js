@@ -70,7 +70,7 @@ function MakeFavoritesBeginningArray(schedules){
 
 }
 
-const renderAllData = async(req,res)=>{
+const renderAllData = async(req,res,toggle)=>{
 
       var limited_prospects = [];
       var full_prospects = [];
@@ -81,6 +81,8 @@ const renderAllData = async(req,res)=>{
       var meta_views = await Meta.GetVisitorCount();
       var new_brow = await GetBrowserCounts();
       var laborers = await Labor.ReturnAllLaborers();
+      
+      
 
       if(req.path == "/admin/home" && prospects.length >= 3){
         count = 3;
@@ -110,7 +112,8 @@ const renderAllData = async(req,res)=>{
       new_data_to_page.meta.pages = roots;
       new_data_to_page.meta.brow = new_brow;
       new_data_to_page.active_path = req.path;
-
+      new_data_to_page.toggle = 0;
+      console.log(new_data_to_page)
       return new_data_to_page;
 
 }

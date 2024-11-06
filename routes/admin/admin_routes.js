@@ -4,6 +4,7 @@ var path = require("path");
 var rootDir = require("./../../util/path.js")
 var adminController = require("./../../controllers/admin/adminController.js");
 var CheckAuth = require("./../../util/isAuth.js").CheckAuth;
+var {check} = require("express-validator")
 
 router.get("/admin/",CheckAuth,adminController.GetIndexPage);
 router.get("/admin/quotes",CheckAuth,adminController.GetQuotePage);
@@ -19,7 +20,13 @@ router.post("/admin/favorite",CheckAuth,adminController.MakeFavorite);
 router.post("/admin/browser",CheckAuth,adminController.AddBrowserView);
 router.post("/admin/delete_quotes",CheckAuth,adminController.DeleteQuotes);
 router.post("/admin/roots",CheckAuth,adminController.RootCount);
-router.post("/admin/completed_quotes",CheckAuth,adminController.CompleteQuotes);
+router.post("/admin/prospect/toggle",CheckAuth,adminController.ToggleProspects);
+router.post("/admin/prospect/completed/",
+    check("miles").isLength({min:1}),
+    check("hours").isLength({min:1}),
+    check("date_completed").isLength({min:1})
+,CheckAuth,adminController.CompleteProspectJob);
 router.post("/admin/add_laborer",CheckAuth,adminController.AddLaborer);
+router.post("/admin/prospect/status",adminController.ChangeProspectStatus);
 router.get("/admin/auth/forgot",adminController.ForgotKey);
 module.exports = router;

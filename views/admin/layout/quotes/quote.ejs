@@ -5,80 +5,88 @@
       <% if (prospects.length <= 0) {%>
           <p> No Quotes Yet..</p>
       <% }else{ %>
-
+        
         <% for (let prospect of prospects){%>
-
-
-          <% var status = {name:"Subscribed",style:"subscribed--status"} %>
-          <% console.log(prospect.status) %>
-          <% if(prospect.status < 1 ){%>
-            <% status.name = "Subscribed" %>
-            <% status.style = "subscribed--subscribe" %>
-          <%}else if(prospect.status > 0 && prospect.status < 2 || prospect.status >= 1 && !prospect.quote && !prospect.schedule){%>
-            <% status.name = "In Contact" %>
-            <% status.style = "subscribed--contact" %>
-          <%}else if (prospect.status >= 1 && prospect.status < 2){%>
-            <% status.name = "Quoted" %>
-            <% status.style = "subscribed--quoted" %>
-          <%}else if(prospect.status >= 2 && prospect.status < 3){%>
-            <% status.name = "Scheduled" %>
-            <% status.style = "subscribed--schedule" %>
-          <%}else if(prospect.status >= 3){%>
-            <% status.name = "Completed" %>
-            <% status.style = "subscribed--completed" %>
-          <%}else if(prospect.status >= 4){%>
-            <% status.name = "Loyal Customer" %>
-            <% status.style = "subscribed--loyal" %>
+          <% condition = (prospect.status != 3) %>
+          <% if(toggle != 0) { %>
+              <% condition = (prospect.status == 3) %>
+          <%}else{%>
+            <% condition = (prospect.status != 3) %>
           <%}%>
+          <% if(condition) {%>
 
-          <div class="quote_display_container row no-shadow" quote_id = <%= prospect._id %>>
-            <div class="updated_banner"> Updated Client </div>
-            <%- include("./quote_menu.ejs") %>
-            <%- include("./quote_detail_modal.ejs") %>
-            <%- include("./quote_status_modal.ejs") %>
-            <div class="col-12">
-              <p class="admin_text admin_text--quote"> <%= "Date Created: "+prospect.time_created.toString().split('(')[0] %></p>
+          
+            <% var status = {name:"Subscribed",style:"subscribed--status"} %>
+            <% if(prospect.status < 1 ){%>
+              <% status.name = "Subscribed" %>
+              <% status.style = "subscribed--subscribe" %>
+            <%}else if(prospect.status > 0 && prospect.status < 2 || prospect.status >= 1 && !prospect.quote && !prospect.schedule){%>
+              <% status.name = "In Contact" %>
+              <% status.style = "subscribed--contact" %>
+            <%}else if (prospect.status >= 1 && prospect.status < 2){%>
+              <% status.name = "Quoted" %>
+              <% status.style = "subscribed--quoted" %>
+            <%}else if(prospect.status >= 2 && prospect.status < 3){%>
+              <% status.name = "Scheduled" %>
+              <% status.style = "subscribed--schedule" %>
+            <%}else if(prospect.status >= 3){%>
+              <% status.name = "Completed" %>
+              <% status.style = "subscribed--completed" %>
+            <%}else if(prospect.status >= 4){%>
+              <% status.name = "Loyal Customer" %>
+              <% status.style = "subscribed--loyal" %>
+            <%}%>
+            <% const formattedNumber = new Intl.NumberFormat('en-US', {
+              style: 'currency',
+              currency: 'USD'
+            }).format(prospect.quote) %>
+            <div class="quote_display_container row no-shadow" quote_id = <%= prospect._id %> quote = "<%= prospect.quote %>">
+              <div class="updated_banner"> Updated Client </div>
+              <%- include("./quote_menu.ejs") %>
+              <%- include("./quote_detail_modal.ejs") %>
+              <%- include("./quote_status_modal.ejs") %>
+              <%- include("./quote_completed_modal.ejs") %>
+              <div class="row quote_row">
+              <div class="col-12">
+                <p class="admin_text admin_text--quote"> <%= "Date Created: "+prospect.time_created.toString().split('(')[0] %></p>
+              </div>
+                <div class="col-12">
+                  <p class="admin_text admin_text--quote"> <%= "Name: "+prospect.name %></p>
+                </div>
+                <div class="col-12">
+                  <p class="admin_text admin_text--quote"> <%= "Email: "+prospect.email %></p>
+                </div>
+                <% if(prospect.quote) {%>
+                  <div class="col-6">
+                    <p class="admin_text admin_text--quote"> <%= "Quote: "+formattedNumber %></p>
+                  </div>
+                <%}%>
+                <% if(prospect.phone_number) {%>
+                  <div class="col-12">
+                    <p class="admin_text admin_text--quote"> <%= "Phone Number: "+prospect.phone_number %></p>
+                  </div>
+                <%}%>
+                <% if(prospect.address) {%>
+                  <div class="col-12">
+                    <p class="admin_text admin_text--quote"> <%= "Address: "+prospect.address %></p>
+                  </div>
+                <%}%>
+                <% if(prospect.schedule) {%>
+                  <div class="col-12">
+                    <p class="admin_text admin_text--quote"> <%= "Schedule Cleaning: "+prospect.schedule.toString().split('(')[0] %></p>
+                  </div>
+                <%}%>
+                <div class="col-12">
+                  <p class='<%= "admin_text admin_text--quote "%>' > Status: <strong status="<%= prospect.status %>"  id="currentstatus" class="<%= status.style %>">
+                  <%=  status.name %>
+                  </strong></p>
+                </div>
+              </div>
+
+
             </div>
-              <div class="col-12">
-                <p class="admin_text admin_text--quote"> <%= "Name: "+prospect.name %></p>
-              </div>
-              <div class="col-12">
-                <p class="admin_text admin_text--quote"> <%= "Email: "+prospect.email %></p>
-              </div>
-              <% if(prospect.quote) {%>
-                <div class="col-6">
 
-                  <% const formattedNumber = new Intl.NumberFormat('en-US', {
-                    style: 'currency',
-                    currency: 'USD'
-                  }).format(prospect.quote); %>
-
-                  <p class="admin_text admin_text--quote"> <%= "Quote: "+formattedNumber %></p>
-                </div>
-              <%}%>
-              <% if(prospect.phone_number) {%>
-                <div class="col-12">
-                  <p class="admin_text admin_text--quote"> <%= "Phone Number: "+prospect.phone_number %></p>
-                </div>
-              <%}%>
-              <% if(prospect.address) {%>
-                <div class="col-12">
-                  <p class="admin_text admin_text--quote"> <%= "Address: "+prospect.address %></p>
-                </div>
-              <%}%>
-              <% if(prospect.schedule) {%>
-                <div class="col-12">
-                  <p class="admin_text admin_text--quote"> <%= "Schedule Cleaning: "+prospect.schedule.toString().split('(')[0] %></p>
-                </div>
-              <%}%>
-              <div class="col-12">
-                <p class='<%= "admin_text admin_text--quote "%>' > Status: <strong status="<%= prospect.status %>"  id="currentstatus" class="<%= status.style %>">
-                <%=  status.name %>
-                </strong></p>
-              </div>
-
-
-          </div>
+          <%}%>
 
         <%}%>
 

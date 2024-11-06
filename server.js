@@ -15,14 +15,6 @@ var Owner = require("./models/owner.js");
 var session = require("express-session");
 var MongoDBStore = require('connect-mongodb-session')(session);
 var admin_controller = require("./controllers/admin/adminController.js");
-app.use(bodyParser.json());
-app.use(session({secret:"0gunio4tngvjnvjwnvjjvnirjwnvbirjnb",saveUninitialized:false,store:StoreSession}));
-
-
-app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static('public'));
-app.use(user_routes);
-app.use(admin_routes);
 
 const days_constant = 7;
 const seconds = 1000;
@@ -30,14 +22,58 @@ const minutes = 60 * seconds;
 const hour = minutes * 60;
 const days_unit = hour * 24;
 const days_to_email = days_unit * days_constant
-var countdown = 0;
+var countdown = days_constant;
 const throttle_email = 2 * hour;
 
 
+app.use(bodyParser.json());
+app.set("view engine","ejs");
+
 var StoreSession =  new MongoDBStore({
-  uri:connection_name,
+  uri:connection_name.session_name,
   collection:"session"
 });
+
+app.use(session({secret:"0gunio4tngvjnvjwnvjjvnirjwnvbirjnb",resave:false,saveUninitialized:false,store:StoreSession}));
+
+app.use((req,res,next)=>{
+
+  if(req.session.owner){
+  
+    Owner.findById(req.session.owner._id).then((owner)=>{
+      req.owner = owner;
+      next();
+    });
+
+  }
+  else{
+    req.owner = null;
+    next();
+  }
+
+});
+
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(express.static('public'));
+
+app.use(user_routes);
+app.use(admin_routes);
+
+db.MongoConnect((result)=>{
+
+  mongoose.connect(connection_name.connection_name).then((s)=>{
+
+    setInterval(()=>{admin_controller.EmailNewKey(false)},days_to_email)
+    setInterval(()=>{countdown - 1, 1000});
+    app.listen(port,async()=>{
+      console.log(port);
+    });
+
+  });
+
+});
+
+
 
 function CheckIfCanEmail(manual){
   if(!manual){
@@ -50,22 +86,6 @@ function CheckIfCanEmail(manual){
     return false;
   }
 }
-
-app.set("view engine","ejs");
-
-db.MongoConnect((result)=>{
- 
-  mongoose.connect(connection_name).then((s)=>{
-
-    setInterval(()=>{admin_controller.EmailNewKey(false)},days_to_email)
-    setInterval(()=>{countdown - 1, 1000});
-    app.listen(port,async()=>{
-      console.log(port);
-    });
-
-  });
-
-});
 
 
 module.exports.CheckIfCanEmail = CheckIfCanEmail;

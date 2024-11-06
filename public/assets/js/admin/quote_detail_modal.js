@@ -5,7 +5,10 @@ for(var i =0; i < quote_display_container.length;i++){
     var choice_container_detail = quote_display_container[i].querySelector(".choice_container--details");
     var choice_container_delete = quote_display_container[i].querySelector(".choice_container--delete");
     var choice_container_status = quote_display_container[i].querySelector(".choice_container--status");
-    
+    var choice_container_completed = quote_display_container[i].querySelector(".choice_container--completed");
+    if(!choice_container_completed || choice_container_status || choice_container_delete || choice_container_detail){
+      break;
+    }
     choice_container_delete.addEventListener("click",(e)=>{
       var parent_ = e.target.parentElement.parentElement.parentElement;
       var _id = parent_.getAttribute("quote_id");
@@ -20,6 +23,11 @@ for(var i =0; i < quote_display_container.length;i++){
     choice_container_status.addEventListener("click",(e)=>{
       var parent_ = e.target.parentElement.parentElement.parentElement;
       StatusFeature(parent_);
+    });
+
+    choice_container_completed.addEventListener("click",(e)=>{
+      var parent_ = e.target.parentElement.parentElement.parentElement;
+      CompletedFeature(parent_);
     });
 
 }
@@ -45,6 +53,7 @@ async function SubmitDetails(modal,form){
   setTimeout(()=>{
     banner.classList.remove("updated_banner--updated")
   },3000);
+  CollapseAllModals();
 
 }
 
@@ -106,6 +115,59 @@ async function StatusFeature(parent_){
 
 }
 
+async function CompletedFeature(parent_){
+  
+  CollapseAllModals();
+  
+  var modal = parent_.querySelector(".quote_completed_modal");
+  var active_index = modal.getAttribute("active");
+  var button = modal.querySelector(".form_completed_button");
+  var form = modal.querySelector(".quote_completed_form");
+  
+  active_index = parseInt(active_index);
+
+  if(active_index == 0){
+    ToggleModal(modal,1);
+  }
+
+  form.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    SubmitCompleted(modal,form);
+  });
+
+  button.addEventListener("click",(e)=>{
+    e.preventDefault();
+    SubmitCompleted(modal,form);
+  });
+
+}
+
+async function SubmitCompleted(modal,form){
+  var banner = document.querySelector(".updated_banner");
+  
+  banner.classList.add("updated_banner--updated")
+
+  const formData = new FormData(form);
+  
+  var data = {};
+
+  for (const [key, value] of formData) {
+    data[key] = value;
+  }
+  
+  data._id = modal.parentElement.getAttribute("quote_id");
+  data.quote = modal.parentElement.getAttribute("quote");
+
+  await axios.post("/admin/prospect/completed/",data);
+
+  setTimeout(()=>{
+    banner.classList.remove("updated_banner--updated")
+  },3000);
+
+  CollapseAllModals();
+
+}
+
 async function SubmitStatus(modal,form){
 
   var banner = document.querySelector(".updated_banner");
@@ -121,21 +183,23 @@ async function SubmitStatus(modal,form){
   }
   
   data._id = modal.parentElement.getAttribute("quote_id");
-
+  console.log(data)
   await axios.post("/admin/prospect/status/",data);
 
   setTimeout(()=>{
     banner.classList.remove("updated_banner--updated")
   },3000);
-
+  CollapseAllModals();
 }
 
 function ChangeCurrentStatusModalText(element,status){
    
-  var status_config = {name:"Subscribed",style:"subscribed--status"}
+    var status_config = {name:"Subscribed",style:"subscribed--status"}
   
     status = parseInt(status);
+   
     console.log(status)
+   
     if(status == 0){
       status_config.name = "Subscribed" 
       status_config.style = "subscribed--subscribed" 
@@ -163,6 +227,7 @@ function ChangeCurrentStatusModalText(element,status){
 
   element.className = status_config.style;
   element.innerText = status_config.name;
+  
   console.log(status_config)
   
 

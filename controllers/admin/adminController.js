@@ -3,6 +3,7 @@ var path = require("path");
 var rootDir = require("./../../util/path.js");
 var mongoose= require("mongoose");
 var ObjectId = mongoose.Types.ObjectId;
+
 var Schedule = require("./../../data/schedule.js");
 var Meta = require("./../../data/meta.js");
 var Labor = require("./../../data/labor.js");
@@ -18,6 +19,7 @@ var utility = require("./admin_utility.js");
 var email_sensitive = require("./../../util/sensitive.js").email;
 var AUTHPAGE = path.join(rootDir,"views","admin","login.ejs");
 var server = require("./../../server.js");
+const { compileFunction } = require("vm");
 var brow = {
   firefox:0,
   safari:0,
@@ -42,10 +44,12 @@ var data_rendered_to_page = {
 
 }
 
+var data = null;
+
 const Login = (req,res) => {
   
   var {key,username} = req.body;
-  console.log(key,username)
+  
   Owner.findOne({username:username,secret_key:key}).then((found_owner)=>{
     
     if(!found_owner){
@@ -56,8 +60,11 @@ const Login = (req,res) => {
     }
 
     req.session.isAuth = true;
-    req.session.save();
-    res.redirect("/admin");
+    found_owner._id = new ObjectId(found_owner._id);
+    req.session.owner = JSON.stringify(found_owner);
+    req.session.save((err)=>{
+      res.redirect("/admin");
+    });
 
   });
 
@@ -87,7 +94,7 @@ const SetNewKey = async (manual) => {
 }
 
 function SendEmailToOwner(new_key){
-  console.log(email_sensitive)
+  
   transport.sendMail({
     to:email_sensitive,
     from:email_sensitive,
@@ -109,9 +116,7 @@ function SendEmailToOwner(new_key){
 
       </div>
      `
-  }).then((exec_)=>{
-    console.log(exec_)
-  }).catch((err)=>{console.log(err)});
+  });
 }
 
 const GetLoginPage = (req,res) =>{
@@ -141,13 +146,71 @@ const AddProspect = async(req,res,next) =>{
 
 }
 
+const CompleteProspectJob = async (req,res,next) => {
+  
+  var errors = validationResult(req);
+  
+  if(errors.isEmpty() == false){
+    res.json(false);
+    return;
+  }
+  var {hours,quote,miles,material_cost,_id,date_completed} = req.body;
+ 
+  var found_owner = await Owner.findById(req.session.owner._id);
+ 
+  if(found_owner){
+    
+    var new_owner = {...found_owner._doc};
+    const MILEAGE = (3.79 / 23); 
+    const PERJOB = 20;
+
+    var completed_job = {
+      quote:parseInt(quote),
+      hours:parseInt(hours),
+      date_completed:date_completed,
+      miles:parseInt(miles),
+      material_cost:parseInt(material_cost),
+      profit: 0,
+      prospect_id:_id,
+      qty:1,
+      hourly_profit:0
+    }
+
+    completed_job.profit = parseInt(quote - ((miles * MILEAGE) + (material_cost / PERJOB)));
+    completed_job.hourly_profit = parseInt(completed_job.profit / completed_job.hours);
+   
+    var completed_jobs = new_owner.completed_jobs.length > 0 ? [...new_owner.completed_jobs,completed_job] : [completed_job];
+    
+    var update = { $set: {completed_jobs: completed_jobs} }
+    const prospect = await Prospect.findOne({_id:_id});
+    console.log(prospect);
+    if(prospect._doc.status == 3){
+      return;
+    }
+    
+    var update_prospect = {$set:{status:3}};
+  
+    const exec_prospect = await Prospect.findOneAndUpdate({_id:_id},update_prospect);
+    const exec = await Owner.findOneAndUpdate({_id:new ObjectId(req.owner._id)},update); 
+    console.log(exec,exec_prospect);
+    res.json(true);
+
+  }
+  else{
+    res.json(false);
+  }
+
+}
+
 const ChangeProspectStatus = async (req,res,next)=>{
+  
   var body = req.body;
   var found_prospect = await Prospect.findOne({_id:new ObjectId(body._id)});
+  
   if(found_prospect){
 
     var new_prospect = {...found_prospect._doc};
-    var update = { $set: {status: body.status } }
+    var update = { $set: {status: parseInt(body.status) } }
     
     const exec = await Prospect.findOneAndUpdate({_id:new ObjectId(body._id)},update);
    
@@ -156,6 +219,7 @@ const ChangeProspectStatus = async (req,res,next)=>{
   }else{
     res.json(false);
   }
+
 }
 
 const AddProspectDetails = async (req,res,next)=>{
@@ -229,7 +293,9 @@ const DeleteSchedule = async (req,res,next) => {
 
 const GetIndexPage = async (req,res,next) => {
 
-   var data = await utility.renderAllData(req,res);
+   if(!data){
+     data = await utility.renderAllData(req,res);
+   }
 
    res.render(path.join(rootDir,"views","/admin/index.ejs"),data);
 
@@ -326,14 +392,6 @@ const DeleteQuotes = (req,res,next) => {
 
 }
 
-const CompletedQuotes = (req,res,next) => {
-
-   Schedule.completeThese(req.body.quotes,(data)=>{
-       res.redirect('/admin/quotes');
-   });
-
-}
-
 const Subscribe = async (req,res,next) => {
   var errors = validationResult(req);
 
@@ -398,6 +456,14 @@ const DeleteProspect = async (req,res,next)=>{
 
 }
 
+const ToggleProspects = async (req,res,next) =>{
+  
+  var toggle = parseInt(req.body.toggle);
+  data.toggle = toggle;
+  res.redirect("/admin");
+
+}
+
 module.exports.DeleteProspect = DeleteProspect;
 module.exports.AddProspectDetails = AddProspectDetails;
 module.exports.AddProspect= AddProspect;
@@ -417,4 +483,6 @@ module.exports.GetLoginPage = GetLoginPage;
 module.exports.Login = Login;
 module.exports.SetNewKey = SetNewKey;
 module.exports.ForgotKey = ForgotKey;
+module.exports.ToggleProspects = ToggleProspects;
 module.exports.ChangeProspectStatus = ChangeProspectStatus;
+module.exports.CompleteProspectJob = CompleteProspectJob;

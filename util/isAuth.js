@@ -1,10 +1,11 @@
 const CheckAuth = (req,res,next) => {
-    if(req.session.isAuth){
+    
+    if(req.session.owner){
         next();
         return;
     }else{
-       
-        next();
+        res.redirect("/auth/login");
+        res.end();
         return;   
     }
 }
