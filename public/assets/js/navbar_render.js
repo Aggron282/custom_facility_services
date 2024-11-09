@@ -138,11 +138,9 @@ function Init(){
 
   if(nav_button){
 
-      nav_button.addEventListener("click",()=>{
-
-        NavClick();
-
-     });
+    nav_button.addEventListener("click",()=>{
+      NavClick();
+    });
 
   }
 

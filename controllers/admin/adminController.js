@@ -2,6 +2,7 @@ var express = require("express");
 var path = require("path");
 var rootDir = require("./../../util/path.js");
 var mongoose= require("mongoose");
+
 var ObjectId = mongoose.Types.ObjectId;
 
 var Schedule = require("./../../data/schedule.js");
@@ -9,17 +10,25 @@ var Meta = require("./../../data/meta.js");
 var Labor = require("./../../data/labor.js");
 var Prospect = require("./../../models/prospects.js");
 var Owner = require("./../../models/owner.js");
+
 var enums = require("./../../util/enums.js");
+
 const nodemailer = require("nodemailer");
 const sendgridTransport = require("nodemailer-sendgrid-transport");
 const auth_config = require('./../../util/nodemailer.js');
 const transport = nodemailer.createTransport(sendgridTransport(auth_config));
+
 const {validationResult} = require("express-validator");
+
 var utility = require("./admin_utility.js");
 var email_sensitive = require("./../../util/sensitive.js").email;
+
 var AUTHPAGE = path.join(rootDir,"views","admin","login.ejs");
+
 var server = require("./../../server.js");
+
 const { compileFunction } = require("vm");
+
 var brow = {
   firefox:0,
   safari:0,
@@ -47,15 +56,15 @@ var data_rendered_to_page = {
 var data = null;
 
 const Login = (req,res) => {
-  
+
   var {key,username} = req.body;
-  
+
   Owner.findOne({username:username,secret_key:key}).then((found_owner)=>{
-    
+
     if(!found_owner){
       res.render(AUTHPAGE);
       req.session.isAuth = false;
-    
+
       return;
     }
 
@@ -75,11 +84,11 @@ const ForgotKey = async (req,res) =>{
 }
 
 const SetNewKey = async (manual) => {
-  
+
   var new_key = Math.ceil(Math.random() * 999999999);
-  
+
   const exec = await Owner.updateOne({email:email_sensitive},{$set:{secret_key:new_key}});
- 
+
   if(!server.CheckIfCanEmail(manual)){
     console.log("Could not email");
     return;
@@ -90,28 +99,28 @@ const SetNewKey = async (manual) => {
   }
 
   SendEmailToOwner();
-  
+
 }
 
 function SendEmailToOwner(new_key){
-  
+
   transport.sendMail({
     to:email_sensitive,
     from:email_sensitive,
     subject:"Your Secret Key has been Changed",
     html:`
       <div style="position:relative;box-shadow:0px 0px 10px rgba(0,0,0,.5);text-align:center;padding:30px;border-radius:10px;border:1px solid black">
-       
+
       <img style="position:absolute;width:100px;margin-left:-40px;top:0%;opacity:1"
         src = "https://cdn.shopify.com/s/files/1/0300/2577/7251/files/Untitled_design_-_2024-10-25T234426.750.png?v=1729925216"
         />
-       
+
         <p style="text-align:center;font-size:20px">Your New Key</p>
-       
-        <p style="text-decoration:underline;font-size:22px;text-align:center"> 
+
+        <p style="text-decoration:underline;font-size:22px;text-align:center">
          ${new_key}
         </p>
-        
+
         <h2> Custom Facility Services | Window Cleaning Experts </h2>
 
       </div>
@@ -124,7 +133,7 @@ const GetLoginPage = (req,res) =>{
 }
 
 const AddProspect = async(req,res,next) =>{
-  
+
   var {name,phone_number,email,quote,address,schedule_date} = req.body;
   var errors = validationResult(req);
 
@@ -147,21 +156,21 @@ const AddProspect = async(req,res,next) =>{
 }
 
 const CompleteProspectJob = async (req,res,next) => {
-  
+
   var errors = validationResult(req);
-  
+
   if(errors.isEmpty() == false){
     res.json(false);
     return;
   }
   var {hours,quote,miles,material_cost,_id,date_completed} = req.body;
- 
+
   var found_owner = await Owner.findById(req.session.owner._id);
- 
+
   if(found_owner){
-    
+
     var new_owner = {...found_owner._doc};
-    const MILEAGE = (3.79 / 23); 
+    const MILEAGE = (3.79 / 23);
     const PERJOB = 20;
 
     var completed_job = {
@@ -178,21 +187,21 @@ const CompleteProspectJob = async (req,res,next) => {
 
     completed_job.profit = parseInt(quote - ((miles * MILEAGE) + (material_cost / PERJOB)));
     completed_job.hourly_profit = parseInt(completed_job.profit / completed_job.hours);
-   
+
     var completed_jobs = new_owner.completed_jobs.length > 0 ? [...new_owner.completed_jobs,completed_job] : [completed_job];
-    
     var update = { $set: {completed_jobs: completed_jobs} }
+
     const prospect = await Prospect.findOne({_id:_id});
-    console.log(prospect);
+
     if(prospect._doc.status == 3){
       return;
     }
-    
+
     var update_prospect = {$set:{status:3}};
-  
+
     const exec_prospect = await Prospect.findOneAndUpdate({_id:_id},update_prospect);
-    const exec = await Owner.findOneAndUpdate({_id:new ObjectId(req.owner._id)},update); 
-    console.log(exec,exec_prospect);
+    const exec = await Owner.findOneAndUpdate({_id:new ObjectId(req.owner._id)},update);
+
     res.json(true);
 
   }
@@ -203,17 +212,17 @@ const CompleteProspectJob = async (req,res,next) => {
 }
 
 const ChangeProspectStatus = async (req,res,next)=>{
-  
+
   var body = req.body;
   var found_prospect = await Prospect.findOne({_id:new ObjectId(body._id)});
-  
+
   if(found_prospect){
 
     var new_prospect = {...found_prospect._doc};
     var update = { $set: {status: parseInt(body.status) } }
-    
+
     const exec = await Prospect.findOneAndUpdate({_id:new ObjectId(body._id)},update);
-   
+
     res.json(true);
 
   }else{
@@ -223,9 +232,10 @@ const ChangeProspectStatus = async (req,res,next)=>{
 }
 
 const AddProspectDetails = async (req,res,next)=>{
+
   var body = req.body;
   var found_prospect = await Prospect.findOne({_id:new ObjectId(body._id)});
- 
+
   if(found_prospect){
 
     var new_prospect = {...found_prospect._doc};
@@ -236,31 +246,35 @@ const AddProspectDetails = async (req,res,next)=>{
     else{
       new_prospect.address = body.address.length > 0 ? body.address : new_prospect.address;
     }
+
     if(!new_prospect.address){
       new_prospect.address = body.address;
     }
     else{
       new_prospect.address = body.address.length > 0 ? body.address : new_prospect.address;
     }
+
     if(!new_prospect.schedule){
       new_prospect.schedule = body.schedule_date;
     }
     else{
       new_prospect.schedule = body.schedule_date.length > 0 ? body.schedule_date : new_prospect.schedule;
     }
+
     if(new_prospect.schedule || new_prospect.address && new_prospect.quote){
-      
+
       if(new_prospect.status == enums.Subscribed){
         new_prospect.status = enums.Quoted;
       }
 
     }
+
     var update = { $set: { quote: new_prospect.quote, schedule:new_prospect.schedule, address:new_prospect.address, status: new_prospect.status } }
 
     const exec = await Prospect.findOneAndUpdate({_id:new ObjectId(body._id)},update);
-   
+
     res.json(true);
-  
+
   }
   else{
     res.json(false);
@@ -281,10 +295,10 @@ const EditSchedule = async (req,res,next) => {
 const DeleteSchedule = async (req,res,next) => {
 
   var data  = req.body;
-  
+
   data.name_of_job = "";
   data.address = "";
-  
+
   await Labor.EditSchedule(data,()=>{
     res.redirect("/admin/schedule");
   });
@@ -297,9 +311,30 @@ const GetIndexPage = async (req,res,next) => {
      data = await utility.renderAllData(req,res);
    }
 
-   res.render(path.join(rootDir,"views","/admin/index.ejs"),data);
+     page_counter = 0;
+
+    if(req.params){
+      page_counter = req.params.prospects_page ? req.params.prospects_page  : 0;
+    }
+
+    page_counter = parseInt(page_counter);
+
+    var post_per_page = 7;
+    var page_length = Math.floor(data.prospects.length / post_per_page);
+
+    data.page_counter = parseInt(page_counter);
+    data.post_per_page = 4;
+    data.page_length = page_length;
+    data.next_page = page_counter + 1 > page_length ? page_length : page_counter + 1;
+    data.prev_page = page_counter - 1 < 0 ? 0 : page_counter - 1;
+    data.start_counter = page_counter <= 0 ? 0 : page_counter;
+    data.first_page = 0;
+
+    res.render(path.join(rootDir,"views","/admin/index.ejs"),data);
 
 }
+
+
 
 const GetQuotePage = async (req,res,next) => {
 
@@ -396,10 +431,10 @@ const Subscribe = async (req,res,next) => {
   var errors = validationResult(req);
 
   if(errors.isEmpty()){
-    
+
     var body = req.body;
     var new_prospect = new Prospect();
-   
+
     new_prospect.email = body.email;
     new_prospect.name = body.name;
     new_prospect.time_created = new Date();
@@ -412,7 +447,7 @@ const Subscribe = async (req,res,next) => {
     }
 
     new_prospect.save();
-   
+
     transport.sendMail({
       to:body.email,
       from:"marcokhodr16@gmail.com",
@@ -447,7 +482,7 @@ const Subscribe = async (req,res,next) => {
 }
 
 const DeleteProspect = async (req,res,next)=>{
- 
+
   var body = req.body;
 
   const delete_ = await Prospect.deleteOne({_id:new ObjectId(body._id)});
@@ -457,7 +492,7 @@ const DeleteProspect = async (req,res,next)=>{
 }
 
 const ToggleProspects = async (req,res,next) =>{
-  
+
   var toggle = parseInt(req.body.toggle);
   data.toggle = toggle;
   res.redirect("/admin");

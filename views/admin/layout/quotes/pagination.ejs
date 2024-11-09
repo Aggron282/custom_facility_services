@@ -1,0 +1,27 @@
+<div class="paginatsion">
+
+  <a href =  "<%=`/admin/prospects_page=${first_page}` %>">
+  First Page
+  </a>
+      <p>...</p>
+  <% if(prev_page > first_page){ %>
+    <a  href =  "<%=`/admin/prospects_page=${prev_page}` %>">
+      <%= (prev_page + 1).toString() %>
+    </a>
+  <%}%>
+
+  <a id="act"  href =  "<%=`/admin/prospects_page=${page_counter}` %>">
+   <%= (page_counter + 1).toString() %>
+  </a>
+
+ <% if(next_page < page_length){ %>
+    <a  href =  "<%=`/admin/prospects_page=${next_page}` %>">
+      <%= (next_page + 1).toString() %>
+    </a>
+  <%}%>
+  <p>...</p>
+  <a  href =  "<%=`/admin/prospects_page=${page_length}` %>" >
+   Last Page
+  </a>
+
+</div>

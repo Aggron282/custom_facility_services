@@ -1,6 +1,5 @@
 var add_prospect_modal_toggler = document.querySelector(".add_prospect_button--g");
 var submit_prospect_button =  document.querySelector(".add_prospect_button");
-
 var prospect_add_form = document.querySelector("#prospect_form");
 
 var isAddProspectModalOpen = false;
@@ -14,12 +13,12 @@ function ToggleModalAddProspect(isOn){
   var prospect_modal_add = document.querySelector(".prospect_modal--add");
 
   isAddProspectModalOpen = isOn;
-  console.log(isAddProspectModalOpen);
+
   window.location.href = "#prospect_title"
+
   if(!isAddProspectModalOpen){
     prospect_modal_add.classList.add("prospect_modal--inactive")
-  }
-  else{
+  }else{
     prospect_modal_add.classList.remove("prospect_modal--inactive")
   }
 
@@ -32,6 +31,7 @@ async function SubmitProspect(){
   ToggleModalAddProspect(false);
 
   const formData = new FormData(form);
+
   var data = {};
 
   for (const [key, value] of formData) {

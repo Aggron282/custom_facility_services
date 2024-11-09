@@ -4,7 +4,6 @@ var list = document.querySelector(".progress_clean_list--steps");
 
 var progress_container = document.querySelector(".progress_container");
 
-
 var arrow_left = document.querySelector(".clean_arrow--left");
 var arrow_right = document.querySelector(".clean_arrow--right");
 
@@ -16,7 +15,6 @@ var counter = 1;
 var throttle = 1;
 var isThrottle = true;
 
-
 function delay(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
@@ -26,8 +24,7 @@ function ToggleBubbleClass(remove,i){
   if(remove){
     bubbles[i].classList.remove("progress_clean_bubble--active");
     lines[i].classList.remove("clean_line_active");
-  }
-  else{
+  }else{
     bubbles[i].classList.add("progress_clean_bubble--active");
     lines[i].classList.add("clean_line_active");
   }
@@ -88,17 +85,12 @@ function GenerateBullet(){
 
 }
 
-
 arrow_left.addEventListener("click", (event)=>{
-
   ChangeCounter(-1);
-
 });
 
 arrow_right.addEventListener("click", (event)=>{
-
   ChangeCounter(1);
-
 });
 
 function ChangeCounter(increment){

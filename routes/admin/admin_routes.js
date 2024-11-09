@@ -5,8 +5,8 @@ var rootDir = require("./../../util/path.js")
 var adminController = require("./../../controllers/admin/adminController.js");
 var CheckAuth = require("./../../util/isAuth.js").CheckAuth;
 var {check} = require("express-validator")
-
 router.get("/admin/",CheckAuth,adminController.GetIndexPage);
+router.get("/admin/prospects_page=:prospect_page",CheckAuth,adminController.GetIndexPage);
 router.get("/admin/quotes",CheckAuth,adminController.GetQuotePage);
 router.get("/admin/schedule",CheckAuth,adminController.ShowSchedule);
 router.get("/auth/login",adminController.GetLoginPage);

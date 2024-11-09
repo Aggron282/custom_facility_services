@@ -11,6 +11,23 @@ body{
   font-weight: 200;
   font-size:40px;
 }
+
+.paginatsion a  {
+  text-decoration: underline;
+    color:black !important;
+  margin-left:10px;float:left;font-size:18px;font-family:'Roboto'
+}
+.paginatsion{
+  color:black;overflow:hidden;width:50%;margin-left:40%
+}
+.paginatsion a:hover{
+  color:cornflowerblue;
+}
+.paginatsion p  {
+  color:black;
+  margin-left:10px;float:left;font-size:13px;font-family:'Roboto';margin-top:5px;
+}
+
 .subscribed--subscribed{
   font-family: "Teko";
   color:grey;

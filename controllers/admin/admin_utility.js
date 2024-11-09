@@ -81,16 +81,6 @@ const renderAllData = async(req,res,toggle)=>{
       var meta_views = await Meta.GetVisitorCount();
       var new_brow = await GetBrowserCounts();
       var laborers = await Labor.ReturnAllLaborers();
-      
-      
-
-      if(req.path == "/admin/home" && prospects.length >= 3){
-        count = 3;
-      }
-
-      for(var i = 0; i < count; i++){
-        limited_prospects.push(prospects[i]);
-      }
 
       for(var i = 0; i < prospects.length; i++){
         full_prospects.push(prospects[i]);
@@ -102,7 +92,6 @@ const renderAllData = async(req,res,toggle)=>{
 
       var new_data_to_page = {...data_rendered_to_page};
 
-      new_data_to_page.limited_prospects = prospects
       new_data_to_page.prospects = prospects;
       new_data_to_page.pageTitle = "Admin";
       new_data_to_page.people = laborers;
@@ -113,7 +102,7 @@ const renderAllData = async(req,res,toggle)=>{
       new_data_to_page.meta.brow = new_brow;
       new_data_to_page.active_path = req.path;
       new_data_to_page.toggle = 0;
-      console.log(new_data_to_page)
+
       return new_data_to_page;
 
 }

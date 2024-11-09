@@ -5,6 +5,12 @@
   position: relative;
   width:100%;
 }
+.admin_home_subtitle{
+  font-size:25px;margin-left:2.5%;margin-top:5%;
+}
+.toggle_quotes_container{
+  overflow:hidden;margin-top:30px
+}
 .delete_quote_button--inactive{
   visibility: hidden;
 }
@@ -14,6 +20,10 @@
 body p {
   font-family: "Montserrat" !important
 }
+.quote_text{
+  font-size:20px;padding-top:10px;border:1px #e6e6e6 solid;padding-bottom:10px;text-align:center;float:left;width:50%
+}
+.quote_text--active{color:white;background:cornflowerblue}
 .quote_display_container--more{
    border:#e6e6e6 1px;
    padding:2%;

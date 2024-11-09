@@ -1,14 +1,27 @@
   <%- include("./layout/head.ejs") %>
 
   <div class="container-fluid relative">
-
+    
       <%- include("./layout/navbar.ejs") %>
 
-      <p class="admin_home_subtitle akrobat font-20 bold margin-left-15 margin-top-2_5 padding-left-2_5 "> Online Quotes </p>
+      <p class="admin_home_subtitle" > Quotes Module </p>
 
-      <div class= "dark-shadow padding-bottom-2_5 relative ">
+      <%- include("./layout/quotes/prospect_chart.ejs") %>
+      <%- include("./layout/quotes/total_quotes.ejs") %>
 
-          <%- include("./layout/quotes/edit_quotes.ejs") %>
+      <div class= "dark-shadow  relative ">
+
+          <div class="toggle_quotes_container">
+
+            <p class="quote_text quote_text--active"  toggle = "1">
+                Prospects
+            </p>
+
+            <p class="quote_text" toggle = "0">
+                Clients
+            </p>
+
+          </div>
 
           <div class="row">
 

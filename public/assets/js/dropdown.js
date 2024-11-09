@@ -8,7 +8,7 @@ function AddDropdownEvents(){
         dropdowns[arrow].addEventListener("click",function(e){
           resetDropdown(e,true);
         });
-
+        
     }
 
 }

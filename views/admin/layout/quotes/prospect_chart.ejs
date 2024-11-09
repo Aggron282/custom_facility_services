@@ -1,0 +1,36 @@
+<div style="padding-bottom:5%;padding-top:20px;position:relative;overflow:hidden">
+  <div style="height:400px;width:1000px;margin-left:35%;position:relative;z-index:99;">
+  <p class="wheel_title"style="position:absolute;left:16%;top:52.5%;font-size:20px;font-weight:700;font-family:'Exo'">Prospect<br> Progress </p>
+  <canvas id="myChart" "></canvas>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+      labels: ['Sunday', 'Monday', 'Tuesday', 'Wedsnday ', 'Thursday', 'Friday',"Saturday"],
+      datasets: [{
+        label: '# Prospects',
+        data: [0,1,0,1,0,0,0],
+        backgroundColor: [
+         'rgb(255, 99, 132)',
+         'rgb(54, 162, 235)',
+         'rgb(255, 205, 86)',
+         "crimson",
+         "cornflowerblue",
+         "limegreen",
+         "orangred",
+         "violet",
+
+         ],
+        borderWidth: 1,
+        borderColor:"#e6e6e6",
+      }]
+    }
+  });
+</script>
