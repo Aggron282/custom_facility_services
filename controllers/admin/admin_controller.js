@@ -2,36 +2,32 @@ var express = require("express");
 var path = require("path");
 var rootDir = require("./../../util/path.js");
 var mongoose= require("mongoose");
+const {validationResult} = require("express-validator");
+const { compileFunction } = require("vm");
 
 var ObjectId = mongoose.Types.ObjectId;
 
-var Schedule = require("./../../data/schedule.js");
-var Meta = require("./../../data/meta.js");
 var Labor = require("./../../data/labor.js");
 var Prospect = require("./../../models/prospects.js");
 var Owner = require("./../../models/owner.js");
+
 var prospectController = require("./prospect_controller.js");
 var sales = require("./../../util/sales.js");
 
 var enums = require("./../../util/enums.js");
-
-const {validationResult} = require("express-validator");
-
 var utility = require("./admin_utility.js");
 
 var server = require("./../../server.js");
-
-const { compileFunction } = require("vm");
 
 var data = null;
 
 const GetIndexPage = async (req,res,next) => {
 
-     if(!data){
+    if(!data){
        data = await utility.renderAllData(req,res);
      }
 
-     var page_counter = 0;
+    var page_counter = 0;
 
     if(req.params){
       page_counter = req.params.prospects_page ? req.params.prospects_page  : 0;
@@ -48,6 +44,7 @@ const GetIndexPage = async (req,res,next) => {
         $gte: today,
         $lte: oneWeekFromNow
       }
+
     });
 
     var page_data = utility.GetPageData(page_counter,7,data.prospects);
