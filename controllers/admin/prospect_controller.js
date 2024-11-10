@@ -37,7 +37,6 @@ const GetProspectPage = async (req,res,next) => {
 
     var page_data = utility.GetPageData(page_counter,7,data.prospects);
     var all_prospects =await Prospect.find({});
-console.log(sales.GetSales(all_prospects))
     new_data_to_page.weekly_sales = sales.GetSales(weekly_prospects);
     new_data_to_page.total_sales = sales.GetSales(all_prospects);
 
@@ -157,7 +156,6 @@ const CompleteProspectJob = async (req,res,next) => {
     var update = { $set: {completed_jobs: completed_jobs} }
 
     const prospect = await Prospect.findOne({_id:_id});
-    console.log(prospect);
     if(prospect.status == 4){
       return;
     }
@@ -203,53 +201,40 @@ const AddProspect = async(req,res,next) =>{
 
 const GetAllProspects = async (req,res) =>{
 
-    var return_all_prospects = await Prospect.find({});
-    console.log(return_all_prospects)
-    res.json({prospects:return_all_prospects});
+  var return_all_prospects = await ReturnAllProspects();
+  res.json({prospects:return_all_prospects});
 
 }
 
-const ReturnAllProspects = async (req,res) =>{
+const ReturnAllProspects = async () =>{
 
-  Prospect.find({}).then((all_prospects)=>{
-    return all_prospects;
-  });
+  var all_p = await Prospect.find({});
+  return all_p;
 
 }
 
 const GetWeeklyProspects = async (req,res) => {
 
-  const today = new Date();
-
-  today.setHours(0, 0, 0, 0);
-
-  const oneWeekFromNow = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
-  Prospect.find({
-    time_created: {
-      $gte: today,
-      $lte: oneWeekFromNow
-    }
-  }).then(data => {
-     res.json({prospects:data});
-  })
-
+  var data = await ReturnWeeklyProspects();
+  res.json({prospects:data});
 }
 
 async function ReturnWeeklyProspects(){
+
   const today = new Date();
 
   today.setHours(0, 0, 0, 0);
 
   const oneWeekFromNow = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
 
-  Prospect.find({
+  var all_p = Prospect.find({
     time_created: {
       $gte: today,
       $lte: oneWeekFromNow
     }
-  }).then(data => {
-    return data;
-  })
+  });
+
+  return all_p;
 
 }
 
@@ -281,7 +266,6 @@ const ToggleProspects = async (req,res,next) =>{
 
 const GetSales = (req,res) => {
   var prospects = req.body.prospects;
-  console.log(prospects);
   var sales_ = sales.GetSales(prospects);
   res.json(sales_);
 }

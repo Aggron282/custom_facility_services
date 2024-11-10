@@ -11,7 +11,7 @@ var Labor = require("./../../data/labor.js");
 var Prospect = require("./../../models/prospects.js");
 var Owner = require("./../../models/owner.js");
 
-var prospectController = require("./prospect_controller.js");
+var prospect_controller = require("./prospect_controller.js");
 var sales = require("./../../util/sales.js");
 
 var enums = require("./../../util/enums.js");
@@ -33,22 +33,9 @@ const GetIndexPage = async (req,res,next) => {
       page_counter = req.params.prospects_page ? req.params.prospects_page  : 0;
     }
 
-    const today = new Date();
-
-    today.setHours(0, 0, 0, 0);
-
-    const oneWeekFromNow = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
-
-    var weekly_prospects = await Prospect.find({
-      time_created: {
-        $gte: today,
-        $lte: oneWeekFromNow
-      }
-
-    });
-
+    var weekly_prospects = await prospect_controller.ReturnWeeklyProspects();
     var page_data = utility.GetPageData(page_counter,7,data.prospects);
-    var all_prospects =await Prospect.find({});
+    var all_prospects = await  prospect_controller.ReturnAllProspects();
     var params = req.params;
 
     var toggle_quotes = !params.isCompleted || params.isCompleted == "0" ? 0 : 1;

@@ -73,7 +73,6 @@ const Subscribe = async (req,res,next) => {
     }).then((e)=>{
       res.json(true);
     }).catch((err)=>{
-      console.log(err);
       res.json(false);
     });
 

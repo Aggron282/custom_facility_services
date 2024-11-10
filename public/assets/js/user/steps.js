@@ -15,11 +15,7 @@ var counter = 1;
 var throttle = 1;
 var isThrottle = true;
 
-function delay(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-function ToggleBubbleClass(remove,i){
+const ToggleBubbleClass = (remove,i) => {
 
   if(remove){
     bubbles[i].classList.remove("progress_clean_bubble--active");
@@ -31,7 +27,7 @@ function ToggleBubbleClass(remove,i){
 
 }
 
-function GenerateBubbles(){
+const GenerateBubbles = () => {
 
   for(var i =0; i <bubbles.length; i++){
 
@@ -51,7 +47,7 @@ function GenerateBubbles(){
 
 }
 
-function GenerateBullet(){
+const GenerateBullet = () =>{
 
   var html = ``;
 
@@ -67,33 +63,25 @@ function GenerateBullet(){
 
 }
 
- function GenerateSlide(){
+ const GenerateSlide = () =>{
 
-  var html =
-  `
-     <p class="steps_title slidein">${counter}. ${steps_[counter].title} </p>
-
-     <ul class="steps_list_ slidein">
-      ${GenerateBullet()}
-     </ul>
-
-    <div class="line_steps "></div>
-
+    var html =
     `
+       <p class="steps_title slidein">${counter}. ${steps_[counter].title} </p>
 
- return html;
+       <ul class="steps_list_ slidein">
+        ${GenerateBullet()}
+       </ul>
+
+      <div class="line_steps "></div>
+
+      `
+
+   return html;
 
 }
 
-arrow_left.addEventListener("click", (event)=>{
-  ChangeCounter(-1);
-});
-
-arrow_right.addEventListener("click", (event)=>{
-  ChangeCounter(1);
-});
-
-function ChangeCounter(increment){
+const ChangeCounter = (increment) => {
 
   counter += increment;
 
@@ -110,7 +98,7 @@ function ChangeCounter(increment){
 
 }
 
-function ToggleSteps(){
+const ToggleSteps = () => {
 
   var steps_box = document.querySelector(".progress_clean_container--steps");
 
@@ -119,5 +107,14 @@ function ToggleSteps(){
   GenerateBubbles();
 
 }
+
+
+arrow_left.addEventListener("click", (event)=>{
+  ChangeCounter(-1);
+});
+
+arrow_right.addEventListener("click", (event)=>{
+  ChangeCounter(1);
+});
 
 ToggleSteps();

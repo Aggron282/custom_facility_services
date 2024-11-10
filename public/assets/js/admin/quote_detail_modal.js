@@ -1,6 +1,13 @@
 var quote_display_container = document.getElementsByClassName("quote_display_container");
+var modal_class = "quote_modal--";
 
-function InitProspectMenus(){
+var active = "active";
+var inactive = "inactive";
+
+var modal_inactive_class = modal_class + inactive;
+var modal_active_class = modal_class + active;
+
+const InitProspectMenus = () => {
 
   for(var i =0; i < quote_display_container.length;i++){
 
@@ -14,12 +21,9 @@ function InitProspectMenus(){
     }
 
     choice_container_delete.addEventListener("click",(e)=>{
-
       var parent_ = e.target.parentElement.parentElement.parentElement;
       var _id = parent_.getAttribute("quote_id");
-
       DeleteProspect(_id);
-
     });
 
     choice_container_detail.addEventListener("click",(e)=>{
@@ -41,67 +45,19 @@ function InitProspectMenus(){
 
 }
 
-async function SubmitDetails(modal,form){
-
-  const formData = new FormData(form);
-
-  var data = {};
-
-  for (const [key, value] of formData) {
-    data[key] = value;
-  }
-
-  data._id = modal.parentElement.getAttribute("quote_id");
-
-  await axios.post("/admin/prospect/details/",data);
-
-  CreatePopup("Edited Prospect Details!");
-
-  CollapseAllModals();
-
-}
-
-function ToggleModal(modal,index){
-
-  modal.setAttribute("active",index);
-
-  if(index >= 1 ){
-    modal.classList.remove("quote_modal--inactive");
-    modal.classList.add("quote_modal--active");
-  }
-  else{
-    modal.classList.add("quote_modal--inactive");
-    modal.classList.remove("quote_modal--active");
-  }
-
-}
-
-async function DeleteProspect(_id){
-
-  await axios.post("/admin/prospect/delete",{_id:_id});
-
-  CreatePopup("Deleted Prospect");
-
-  window.location.assign(window.location.href);
-
-}
-
-async function StatusFeature(parent_){
+const StatusFeature = async (parent_) => {
 
   CollapseAllModals();
 
   var modal = parent_.querySelector(".quote_status_modal");
-  var active_index = modal.getAttribute("active");
-  var button = modal.querySelector(".form_status_button");
-  var form = modal.querySelector(".quote_status_form");
+
+  var {active_index,button,form} = ExtractElementFromModal(modal,"form_status_button","quote_status_form");
+
   var select = modal.querySelector("#status");
   var current_status_element = modal.querySelector('#status_text--choose');
   var quote_status = parent_.querySelector("#currentstatus");
 
-  current_status_element.className = quote_status.className;
-  current_status_element.innerText = quote_status.innerText;
-
-  active_index = parseInt(active_index);
+  ChangeCurrentStatusModalText(current_status_element,0)
 
   if(active_index == 0){
     ToggleModal(modal,1);
@@ -123,16 +79,12 @@ async function StatusFeature(parent_){
 
 }
 
-async function CompletedFeature(parent_){
+const CompletedFeature = async (parent_) => {
 
   CollapseAllModals();
 
   var modal = parent_.querySelector(".quote_completed_modal");
-  var active_index = modal.getAttribute("active");
-  var button = modal.querySelector(".form_completed_button");
-  var form = modal.querySelector(".quote_completed_form");
-
-  active_index = parseInt(active_index);
+  var {active_index,button,form} = ExtractElementFromModal(modal,"form_completed_button","quote_completed_form");
 
   if(active_index == 0){
     ToggleModal(modal,1);
@@ -150,48 +102,127 @@ async function CompletedFeature(parent_){
 
 }
 
-async function SubmitCompleted(modal,form){
+const DetailFeature = async (parent_) => {
 
-  const formData = new FormData(form);
+  CollapseAllModals();
 
-  var data = {};
+  var modal = parent_.querySelector(".quote_detail_modal");
 
-  for (const [key, value] of formData) {
-    data[key] = value;
+  var {active_index,button,form} = ExtractElementFromModal(modal,"form_detail_button","quote_detail_form");
+
+  if(active_index == 0){
+    ToggleModal(modal,1);
   }
+
+  form.addEventListener("submit",(e)=>{
+    e.preventDefault();
+    SubmitDetails(modal,form);
+  });
+
+  button.addEventListener("click",(e)=>{
+    e.preventDefault();
+    SubmitDetails(modal,form);
+  });
+
+}
+
+const SubmitCompleted = async (modal,form) => {
+
+  var data = CreateFormData(form);
 
   data._id = modal.parentElement.getAttribute("quote_id");
   data.quote = modal.parentElement.getAttribute("quote");
 
-  await axios.post("/admin/prospect/completed/",data);
+  const res = await axios.post("/admin/prospect/completed/",data);
 
-  CreatePopup("Great Job!");
+  var feedback = await FeedbackToUser(res.data,"Great Job!","Error in Submitting Completion");
+
+  if(feedback){
+    await DelayedRefresh(1000)
+  }
 
   CollapseAllModals();
 
 }
 
-async function SubmitStatus(modal,form){
+const SubmitStatus = async (modal,form) => {
 
-  const formData = new FormData(form);
-
-  var data = {};
-
-  for (const [key, value] of formData) {
-    data[key] = value;
-  }
+  var data = CreateFormData(form);
 
   data._id = modal.parentElement.getAttribute("quote_id");
 
-  await axios.post("/admin/prospect/status/",data);
+  const res = await axios.post("/admin/prospect/status/",data);
 
-  CreatePopup(`Changed Status`);
+  var feedback = await FeedbackToUser(res.data,"Changed Status!","Error in Changing Status");
+
+  if(feedback){
+    DelayedRefresh(1000)
+  }
 
   CollapseAllModals();
 
 }
 
-function ChangeCurrentStatusModalText(element,status){
+const SubmitDetails = async (modal,form) => {
+
+ var data = CreateFormData(form);
+
+ data._id = modal.parentElement.getAttribute("quote_id");
+
+ const res = axios.post("/admin/prospect/details/",data);
+
+ var feedback = await FeedbackToUser(res.data,"Edited Prospect Details!","Error in Editing");
+
+ if(feedback){
+    await DelayedRefresh(1000);
+ }
+
+ CollapseAllModals();
+
+}
+
+const DeleteProspect = async (_id) => {
+
+  const res =  axios.post("/admin/prospect/delete",{_id:_id});
+
+  var feedback = await FeedbackToUser(res.data,"Deleted Prospect","Error in Deleting");
+
+  if(feedback){
+    await DelayedRefresh(1000)
+  }
+
+}
+
+const FeedbackToUser = async (data,success_message,error_message) => {
+
+  if(data){
+    CreatePopup(success_message);
+    return true;
+  }else{
+    CreatePopup(error_message);
+    return false;
+  }
+
+}
+
+const ExtractElementFromModal = (modal_element,button_class,form_class) => {
+
+  var active_index = modal_element.getAttribute("active");
+
+  var button = modal_element.querySelector("."+button_class);
+  var form = modal_element.querySelector("."+form_class);
+
+  active_index = isNaN(parseInt(active_index)) ? 0 : parseInt(active_index);
+
+  return {
+    form:form,
+    button:button,
+    active_index:active_index
+  }
+
+}
+
+const ChangeCurrentStatusModalText = (element,status) => {
 
     var status_config = {name:"Subscribed",style:"subscribed--status"}
 
@@ -222,50 +253,55 @@ function ChangeCurrentStatusModalText(element,status){
       status_config.style = "subscribed--loyal"
     }
 
-  element.className = status_config.style;
-  element.innerText = status_config.name;
+    element.className = status_config.style;
+    element.innerText = status_config.name;
 
 }
 
-async function CollapseAllModals(){
+const CollapseAllModals = async () => {
 
   var all_modals = document.querySelectorAll(".quote_modal");
 
   for(var i = 0; i < all_modals.length; i++){
-    all_modals[i].classList.add("quote_modal--inactive");
-    all_modals[i].classList.remove("quote_modal--active");
+    ToggleActiveClasses(all_modals[i],modal_inactive_class,modal_active_class,false);
     all_modals[i].setAttribute("active",0);
   }
 
 }
 
-async function DetailFeature(parent_){
+const ToggleModal = (modal,index) => {
 
-  CollapseAllModals();
+  modal.setAttribute("active",index);
 
-  var modal = parent_.querySelector(".quote_detail_modal");
-  var active_index = modal.getAttribute("active");
-  var button = modal.querySelector(".form_detail_button");
-  var form = modal.querySelector(".quote_detail_form");
-
-  active_index = parseInt(active_index);
-
-  if(active_index == 0){
-    ToggleModal(modal,1);
+  if(index == 1 ){
+    ToggleActiveClasses(modal,modal_inactive_class,modal_active_class,true);
   }
-
-  form.addEventListener("submit",(e)=>{
-    e.preventDefault();
-    SubmitDetails(modal,form);
-  });
-
-  button.addEventListener("click",(e)=>{
-    e.preventDefault();
-    SubmitDetails(modal,form);
-  });
+  else{
+    ToggleActiveClasses(modal,modal_inactive_class,modal_active_class,false);
+  }
 
 }
 
+const GlobalSubmission = async (form,modal,_id,path,success_message,error_message,refresh) => {
 
+  var data = CreateFormData(form);
+
+  data._id = modal.parentElement.getAttribute(_id);
+
+  const res = await axios.post(path,data);
+
+  var feedback = await FeedbackToUser(res.data,success_message,error_message);
+
+  if(refresh){
+
+    if(feedback){
+      await DelayedRefresh(1000);
+    }
+
+  }
+
+  CollapseAllModals();
+
+}
 
 InitProspectMenus();

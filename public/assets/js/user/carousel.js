@@ -8,23 +8,7 @@ var slideshow_container = document.querySelector(".slideshow_container");
 var arrows_in_slideshow = document.getElementsByClassName("arrow_container");
 var g_multi = 1;
 
-for(var i = 0; i < arrows_in_slideshow.length; i++){
-
-    arrows_in_slideshow[i].addEventListener("click",(e)=>{
-
-      var multi = e.target.getAttribute("multiplier");
-
-      multi = parseInt(multi);
-
-      hasChanged = true;
-
-      MoveBoxes(multi);
-
-    })
-
-}
-
-function MoveBoxes(multiplier){
+const MoveBoxes = (multiplier) => {
 
   var boxes = document.getElementsByClassName("client_slideshow_container--box");
   var reachedLimit = false;
@@ -62,7 +46,7 @@ function MoveBoxes(multiplier){
 
 }
 
-var RenderCarousel  = () =>{
+const RenderCarousel  = () =>{
 
   var html =  "";
   var left = start;
@@ -96,21 +80,40 @@ var RenderCarousel  = () =>{
 
 }
 
+const Init_Carousel = () => {
 
-setInterval(()=>{
+  for(var i = 0; i < arrows_in_slideshow.length; i++){
 
-  if(hasChanged){
-    hasChanged = false;
+      arrows_in_slideshow[i].addEventListener("click",(e)=>{
+
+        var multi = e.target.getAttribute("multiplier");
+
+        multi = parseInt(multi);
+
+        hasChanged = true;
+
+        MoveBoxes(multi);
+
+      })
+
   }
 
-},5000);
+  setInterval(()=>{
 
-setInterval(()=>{
+    if(hasChanged){
+      hasChanged = false;
+    }
 
-  if(!hasChanged){
-    MoveBoxes(g_multi);
-  }
+  },5000);
 
-},4000);
+  setInterval(()=>{
 
-RenderCarousel();
+    if(!hasChanged){
+      MoveBoxes(g_multi);
+    }
+
+  },4000);
+
+  RenderCarousel();
+
+}

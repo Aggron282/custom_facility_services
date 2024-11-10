@@ -1,14 +1,9 @@
 var subscribe_form = document.querySelector("#subscribe");
 var sub_btn = document.querySelector("#subhere");
 
-async function SubscribeToCFS(){
+const SubscribeToCFS = async () => {
 
-  var form = new FormData(subscribe_form);
-  var data = {};
-
-  for (const [key, value] of form) {
-    data[key] = value;
-  }
+  var data = CreateFormData(subscribe_form);
 
   const res = await axios.post("/admin/subscribe",data);
 

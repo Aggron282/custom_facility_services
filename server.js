@@ -63,10 +63,10 @@ app.use(admin_routes);
 
   mongoose.connect(connection_name.connection_name).then((s)=>{
 
-    setInterval(()=>{admin_controller.EmailNewKey(false)},days_to_email)
-    setInterval(()=>{countdown - 1, 1000});
+    // setInterval(()=>{admin_controller.EmailNewKey(false)},days_to_email)
+    // setInterval(()=>{countdown - 1, 1000});
     app.listen(port,async()=>{
-      console.log(port);
+
     });
 
   });

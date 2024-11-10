@@ -3,7 +3,7 @@ function GetSales(all_prospects){
   var potential_sales = 0;
   var completed_sales = 0;
   var scheduled_sales = 0;
-  console.log(all_prospects.length)
+
   if(!all_prospects){
     return {
       potential_sales: potential_sales,
@@ -15,7 +15,7 @@ function GetSales(all_prospects){
   }
 
   for(var i =0; i < all_prospects.length; i++){
-    console.log(all_prospects[i].status)
+
       if(all_prospects[i].status == 4){
         completed_sales += all_prospects[i].quote;
       }

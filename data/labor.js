@@ -76,7 +76,6 @@ class Labor {
       new_person.schedule[data.day_id].schedule[parseInt(data.time_id)].job = data.name_of_job;
       new_person.schedule[data.day_id].schedule[parseInt(data.time_id)].address = data.address;
     }else{
-      console.log( new_person.schedule[data.day_id].schedule[2]);
       new_person.schedule[data.day_id].schedule[parseInt(data.time_id)].job = "";
       new_person.schedule[data.day_id].schedule[parseInt(data.time_id)].address = "";
     }

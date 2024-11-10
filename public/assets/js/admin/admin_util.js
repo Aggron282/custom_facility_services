@@ -1,5 +1,5 @@
 
-function RenderTopBanner(){
+const RenderTopBanner = () => {
 
   var top_banner_html = `<div class="top_banner">Top Page </div>`;
   var view_boxes = document.getElementsByClassName("meta_root_container");
@@ -22,6 +22,5 @@ function RenderTopBanner(){
   }
 
 }
-
 
 RenderTopBanner();

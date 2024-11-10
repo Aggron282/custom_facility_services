@@ -19,7 +19,6 @@ function returnLockClass(lock){
 
 function AddPageView(req){
     const ipAddress = req.ip;
-    console.log(ipAddress)
 }
 
 async function  getData(req){

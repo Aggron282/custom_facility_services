@@ -15,9 +15,9 @@ var counter = 0;
 var slides = ["left_","main_","right_"];
 
 
-function button_handler(e,counter_){
+const ButtonHandler = (e,counter_) => {
 
-  var new_arr = move_array(counter,counter_);
+  var new_arr = MoveArray(counter,counter_);
 
   RemoveActiveButtonClass();
 
@@ -27,7 +27,7 @@ function button_handler(e,counter_){
 
 }
 
-function move_array(current,next){
+const MoveArray = (current,next) => {
 
     var slides_ = [...slides];
     var current_ = parseInt(current);
@@ -58,7 +58,7 @@ const RemoveActiveButtonClass =()=>{
 
 }
 
-const AddButtonEvents = () =>{
+const AddButtonEventsClients = () =>{
 
   for(var i =0; i < buttons.length;i++){
 
@@ -66,7 +66,7 @@ const AddButtonEvents = () =>{
 
       var num = e.target.getAttribute("button_num");
 
-      button_handler(e,num)
+      ButtonHandler(e,num)
 
     });
 
@@ -90,4 +90,4 @@ const Carousel = (new_arr,counter) => {
 
 }
 
-AddButtonEvents();
+AddButtonEventsClients();

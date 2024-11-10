@@ -1,5 +1,4 @@
-
-function AddDropdownEvents(){
+const AddDropdownEvents = () =>{
 
     var dropdowns = document.querySelectorAll(".dropdown_arrow");
 
@@ -8,12 +7,12 @@ function AddDropdownEvents(){
         dropdowns[arrow].addEventListener("click",function(e){
           resetDropdown(e,true);
         });
-        
+
     }
 
 }
 
-function resetDropdown(e){
+const ResetDropdown = (e) => {
 
     var id = e.target.getAttribute("_id");
 
@@ -33,7 +32,7 @@ function resetDropdown(e){
 
  }
 
-function Init(){
+const Init_Dropown = () => {
 
   if(document.querySelector(".dropdown_arrow"){
     AddDropdownEvents();
@@ -41,4 +40,4 @@ function Init(){
 
 }
 
-Init();
+Init_Dropown();

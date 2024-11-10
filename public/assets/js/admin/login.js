@@ -1,19 +1,15 @@
 var login_form = document.querySelector("#loginform");
 var login_btn = document.querySelector("#loginbtn");
 
-async function Login(){
+const Login = async () => {
 
-  var form = new FormData(login_form);
-  var data = {};
+  var data = CreateFormData(login_form);
 
-  for (const [key, value] of form) {
-    data[key] = value;
-  }
-
-  const res = await axios.post("/admin/subscribe",data);
+  const res = await axios.post("/auth/login",data);
 
   if(res.data){
-    window.location.assign("/admin")
+    CreatePopup("Success!")
+    DelayedRedirect(1000,"/admin");
   }
   else{
     CreatePopup("Wrong Username / Password");

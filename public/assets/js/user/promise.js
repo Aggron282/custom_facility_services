@@ -1,31 +1,12 @@
-var promises = [
-  {
-    title:"Clients are our Top Priority",
-    description:"We are dedicated to meeting your needs to the best of our ability and are ready to step outside our comfort zone to achieve results for you."
-  },
-  {
-    title:"We are Consistent & Transparent",
-    description:"At CFS, we believe that honesty is the cornerstone of lasting relationships. Our goal is to build rapport with our clients. We are here when you need us, ready to assist with a genuine smile."
-  },
-  {
-    title:"Our Prices are Competitve",
-    description:"We prioritize keeping overhead low to offer our clients the most competitive prices in the market"
-  },
-  {
-    title:"We Work Around your Schedule",
-    description:"Our company is dedicated to accommodating your schedule by adjusting ours to ensure we are available at the most convenient times for our clients"
-  }
-]
-
-
 var counter = 0;
 var promise_elements = document.getElementsByClassName("promise_box");
 var title_element = document.querySelector("#current_title");
 var description_element = document.querySelector("#current_description");
 var number_element = document.querySelector("#current_number");
 var manuallyChanged = false;
+var time_to_change = 5000;
 
-function SetPromise(element){
+const SetPromise = (element) => {
 
   var counter_data = parseInt(element.getAttribute("counter"));
 
@@ -44,7 +25,7 @@ function SetPromise(element){
 
 }
 
-function FindElement(counter){
+const FindElement = (counter) => {
 
   for(var i =0; i < promise_elements.length; i++){
 
@@ -56,7 +37,7 @@ function FindElement(counter){
 
 }
 
-function SetActivePromise(element_){
+const SetActivePromise = (element_) => {
 
   for(var i =0; i < promise_elements.length; i++){
     promise_elements[i].classList.remove("promise_box--active")
@@ -66,7 +47,7 @@ function SetActivePromise(element_){
 
 }
 
-function AddEventsToPromises(){
+const AddEventsToPromises = () => {
 
     for(var i =0; i < promise_elements.length; i++){
 
@@ -94,30 +75,36 @@ function AddEventsToPromises(){
 
 }
 
-AddEventsToPromises();
+const Init_Promise  = () => {
 
-if(promise_elements.length > 0){
+  AddEventsToPromises();
 
-  setInterval(()=>{
+  if(promise_elements.length > 0){
 
-    if(!manuallyChanged){
+    setInterval(()=>{
 
-      counter ++;
+      if(!manuallyChanged){
 
-      if(counter > promises.length){
-        counter = 0;
+        counter ++;
+
+        if(counter > promises.length){
+          counter = 0;
+        }
+
+        element_ = FindElement(counter);
+
+        SetPromise(element_);
+
       }
 
-      element_ = FindElement(counter);
+    },time_to_change)
 
-      SetPromise(element_);
+    setInterval(()=>{
+      manuallyChanged = false;
+    },time_to_change);
 
-    }
-
-  },5000)
-
-  setInterval(()=>{
-    manuallyChanged = false;
-  },5000);
+  }
 
 }
+
+Init_Promise();
