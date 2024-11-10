@@ -53,7 +53,5 @@ router.get("/admin/auth/forgot",authController.ForgotKey);
 router.get("/auth/login",authController.GetLoginPage);
 
 // Meta Routes (Change)
-router.post("/admin/browser",CheckAuth,metaController.AddBrowserView);
-router.post("/admin/roots",CheckAuth,metaController.RootCount);
 
 module.exports = router;

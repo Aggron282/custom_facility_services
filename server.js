@@ -59,7 +59,7 @@ app.use(express.static('public'));
 app.use(user_routes);
 app.use(admin_routes);
 
-db.MongoConnect((result)=>{
+
 
   mongoose.connect(connection_name.connection_name).then((s)=>{
 
@@ -71,7 +71,7 @@ db.MongoConnect((result)=>{
 
   });
 
-});
+
 
 
 

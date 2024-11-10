@@ -5,7 +5,6 @@ const utility = require("./user_utlity.js");
 
 const Gallery = require("./../../config/gallery.js");
 const Schedule = require("./../../data/schedule.js");
-const Meta = require("./../../data/meta.js");
 const Pricing = require("./../../config/pricing.js");
 const Clients = require("./../../config/clients.js");
 const ShowcaseHeadings = require("./../../config/showcase_headings.js");
@@ -88,12 +87,7 @@ const GetScheduleData = async(req,res,next) =>{
 const GetHomePage = (req,res,next)=>{
 
    var data = returnData("Home","/",0,"home.css",req);
-   //Schedule.deleteAll();
-   Meta.FindAllBrowsers((b)=>{
-
    res.render(path.join(rootDir,"views","/user/index.ejs"),data);
-
- });
 
 }
 
