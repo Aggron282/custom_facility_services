@@ -14,40 +14,52 @@ body{
 
 .paginatsion a  {
   text-decoration: underline;
-    color:black !important;
-  margin-left:10px;float:left;font-size:18px;font-family:'Roboto'
+  color:black !important;
+  margin-left:10px;
+  float:left;
+  font-size:18px;
+  font-family:'Roboto'
 }
+
 .paginatsion{
-  color:black;overflow:hidden;width:50%;margin-left:40%
+  color:black;
+  overflow:hidden;
+  width:50%;
+  margin-left:40%
 }
+
 .paginatsion a:hover{
   color:cornflowerblue;
 }
+
 .paginatsion p  {
   color:black;
-  margin-left:10px;float:left;font-size:13px;font-family:'Roboto';margin-top:5px;
+  margin-left:10px;
+  float:left;
+  font-size:13px;
+  font-family:'Roboto';
+  margin-top:5px;
 }
 
 .subscribed--subscribed{
   font-family: "Teko";
   color:grey;
   font-weight: 200;
-
   font-size:40px;
 }
+
 .subscribed--completed{
   font-family: "Teko";
   color:azure;
   font-weight: 200;
-
   font-size:40px;
 }
+
 .subscribed--quoted{
   font-family: "Teko";
   color:limegreen;
   font-size:40px;
   font-weight: 200;
-
 }
 
 .container-fluid{
@@ -75,30 +87,32 @@ body{
   font-style: 25px !important;
   font-family: "Akrobat";
 }
+
 .address_eds{
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
+
 .schedule_submit_button{
   font-size:15px;
 }
+
 .delete_schedule{
   background:black;
   color:white;
   width:100%;
   font-size:14px;
   transition: all .4s;
-
 }
+
 .modal_show{
   padding-bottom:5% !important;
 }
+
 .delete_user:hover{
   background:red !important;
-
 }
-
 
 .modal_schedule{
   position:absolute;
@@ -236,6 +250,7 @@ body{
   visibility: visible;
   visibility: visible !important;
 }
+
 .add_labor_name{
   font-size:25px;
   margin-top:5%;
@@ -267,7 +282,6 @@ body{
   padding:10%;
 }
 
-
 .inner_button{
   border-radius:50%;
   height:8px;
@@ -292,14 +306,15 @@ body{
   background:#38B6FF;
   color:white;
 }
+
 .add_box{
   color:#e6e6e6;
 }
+
 .number_one{
   border:2px solid yellow;
   color:yellow
 }
-
 
 .labor_name{
   color:#292929;
@@ -327,13 +342,14 @@ body{
   opacity:1;
   background:#38B6FF !important;
 }
+
 .add_box img {
   width:50%;
   margin-top:15%;
   margin-left:25%;
 }
-.add_box{
 
+.add_box{
   box-shadow:0px 0px  10px rgba(0,0,0,.3);
 }
 
@@ -345,8 +361,8 @@ body{
   font-family: "Montserrat";
   height:50px;
   border-radius:5px;
-
 }
+
 .delete_quote_button--inactive{
   visibility: hidden;
 }
@@ -360,7 +376,7 @@ body{
 }
 
 .text-quote-col{
-  margin-top:2.5%;
+  margin-top:10px;
 }
 
 .subtitle_quote{
@@ -391,7 +407,6 @@ body{
   color:white;
 }
 
-
 .height-30px{
   height:30px
 }
@@ -414,9 +429,11 @@ body{
   color:#38B6FF !important;
   transition: all .5s;
 }
+
 *{
   box-sizing: border-box;
 }
+
 .admin_container--website{
   padding-bottom:2.5%;
 }
@@ -444,7 +461,6 @@ body{
 .complete_quote_button{
   border-radius:none;
 }
-
 
 td{
   border-bottom:none !important;

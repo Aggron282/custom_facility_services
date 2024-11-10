@@ -5,9 +5,11 @@
 .filter-black{
   filter:brightness(.5);
 }
+
 .clear-background div{
   background:transparent !important;
 }
+
 .transparent{
   background: transparent;
 }

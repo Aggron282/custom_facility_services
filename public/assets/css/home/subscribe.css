@@ -14,9 +14,8 @@
   float: left;
   width:50%;
   background:white;
-
   z-index:999;
-position: relative;
+  position: relative;
 }
 
 .subscribe_container--form .text_container{

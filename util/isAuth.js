@@ -1,13 +1,15 @@
 const CheckAuth = (req,res,next) => {
-    
+
     if(req.session.owner){
         next();
         return;
-    }else{
+    }
+    else{
         res.redirect("/auth/login");
         res.end();
-        return;   
+        return;
     }
+
 }
 
 module.exports.CheckAuth = CheckAuth;

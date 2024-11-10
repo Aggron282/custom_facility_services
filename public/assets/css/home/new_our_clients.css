@@ -312,17 +312,16 @@
     float:left;
     margin-left:2%;
   }
-.client_image{
-  width:105%;
-}
+
+  .client_image{
+    width:105%;
+  }
+
   .our_clients_containers{
     margin-top:0% !important;
   }
   .new_our_clients_container{
     padding-bottom:0%;
-  }
-
-  .main_box_paragraph{
   }
 
   .our_clients_overlay{
@@ -341,6 +340,7 @@
   .our_clients_main_box{
     height:85%;
   }
+  
   .main_box_paragraph{
     font-size:1.1rem;
     width:100%;
@@ -365,10 +365,9 @@
     height: 100%;
   }
 
-.main_box_paragraph{
-  font-size:1.25rem;
-}
-
+  .main_box_paragraph{
+    font-size:1.25rem;
+  }
 
   .our_clients_main_box{
     height: 70%;

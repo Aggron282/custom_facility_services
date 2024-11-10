@@ -5,7 +5,6 @@
   overflow: hidden;
   padding-bottom:10%;
   padding-top: 5%;
-
   position: relative;
 }
 
@@ -66,7 +65,6 @@
 .promise_content_container .text_container{
   float: left;
   width:40%;
-
 }
 
 .promise_name--value{
@@ -75,7 +73,6 @@
   font-family: "Teko" !important;
   color:transparent !important;
   -moz-perspective:150rem;
-
   line-height: 1;
   background-clip:text;
   background: linear-gradient(rgba(56, 182, 255, .5),rgba(56, 182, 255, .5)),url("./../../images/promises/3.png");
@@ -119,7 +116,6 @@
   }
   100%{
     box-shadow: 0px 0px 10px #0069a4;
-
   }
 }
 
@@ -149,7 +145,6 @@
   -webkit-background-clip: text;
    background-clip: text;
    -moz-perspective:150rem;
-
 }
 
 .promise_container--text{
@@ -168,7 +163,6 @@
   float: right;
 }
 
-
 @media screen and (orientation:portrait) and (min-width:700px) and (max-width:900px){
 
   .promise_content_container .text_container{
@@ -176,13 +170,15 @@
     position: absolute;
     top:100%;
   }
+
   .promise_content_container .text_container .title {
     width:100%;
-
   }
+
   .promise_container{
     height:120vh;
   }
+
   .promise_container--graphic{
     position: absolute;
     width:80%;
@@ -206,7 +202,9 @@
     transition: .4s all;
     border: 5px solid transparent;
   }
+
   .promise_container--text{
     margin-top:500px;
   }
+
 }

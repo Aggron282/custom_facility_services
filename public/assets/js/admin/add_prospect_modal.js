@@ -18,7 +18,8 @@ function ToggleModalAddProspect(isOn){
 
   if(!isAddProspectModalOpen){
     prospect_modal_add.classList.add("prospect_modal--inactive")
-  }else{
+  }
+  else{
     prospect_modal_add.classList.remove("prospect_modal--inactive")
   }
 
@@ -39,17 +40,17 @@ async function SubmitProspect(){
   }
 
   if(!data.name){
-    alert("Requires a Name");
+    CreatePopup(`Requires a Name`);
     return;
   }
 
   var response = await axios.post("/admin/prospect/add/",data);
 
   if(response){
-    alert("Success");
+    CreatePopup(`Added Prospect!`);
   }
   else{
-    alert("Invalid Input");
+    CreatePopup(`Invalid Input`);
   }
 
 }

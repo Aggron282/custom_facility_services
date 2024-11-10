@@ -122,6 +122,7 @@ const ShowScheduleModal = (e) => {
 
   var element = e.target.parentElement.getAttribute("name") == "cell" ? e.target.parentElement : e.target;
   var time = element.getAttribute("delta_time");
+
   var person_id = element.getAttribute("_id");
   var time_id = element.getAttribute("time_id");
   var day_id = element.getAttribute("day_id");
@@ -152,7 +153,6 @@ const SetId = (person,time,schedule,day) => {
   day_id = day;
 
 }
-
 
 const Submit = async (query) => {
 

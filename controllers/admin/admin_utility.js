@@ -1,5 +1,5 @@
 var Schedule = require("./../../data/schedule.js");
-var Meta = require("./../../data/meta.js");
+var metaController = require("./meta_controller.js");
 var Labor = require("./../../data/labor.js");
 var Prospects = require("./../../models/prospects.js");
 
@@ -11,7 +11,6 @@ var brow = {
 }
 
 var data_rendered_to_page = {
-
   quotes:null,
   modal:null,
   pageTitle:null,
@@ -24,32 +23,35 @@ var data_rendered_to_page = {
 
 }
 
-const  GetBrowserCounts = async ()=>{
+const GetPageData = (counter,posts_per_page,page_data) => {
 
-      var browsers =   await Meta.ReturnAllBrowsers();
+  page_counter = parseInt(counter);
 
-      var new_brow = {...brow};
 
-      for(var i = 0; i < browsers.length;i++){
+  if(isNaN(page_counter)){
+    page_counter = 0;
+  }
 
-        if(browsers[i].browser == "Edge"){
-          new_brow.edge = browsers[i].qty
-        }
-        else if(browsers[i].browser == "Chrome"){
-          new_brow.chrome = browsers[i].qty
-        }
-        else if(browsers[i].browser == "Safari"){
-          new_brow.safari = browsers[i].qty
-        }
-        else if(browsers[i].browser == "Firefox"){
-          new_brow.firefox = browsers[i].qty
-        }
+  var page_length = Math.floor(page_data.length / posts_per_page);
 
-      }
+  if(isNaN(page_length) || !page_length){
+    page_length = 1;
+  }
 
-      return new_brow;
+  var data = {
+    page_counter:page_counter,
+    posts_per_page : posts_per_page,
+    next_page :  page_counter + 1 > page_length ? page_length : page_counter + 1,
+    prev_page : page_counter - 1 < 0 ? 0 : page_counter - 1,
+    start_counter : page_counter <= 0 ? 0 : page_counter,
+    first_page : 0
+  };
+
+
+  console.log(data)
+  return data;
+
 }
-
 
 function MakeFavoritesBeginningArray(schedules){
 
@@ -75,11 +77,11 @@ const renderAllData = async(req,res,toggle)=>{
       var limited_prospects = [];
       var full_prospects = [];
       var total_potential_sales = 0;
-      var roots = await Meta.FindAllRoots();
+      // var roots = await Meta.FindAllRoots();
       var prospects = await Prospects.find({});
       var count = prospects.length;
-      var meta_views = await Meta.GetVisitorCount();
-      var new_brow = await GetBrowserCounts();
+      // var meta_views = await Meta.GetVisitorCount();
+      // var new_brow = await GetBrowserCounts();
       var laborers = await Labor.ReturnAllLaborers();
 
       for(var i = 0; i < prospects.length; i++){
@@ -97,9 +99,9 @@ const renderAllData = async(req,res,toggle)=>{
       new_data_to_page.people = laborers;
       new_data_to_page.path = req.path;
       new_data_to_page.total_potential_sales = total_potential_sales;
-      new_data_to_page.meta.views = meta_views;
-      new_data_to_page.meta.pages = roots;
-      new_data_to_page.meta.brow = new_brow;
+      new_data_to_page.meta.views = 0;
+      new_data_to_page.meta.pages = 0;
+      new_data_to_page.meta.brow = 0;
       new_data_to_page.active_path = req.path;
       new_data_to_page.toggle = 0;
 
@@ -108,5 +110,5 @@ const renderAllData = async(req,res,toggle)=>{
 }
 
 exports.renderAllData = renderAllData;
-exports.GetBrowserCounts = GetBrowserCounts;
 exports.MakeFavoritesBeginningArray = MakeFavoritesBeginningArray;
+exports.GetPageData = GetPageData;

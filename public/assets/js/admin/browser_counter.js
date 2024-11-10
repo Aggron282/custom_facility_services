@@ -20,8 +20,7 @@ const getBrowserName =  () => {
     }
     else if (browserInfo.includes('Firefox')) {
       browser = 'Firefox'
-    }
-    else {
+    }else {
       browser = 'unknown'
     }
 

@@ -14,7 +14,7 @@ var mongoose = require("mongoose");
 var Owner = require("./models/owner.js");
 var session = require("express-session");
 var MongoDBStore = require('connect-mongodb-session')(session);
-var admin_controller = require("./controllers/admin/adminController.js");
+var admin_controller = require("./controllers/admin/admin_controller.js");
 
 const days_constant = 7;
 const seconds = 1000;
@@ -39,7 +39,7 @@ app.use(session({secret:"0gunio4tngvjnvjwnvjjvnirjwnvbirjnb",resave:false,saveUn
 app.use((req,res,next)=>{
 
   if(req.session.owner){
-  
+
     Owner.findById(req.session.owner._id).then((owner)=>{
       req.owner = owner;
       next();

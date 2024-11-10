@@ -52,10 +52,10 @@
 
 .value_box:hover .value_icon{
     background-image: linear-gradient(
-    to right bottom,
-    rgba(255, 255, 255, .7),
-    rgba(255, 255, 255, .7)),
-    url("./../images/wet.png");
+      to right bottom,
+      rgba(255, 255, 255, .7),
+      rgba(255, 255, 255, .7)),
+      url("./../images/wet.png");
     color:transparent;
     -webkit-background-clip: text;
     display:inline-block;

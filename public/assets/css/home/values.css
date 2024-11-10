@@ -48,7 +48,6 @@
   top:0%;
   margin-right:5%;
   width:40%;
-
   position: relative;
   z-index:99;
 }
@@ -65,8 +64,8 @@
   height:55px;
   position:absolute;
   width:60%;
-   right:0%;
-   top:10%;
+  right:0%;
+  top:10%;
 }
 
 .content_value_text--subtitle{
@@ -141,6 +140,7 @@
 }
 
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
+
   .company_values_background{
     z-index: 3;
     height: 180vh;
@@ -169,6 +169,7 @@
     position: relative;
     z-index:99;
   }
+
   .value_detail_box .title{
     font-size:24px;
   }
@@ -181,4 +182,5 @@
     left:0%;
     top:30%;
   }
+
 }

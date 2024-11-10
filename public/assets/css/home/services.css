@@ -81,6 +81,7 @@
 
 
 @media screen and (max-width:900px) and (orientation:portrait) and (min-width:700px){
+
   .services_container{
     height:120vh;
   }
@@ -93,6 +94,5 @@
   .image_container--inner{
     margin-top:40%;
   }
-
 
 }

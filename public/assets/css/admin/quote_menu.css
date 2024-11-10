@@ -5,20 +5,24 @@
   overflow: hidden;
   padding-top:0px;
 }
+
 .prospect_menu{
   width:100%;
   padding:20px;
 }
+
 .admin_text--completed{
   float:right;
   width:50%;
   text-align: right;
 }
+
 .admin_text--quote{
   float:left;
   text-align: left;
   width:50%;
 }
+
 .add_prospect_button{
   width:30%;
   clear:both;
@@ -30,6 +34,7 @@
   margin-left:5%;
   font-size:20px;
 }
+
 .add_prospect_button--g{
   width:30%;
   clear:both;
@@ -41,11 +46,13 @@
   margin-left:5%;
   font-size:20px;
 }
+
 .choice_container{
   float: left;
   font-size:20px;
   margin-left:5%;
 }
+
 .add_prospect_button--g{
   width:100%;
 }

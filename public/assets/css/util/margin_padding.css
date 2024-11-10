@@ -1,7 +1,7 @@
 
 .padding-top-bottom-5{
-   padding-top:5%;
-   padding-bottom:5%;
+  padding-top:5%;
+  padding-bottom:5%;
  }
 
 .margin-top-very-small{
@@ -9,11 +9,11 @@
  }
 
  .padding-small{
-    padding:5%;
+   padding:5%;
   }
 
  .padding-bottom-small{
-    padding-bottom: 5%;
+   padding-bottom: 5%;
   }
 
  .padding-top-small{
@@ -69,9 +69,11 @@
   .padding-bottom-20{
     padding-bottom:20%;
   }
+
   .margin-left-10-import {
     margin-left:10% !important;
   }
+
   .padding-2_5{
     padding:2.5%;
   }
@@ -80,7 +82,6 @@
     margin-right:5%;
   }
 
-
   .text-right{
     text-align: right;
   }
@@ -88,6 +89,7 @@
   .padding-right-5{
     padding-right:5%;
   }
+
   .padding-right-5{
     padding-right:5%;
   }
@@ -99,6 +101,7 @@
   .margin-left-2{
     margin-left:2%;
   }
+
   .padding-bottom-10{
     padding-bottom:10%;
   }
@@ -106,25 +109,32 @@
   .padding-top-2_5{
     padding-top:2.5%;
   }
+
   .margin-top-20{
     margin-top:20%;
   }
+
   .margin-top-5{
     margin-top:5%;
   }
+
   .margin-left-2_5{
     margin-left: 2.5%;
   }
+
   .padding-top-2_5{
     padding-top:2.5%;
   }
+
   .margin-top-2_5{
     margin-top: 2.5%;
   }
+
   .padding-top-bottom-15{
     padding-top:15%;
     padding-bottom:15%;
   }
+
   .margin-top-small-neg{
     margin-top:-5%;
   }
@@ -136,28 +146,36 @@
   .padding-left-0{
     padding-left:0%;
   }
+
   .margin-top-5-neg{
     margin-top:-5%;
   }
+
   .margin-left-25{
     margin-left:25%;
   }
+
   .padding-top-bottom-10{
      padding-top:10%;
      padding-bottom:10%;
    }
+
   .padding-bottom-5{
     padding-bottom:5%;
   }
+
   .padding-top-2_5{
     padding-top:2.5%;
   }
+
   .padding-top-3-rem{
     padding-top: 3rem;
   }
+
   .padding-2_5{
     padding:2.5%;
   }
+
   .padding-left-2_5{
     padding-left:2.5%
   }
@@ -226,11 +244,9 @@
     margin-left: 2.5%;
   }
 
-
   .margin-left-10-import {
     margin-left:10% !important;
   }
-
 
   .middle-half{
     width:50%;
@@ -241,12 +257,15 @@
     padding-top:15%;
     padding-bottom:15%;
   }
+
   .no-padding{
     padding:0% ;
   }
+
   .padding-bottom-75{
     padding-bottom:75%;
   }
+
   .margin-left-2_5{
     margin-left:2.5%;
   }
@@ -262,6 +281,7 @@
   .margin-left-35{
     margin-left: 35%;
   }
+
   .padding-5{
     padding:5%;
   }

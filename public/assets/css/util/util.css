@@ -6,6 +6,58 @@ body{
   background:#0069a4;
 }
 
+.popup{
+  position: fixed;
+  top:0%;
+  width:100%;
+  padding:20px;
+  font-size:20px;
+  font-family:"Roboto";
+  box-shadow:0px 0px 10px rgba(0,0,0,.5);
+  text-align: center;
+  background:white;
+  z-index:999;
+  animation: 1 ease-in .2s ap;
+  opacity:1;
+  transition: translateY(0px)
+  left:0%;
+}
+
+.popup_back{
+  animation: 1 ease-in .5s dis;
+  opacity:0;
+  transition: translateY(-50px)
+}
+
+@keyframes dis {
+
+  0%{
+    opacity:1;
+    transform:translateY(0px);
+  }
+
+  100%{
+    opacity:0;
+    transform:translateY(-50px);
+  }
+
+}
+
+@keyframes ap {
+
+
+
+  0%{
+    opacity:0;
+    transform:translateY(-50px);
+  }
+  100%{
+    opacity:1;
+    transform:translateY(0px);
+  }
+
+}
+
 label{
   margin-top:2.5%;
   font-family:"Akrobat";
@@ -54,10 +106,12 @@ table{
 footer p, footer a, footer i {
    font-family: "Akrobat";
  }
+
 a {
   text-decoration: none;
   cursor: auto;
 }
+
 video{
   overflow-y: hidden !important;
 }

@@ -4,16 +4,17 @@
   padding-top:0px;
   position: relative;
   overflow: hidden;
-
-
 }
+
 .quote_modal--active{
   padding-bottom: 20px;
   border-bottom:1px solid #e6e6e6;
 }
+
 .quote_modal--inactive{
   height: 0px;
 }
+
 .form_completed_button{
   background:cornflowerblue;
   color:white;
@@ -22,27 +23,33 @@
   width:50%;
   margin-left:25%;
 }
+
 .quote_row{
   margin-top:20px;
 }
+
 #repeat{
   width:50px;
   height:50px;
 }
+
 .quote_completed_modal label{
   font-size:18px !important;
   font-family:Verdana, Geneva, Tahoma, sans-serif;
   padding-top:0px !important;
   margin-top:10px !important;
 }
+
 .quote_completed_modal input{
   margin-top:5px !important;
 }
+
 .quote_status_modal label{
   font-size:17px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   width:100%;
 }
+
 .quote_status_modal select{
   height:30px;
   width:50%;
@@ -51,9 +58,11 @@
   margin-bottom:10px;
   font-size:15px;
 }
+
 .subscribed--completed{
   color:dodgerblue !important
 }
+
 .form_status_button{
   width:50%;
   margin-left:0%;
@@ -65,27 +74,33 @@
   margin-top:20px;
   margin-bottom:20px;
 }
+
 .subscribed--loyal{
   color:fuchsia !important
 }
+
 .subscribed--schedule{
   color:darkgoldenrod !important
 }
+
 #status_text--choose{
   float:left;
   display: inline;
   margin-left:10px;
   font-size:20px !important;
 }
+
 .quote_status_modal .status_text{
   float:left;
   display: inline;
   font-size:20px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
 .quote_status_modal select option{
   font-size:15px;
 }
+
 .updated_banner{
   width:100%;
   position: absolute;
@@ -100,14 +115,17 @@
   transform: translateY(-10px);
   opacity:0;
 }
+
 .form_detail_button{
   color:white;
   font-size:20px;
 }
+
 .updated_banner--updated{
   transform: translateY(60px);
   opacity:1;
 }
+
 .form_detail_button{
   margin-top:2.5%;
 }

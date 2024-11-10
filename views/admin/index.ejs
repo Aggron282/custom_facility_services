@@ -5,26 +5,25 @@
           <div class="overlay_container relative z-9"></div>
 
           <%- include("./layout/navbar.ejs") %>
+
           <div class="container-fluid">
+
             <p class="admin_text admin_text--home " > Overview </p>
 
             <div class="admin_container admin_container--quotes">
 
-              <p class="admin_text admin_text--quote"> Potential Prospects </p>
-              <p class="admin_text admin_text--completed">Completed Prospects</p>
+                <div class="row">
 
-              <div class="row">
+                  <div class="col-12 text-quote-col">
+                       <%- include("./layout/quotes/total_quotes.ejs") %>
+                  </div>
 
-                <div clas="col-8">
-                    <%- include("./layout/quotes/quote.ejs") %>
-                          <%- include("./layout/quotes/pagination.ejs")%>
+                  <div clas="col-12">
+                      <%- include("./layout/quotes/quote.ejs") %>
+                      <%- include("./layout/quotes/pagination.ejs")%>
+                  </div>
+
                 </div>
-
-                <div class="col-4 text-quote-col">
-                     <%- include("./layout/quotes/total_quotes.ejs") %>
-                </div>
-
-              </div>
 
             </div>
 

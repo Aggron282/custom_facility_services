@@ -1,25 +1,34 @@
   <%- include("./layout/head.ejs") %>
 
-  <div class="container-fluid relative">
-    
+  <div class="relative">
+
       <%- include("./layout/navbar.ejs") %>
 
       <p class="admin_home_subtitle" > Quotes Module </p>
 
       <%- include("./layout/quotes/prospect_chart.ejs") %>
+
       <%- include("./layout/quotes/total_quotes.ejs") %>
 
       <div class= "dark-shadow  relative ">
 
-          <div class="toggle_quotes_container">
+          <div class="toggle_quotes_container" >
 
-            <p class="quote_text quote_text--active"  toggle = "1">
+            <% var active = toggle == "0" ? "quote_text--active" : "" %>
+
+            <a href = "/admin/quotes/toggle=0">
+              <p class="<%= 'quote_text admin_text--quote text-center '+active %>" >
                 Prospects
-            </p>
+              </p>
+           </a>
 
-            <p class="quote_text" toggle = "0">
-                Clients
-            </p>
+            <% active = toggle == "1" ? "quote_text--active" : "" %>
+
+            <a href = "/admin/quotes/toggle=1">
+              <p  isMain = "1" class="<%= 'quote_text admin_text--completed text-center '+active %>" >
+                  Clients
+              </p>
+            </a>
 
           </div>
 
@@ -37,4 +46,15 @@
 
   </div>
 
-<%- include("./layout/end.ejs") %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js" integrity="sha512-LUKzDoJKOLqnxGWWIBM4lzRBlxcva2ZTztO8bTcWPmDSpkErWx0bSP4pdsjNH8kiHAUPaT06UXcb+vOEZH+HpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src = "/assets/js/popup.js"></script>
+  <script src = "/assets/js/admin/add_prospect_modal.js"></script>
+  <script src = "/assets/js/admin/admin_util.js"></script>
+  <script src = "/assets/js/admin/quote_detail_modal.js"></script>
+
+  <script async src="https://api.countapi.xyz/hit/cfswindows.com/56ce2f5b-45e5-470f-8d13-34084938dd33?callback=websiteVisits"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+</body>
+
+</html>

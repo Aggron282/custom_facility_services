@@ -56,14 +56,12 @@
 }
 
 .meet_team_container--body{
-
   padding:30px;
   overflow: hidden;
   z-index: 99;
   position: relative;
   padding-bottom: 0px;
   padding-top:5%;
-
 }
 
 .img_wrapper{

@@ -5,25 +5,97 @@
   position: relative;
   width:100%;
 }
-.admin_home_subtitle{
-  font-size:25px;margin-left:2.5%;margin-top:5%;
+
+.chart_container{
+  padding-bottom:5%;
+  padding-top:20px;
+  position:relative;
+  overflow:hidden;
+  width:50%;
+  margin-left:2.5%;
+  float:  left;
+
+
 }
+
+.sales_chart_container{
+  padding-bottom:5%;
+  padding-top:20px;
+  position:relative;
+}
+
+.sales_chart_container .inner-container{
+  position:relative;
+  z-index:99;
+  height:500px;
+
+}
+
+
+.wheel_title{
+  position:absolute;
+  text-align:center;
+  left:32.5%;
+  top:50%;
+  font-size:20px;
+  font-weight:700;
+  font-family:'Exo'
+}
+
+.wheel_title--2{
+  position:absolute;
+  text-align:center;
+  left:69.5%;
+  top:47.5%;
+  font-size:20px;
+  font-weight:700;
+  font-family:'Exo'
+}
+
+.chart_container .inner-container{
+  position:relative;
+  height:500px;
+  z-index:99;
+}
+
+.admin_home_subtitle{
+  font-size:25px;
+  margin-left:2.5%;
+  margin-top:5%;
+}
+
 .toggle_quotes_container{
   overflow:hidden;margin-top:30px
 }
+
 .delete_quote_button--inactive{
   visibility: hidden;
 }
+
 .complete_quote_button--inactive{
   visibility: hidden;
 }
+
 body p {
   font-family: "Montserrat" !important
 }
+
 .quote_text{
-  font-size:20px;padding-top:10px;border:1px #e6e6e6 solid;padding-bottom:10px;text-align:center;float:left;width:50%
+  font-size:20px;
+  padding-top:10px;
+  border:1px #e6e6e6 solid;
+  padding-bottom:10px;
+  text-align:center;
+  float:left;
+  width:50%;
+  color : black !important;
 }
-.quote_text--active{color:white;background:cornflowerblue}
+
+.quote_text--active{
+  color:white !important;
+  background:cornflowerblue !important
+}
+
 .quote_display_container--more{
    border:#e6e6e6 1px;
    padding:2%;
@@ -37,10 +109,12 @@ body p {
 .complete_quote_button{
   width:100%;
 }
+
 .admin_text{
   position:relative;
   z-index: 9;
 }
+
 .quote_display_text{
   font-size:16px;
   font-family: "Montserrat";
@@ -50,6 +124,7 @@ body p {
 .quote_display_text--outside{
   font-size:18px;
 }
+
 .quote_display_text--more{
   font-size:20px;
   color:white;
@@ -70,12 +145,13 @@ body p {
 .favorite--active{
   filter:invert(58%) sepia(63%) saturate(3267%) hue-rotate(325deg) brightness(103%) contrast(107%) !important;
 }
+
 .favorite_icon{
   filter:brightness(0);
 }
+
 .active_favorite:hover{
   filter:brightness(0) !important;
-
 }
 
 .favorite_icon{
@@ -85,7 +161,6 @@ body p {
 .quote_display_selector:hover{
   background:red !important;
 }
-
 
 .quote_display_selector{
   position:absolute;
