@@ -1,6 +1,7 @@
 var Schedule = require("./../../data/schedule.js");
 var metaController = require("./meta_controller.js");
 var Prospects = require("./../../models/prospects.js");
+var labor_controller = require("./labor_controller.js");
 
 var brow = {
   firefox:0,
@@ -78,6 +79,7 @@ const renderAllData = async(req,res,toggle)=>{
       // var roots = await Meta.FindAllRoots();
       var prospects = await Prospects.find({});
       var count = prospects.length;
+      var laborers = await labor_controller.ReturnAllLaborers();
       // var meta_views = await Meta.GetVisitorCount();
       // var new_brow = await GetBrowserCounts();
 
@@ -94,6 +96,7 @@ const renderAllData = async(req,res,toggle)=>{
       new_data_to_page.prospects = prospects;
       new_data_to_page.pageTitle = "Admin";
       new_data_to_page.path = req.path;
+      new_data_to_page.laborers = laborers;
       new_data_to_page.total_potential_sales = total_potential_sales;
       new_data_to_page.meta.views = 0;
       new_data_to_page.meta.pages = 0;

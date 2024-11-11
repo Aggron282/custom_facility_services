@@ -264,9 +264,6 @@ body{
   color:white !important;
 }
 
-.add_box:hover p{
-  color:white !important;
-}
 
 #addUser:hover img{
   filter:brightness(2);

@@ -43,8 +43,7 @@ router.post("/admin/prospect/completed/",
 router.post("/admin/prospect/toggle",CheckAuth,prospectController.ToggleProspects);
 
 // // Add Labor Data
-router.post("/admin/add_laborer",CheckAuth,laborController.AddLaborer);
-
+router.post("/admin/laborer/add",CheckAuth,laborController.AddLaborer);
 // Auth Routes
 router.post("/auth/login",authController.Login);
 router.get("/admin/auth/forgot",authController.ForgotKey);

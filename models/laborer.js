@@ -4,7 +4,7 @@ const Laborer = new Schema (
   {
     name:{
       type:String,
-      required:true
+      required:false
     },
     email:{
       type:String,
@@ -23,7 +23,7 @@ const Laborer = new Schema (
       required:false
     },
     position:{
-      type:String,
+      type:Object,
       required:false
     },
     schedule:{
