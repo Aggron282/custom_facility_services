@@ -27,7 +27,7 @@
     "random-hash": "^4.0.1",
     "sequelize": "^6.28.0"
   },
-  "homepage": "http://customfacilityservices.herokuapp.com/",
+  "homepage": "http://thewindowknight.com",
   "scripts": {
     "start": "node server.js"
   },
