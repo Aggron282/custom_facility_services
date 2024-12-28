@@ -59,9 +59,14 @@ app.use(express.static('public'));
 app.use(user_routes);
 app.use(admin_routes);
 
+app.use((req, res, next) => {
+  if (req.hostname.endsWith('herokuapp.com')) {
+    return res.redirect(`https://www.thewindowknight.com${req.url}`);
+  }
+  next();
+});
 
-
-  mongoose.connect(connection_name.connection_name).then((s)=>{
+mongoose.connect(connection_name.connection_name).then((s)=>{
 
     // setInterval(()=>{admin_controller.EmailNewKey(false)},days_to_email)
     // setInterval(()=>{countdown - 1, 1000});
